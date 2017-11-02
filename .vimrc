@@ -2,6 +2,7 @@
 "
 " https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 " http://vimhelp.appspot.com/
+" http://vim.wikia.com/wiki/Modeline_magic
 
 " From MacOS:
 set nocompatible		" Use Vim defaults instead of 100% vi compatibility
