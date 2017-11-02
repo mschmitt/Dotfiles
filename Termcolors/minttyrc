@@ -1,0 +1,21 @@
+BackgroundColour=255,255,255
+ForegroundColour=28,32,39
+CursorColour=28,32,39
+Black=25,32,51
+BoldBlack=102,102,102
+Red=166,42,62
+BoldRed=240,71,88
+Green=56,145,43
+BoldGreen=147,199,36
+Yellow=178,125,18
+BoldYellow=221,182,43
+Blue=53,92,154
+BoldBlue=69,163,230
+Magenta=124,79,159
+BoldMagenta=201,83,239
+Cyan=37,143,143
+BoldCyan=96,198,200
+White=82,91,96
+BoldWhite=105,122,122
+
+# vim: filetype=rc
