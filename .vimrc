@@ -4,6 +4,11 @@
 " http://vimhelp.appspot.com/
 " http://vim.wikia.com/wiki/Modeline_magic
 
+" Name dieser Datei:
+"
+" ~/.vimrc		(UNIX)
+" %userprofile%\_vimrc  (Windows)
+
 " From MacOS:
 set nocompatible		" Use Vim defaults instead of 100% vi compatibility
 set backspace=2			" same as ":set backspace=indent,eol,start"
