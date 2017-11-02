@@ -54,4 +54,7 @@ let g:ale_sign_column_always = 1
 if has('osx')
 	set guifont=Monaco:h14
 endif
+if has('windows')
+	set guifont=Consolas:h14
+endif
 set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
