@@ -1,8 +1,8 @@
 " Recommended reading:
 "
-" https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 " http://vimhelp.appspot.com/
 " http://vim.wikia.com/wiki/Modeline_magic
+" https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 
 " Name dieser Datei:
 "
@@ -47,7 +47,7 @@ let g:GPGPreferArmor=1 		" gnupg.vim
 " Fail silently if pathogen not installed
 silent! execute pathogen#infect() 
 
-" ALE
+" Asynchronous Lint Engine
 let g:ale_sign_column_always = 1
 
 " GUI settings
