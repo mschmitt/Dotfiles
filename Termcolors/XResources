@@ -12,12 +12,12 @@
 *.color9:       #3e0605
 
 ! green
-*.color2:       #19cb00
-*.color10:      #23fd00
+*.color2:       #16b400
+*.color10:      #29da0c
 
 ! yellow
-*.color3:       #cecb00
-*.color11:      #fffd00
+*.color3:       #a8a600
+*.color11:      #e0de00
 
 ! blue
 *.color4:       #001cd1
@@ -28,11 +28,11 @@
 *.color13:      #fd28ff
 
 ! cyan
-*.color6:       #0dcdcd
-*.color14:      #14ffff
+*.color6:       #00aeae
+*.color14:      #00e5e5
 
 ! white
-*.color7:       #e5e5e5
+*.color7:       #cccccc
 *.color15:      #ffffff
 
 ! vim: filetype=xdefaults
