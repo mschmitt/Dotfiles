@@ -1,3 +1,13 @@
+BoldAsFont=yes
+Locale=en_US
+Charset=UTF-8
+Font=Consolas
+FontHeight=14
+Language=*
+BellType=0
+BellFlash=yes
+CursorType=block
+
 BackgroundColour=255,255,255
 ForegroundColour=0,0,0
 CursorColour=0,0,0
@@ -19,3 +29,4 @@ White=204,204,204
 BoldWhite=255,255,255
 
 # vim: filetype=rc
+
