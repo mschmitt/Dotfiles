@@ -15,6 +15,9 @@ Nevertheless, I somewhat appreciate the following things:
 Just a few defaults, including GUI settings and the occasional plugin I use
 here and there. No advanced development environment magic. Sorry.
 
+The Asynchronous Linting Engine for vim >= 8 looks nice and I'm currently
+figuring out whether I have any use for it: https://github.com/w0rp/ale
+
 I'm not quite sure what's the deal with all those vim package managers, but 
 I do use pathogen: https://github.com/tpope/vim-pathogen
 
