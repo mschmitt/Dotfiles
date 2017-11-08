@@ -30,5 +30,8 @@ case $(uname -s) in
 		cfgsync Vim/vimrc "$HOME/.vimrc"
 		cfgsync Vim/vimrc "$USERPROFILE/_vimrc"
 		cfgsync Terminals/minttyrc "$HOME/.minttyrc"
+		cfgsync Cygwin/bashrc "$HOME/.bashrc"
+		test -d "$HOME/bin" || mkdir "$HOME/bin"
+		cfgsync Cygwin/ssh-agent-bootstrap "$HOME/bin/ssh-agent-bootstrap"
 		;;
 esac

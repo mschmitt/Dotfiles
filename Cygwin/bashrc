@@ -1,6 +1,8 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
+export PATH=$HOME/bin:$PATH
+
 set -o vi
 
 ${HOME}/bin/ssh-agent-bootstrap
