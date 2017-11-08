@@ -4,7 +4,7 @@
 " http://vim.wikia.com/wiki/Modeline_magic
 " https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 
-" Name dieser Datei:
+" Name of this file:
 "
 " ~/.vimrc		(UNIX)
 " %userprofile%\_vimrc  (Windows)
@@ -34,7 +34,7 @@ filetype plugin indent on  	" http://vimdoc.sourceforge.net/htmldoc/filetype.htm
 
 set hlsearch               	" Typ :nohls to un-higlight
 
-set showmode 			" anzeige INSERT/REPLACE/...
+set showmode 			" Show INSERT/REPLACE/...
 
 set shiftwidth=8 		" Number of spaces to use for each step of (auto)indent.
 set tabstop=8			" Number of spaces that a <Tab> in the file counts for.
