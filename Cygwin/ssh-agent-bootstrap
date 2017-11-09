@@ -46,5 +46,5 @@ fi
  
 # List loaded IDs
 echo "*** SSH agent (pid $SSH_AGENT_PID) knows the following IDs:"
-ssh-add -l
+ssh-add -l | fold -s -w $(tput cols)
 
