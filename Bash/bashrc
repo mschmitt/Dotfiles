@@ -31,10 +31,10 @@ then
 	alias ls='ls -G'
 
 	# Decrypt the Homebrew Github token
-	if ! grep -s -q HOMEBREW_GITHUB_API_TOKEN ~/.bashrc_homebrew
+	if ! grep -s -q HOMEBREW_GITHUB_API_TOKEN ~/.bashrc_local
 	then
 		echo "Decrypt Homebrew Github API Token"
-		gpg -o- > ~/.bashrc_homebrew <<-End
+		gpg -o- >> ~/.bashrc_local <<-End
 		-----BEGIN PGP MESSAGE-----
 
 		hQIOAwAAAAAAAAAAEAgAgJYWRTrwFy5HcLCdS15OaiLeS4mTPqZurtAwAmXIMl+F
@@ -55,7 +55,6 @@ then
 		-----END PGP MESSAGE-----
 		End
 	fi
-	. ~/.bashrc_homebrew
 
 	# Bash completion
 	if [[ -f $(brew --prefix)/etc/bash_completion ]]
@@ -73,4 +72,8 @@ else
 	fi
 fi
 
+# No better place for absolutely machine-specific PATH and MANPATH
+. ~/.bashrc_local
+
+# Ask for SSH passphrase
 ssh-add -l >/dev/null 2>&1 || ssh-add
