@@ -51,10 +51,10 @@ silent! execute pathogen#infect()
 let g:ale_sign_column_always = 1
 
 " GUI settings
-if has('osx')
+if has('gui_macvim')
 	set guifont=Monaco:h14
 endif
-if has('windows')
+if has('gui_win32') || has('gui_win64')
 	set guifont=Consolas:h14
 endif
 set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
