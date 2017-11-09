@@ -1,0 +1,79 @@
+# This unified bashrc is not yet in active use anywhere.
+# Not even sure yet whether it's a good idea to do this.
+
+# Some basic alias definitions that I use everywhere
+alias gpgcat='gpg -o-'
+alias gpg="LANG=en_US gpg"
+alias vi=vim
+
+# Shell prompt depends on environment. Avoid DHCP hostnames at all cost.
+if [[ "$(uname -s)" == "Darwin" ]]
+then
+	if [[ "$(scutil --get ComputerName)" =~ "macbook" ]]
+	then
+		PROMPTHOST=macbook
+	fi
+fi
+export PS1="[\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\$ "
+
+# Commonly used environment variables
+export SHELLCHECK_OPTS='--exclude=SC2034'
+export SVN_EDITOR=vim
+export TMOUT=3600
+
+set -o vi
+
+HOMEBREW_GITHUB_API_TOKEN_ENCRYPTED='-----BEGIN PGP MESSAGE-----
+
+hQIOAwAAAAAAAAAAEAgAgJYWRTrwFy5HcLCdS15OaiLeS4mTPqZurtAwAmXIMl+F
++LMa9Pb/+/gfBM5D3k5fJ1tBlBcQ+xyJg96xY2Xs20CgmDjDmfoZqneTYJamLuZD
+Hy6PfPx+A8bE1HhmPteEtkIdM91HLZYb85mcehpff8TCl0mAOHtygqpCvUi0XUPM
+eTUS4qJTozF1WH1NWX6xGWeb9zXIbnTvrVDoeN6Q1NVfE1wmU8Jqu15OrIakYsSU
+T0bRtHnqY1EthSPeoCd6qs/Gcsqz5XJHhW3cra4e24YFZzA4Mwbtmqb8YcSfWPqx
+UzlzeQYGK36LiPR2e6gjEBtNSl3SmG6mTmn1V8UtvQf8DFFZAXyMLj9A95ljNJYI
+WtbSbx/ZGboAY3XDaKeP6D8JNCIOuhQ3z7CLipE9StdNbxTALRfGcIXl6V0vfrLG
+/VYztL/rts4zsEe16xIl1nsYmAYH4k7lX3iW28wQImt5K8vgd4RzZL2JKygIo+As
+hyC+U4O1tlGKXikOUrETfp4N3FLlKHsFUmksnpk1KtxxUDnBdirk3pVrh8fLxvpV
+6IQlLC57NltomN6iq5MAQqCVHi7SE9voGfgsnftVpnWytyV5VV78zci37kI+96hz
+G0IVYjmG8O8q1HxJcqGw1tzVUXT71Zma2hAo5On801wazXkbR3yowSDJ5o2Ik3N2
+yNKFAc86uU9IHF/q1hoDvsweSx7PHvdcaOhhxB5RdVEgYBnDMqw/l+nfQ+oujCs8
+rDctHRpxyGvRxK/2xcWPwgUiAIo1Ltpsm/X3wEfnDtUIFJJb9NgNPbcq0I6i6xN3
+WkEsbIm1vsW728m2B3C+HdGQEIwJla4Qi83KjrC3UIRCcs/IrAY0CQ==
+=xkQr
+-----END PGP MESSAGE-----'
+
+if [[ "$(uname -s)" == "Darwin" ]]
+then
+	# Aliases for macOS only
+	alias lsusb='system_profiler SPUSBDataType'
+	alias locate='mdfind -name'
+	alias ls='ls -G'
+
+	# Decrypt the Homebrew Github token
+	if ! grep -s -q HOMEBREW_GITHUB_API_TOKEN ~/.bashrc_homebrew
+	then
+		echo "Decrypt Homebrew Github API Token"
+		echo "$HOMEBREW_GITHUB_API_TOKEN_ENCRYPTED" | 
+			gpg -o- > ~/.bashrc_homebrew
+	fi
+	. ~/.bashrc_homebrew
+
+	# Bash completion
+	if [[ -f $(brew --prefix)/etc/bash_completion ]]
+	then
+	    . $(brew --prefix)/etc/bash_completion
+	fi
+
+	# Local commands
+	/Users/martin/bin/encfsmount
+else
+	# Bash completion on rest of world
+	if [[ -f /etc/bash_completion ]]
+	then
+	    . /etc/bash_completion
+	fi
+fi
+
+unset HOMEBREW_GITHUB_API_TOKEN_ENCRYPTED
+
+ssh-add -l >/dev/null 2>&1 || ssh-add
