@@ -11,10 +11,10 @@ fi
 # Fail gracefully if __git_ps1 is missing
 if type -t __git_ps1 >/dev/null 2>&1
 then
-	export PS1="[\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\$ "
+	export PS1="[\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
 else
 	echo "GIT prompt not installed, srsly."
-	export PS1="[\u@$PROMPTHOST \w\]\$ "
+	export PS1="[\u@$PROMPTHOST \w]\\\$ "
 fi
 
 # vim: filetype=sh

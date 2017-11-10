@@ -1,7 +1,0 @@
-# Run my encfs helper script
-test -x ~/bin/encfsmount && ~/bin/encfsmount
-
-# Ask for SSH passphrase
-ssh-add -l >/dev/null 2>&1 || ssh-add
-
-# vim: filetype=sh

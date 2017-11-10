@@ -8,7 +8,7 @@ function cfgsync {
 	then
 		echo "$GITCFG: Nothing to do."
 	else
-		read -p "Accept Y/N? " -r
+		read -p "Accept $LOCCFG Y/N? " -r
 		if [[ $REPLY =~ ^[Yy] ]]
 		then
 			install -b "$GITCFG" "$LOCCFG"
@@ -33,5 +33,9 @@ case $(uname -s) in
 		cfgsync Cygwin/bashrc "$HOME/.bashrc"
 		test -d "$HOME/bin" || mkdir "$HOME/bin"
 		cfgsync Cygwin/ssh-agent-bootstrap "$HOME/bin/ssh-agent-bootstrap"
+		mkdir -p "$HOME/.bashrc.d/"
+		for FILE in $(ls Bash/bashrc.d/*bash); do
+			cfgsync "$FILE" "$HOME/.bashrc.d/$(basename $FILE)"
+		done
 		;;
 esac

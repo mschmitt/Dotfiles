@@ -2,8 +2,4 @@
 [[ "$-" != *i* ]] && return
 
 export PATH=$HOME/bin:$PATH
-
-set -o vi
-
-${HOME}/bin/ssh-agent-bootstrap
-. ${HOME}/.ssh/agent.env >/dev/null
+for FILE in $(ls ~/.bashrc.d/*); do source $FILE; done
