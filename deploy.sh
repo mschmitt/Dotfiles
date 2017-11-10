@@ -29,6 +29,7 @@ case $(uname -s) in
 		echo "Platform is Cygwin"
 		cfgsync Vim/vimrc "$HOME/.vimrc"
 		cfgsync Vim/vimrc "$USERPROFILE/_vimrc"
+		cfgsync Vim/gvimrc "$USERPROFILE/_gvimrc"
 		cfgsync Terminals/minttyrc "$HOME/.minttyrc"
 		cfgsync Cygwin/bashrc "$HOME/.bashrc"
 		test -d "$HOME/bin" || mkdir "$HOME/bin"
