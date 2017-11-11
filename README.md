@@ -10,6 +10,20 @@ Nevertheless, I somewhat appreciate the following things:
 * white terminal background
 * super clean SSH agent environment
 
+## /Bash: Bash settings
+
+I don't know yet whether it's a good idea to harmonize bash config at all. 
+Needs the following line in .bashrc to actually be activated: 
+
+```
+for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done
+```
+
+## /Cygwin: Bash settings on Cygwin
+
+On Windows Cygwin, I bootstrap an ssh-agent within .bashrc, because that 
+is how I roll.
+
 ## /Vim: Vim settings
 
 Just a few defaults, including GUI settings and the occasional plugin I use
@@ -20,11 +34,6 @@ figuring out whether I have any use for it: https://github.com/w0rp/ale
 
 I'm not quite sure what's the deal with all those vim package managers, but 
 I do use pathogen: https://github.com/tpope/vim-pathogen
-
-## /Cygwin: Bash settings on Cygwin
-
-On Windows Cygwin, I bootstrap an ssh-agent within .bashrc, because that 
-is how I roll.
 
 ## /Terminals: Terminal configs
 
