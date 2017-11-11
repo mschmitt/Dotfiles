@@ -11,7 +11,7 @@ then
 elif [[ "$(uname -s)" == "FreeBSD" ]]
 then
 	alias ls='ls -G'
-elif  [[ "$(uname -s)" == "Linux" ]]
+elif  [[ "$(uname -s)" == "Linux" || "$(uname -s)" == "CYGWIN_NT-10.0" ]]
 then
 	alias ls='ls --color=auto'
 fi
