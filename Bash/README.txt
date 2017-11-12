@@ -1,1 +1,1 @@
-for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done
+for FILE in ~/.bashrc.d/*bash; do source $FILE; done
