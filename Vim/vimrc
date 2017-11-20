@@ -60,3 +60,9 @@ if has('gui_win32') || has('gui_win64')
 	set guifont=Consolas:h14
 endif
 set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
+
+" Buffer navigation with Ctrl+cursor https://vi.stackexchange.com/q/2129
+map <C-J> :bprev<CR>
+map <C-K> :bnext<CR>
+map <C-H> :brewind<CR>
+map <C-L> :blast<CR>
