@@ -3,7 +3,7 @@
 function cfgsync {
 	GITCFG="$1"
 	LOCCFG="$2"
-	$DIFF --new-file "$GITCFG" "$LOCCFG" 
+	$DIFF --new-file "$LOCCFG" "$GITCFG"
 	if [[ $? -eq 0 ]]
 	then
 		echo "$GITCFG -> $LOCCFG: Nothing to do."
