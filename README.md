@@ -46,3 +46,7 @@ tuned a bit darker, similar to the defaults on macOS's Terminal.app.
 Merging putty colors into existing sessions is best done with putty session 
 manager https://sourceforge.net/projects/puttysm/ or creative copying and 
 editing of the REG file.
+
+## /Git: Git global defaults
+
+Not much to see here, actually.

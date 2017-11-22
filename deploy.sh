@@ -32,6 +32,8 @@ for FILE in $(ls Vim/skeleton/*); do
 	cfgsync "$FILE" "$HOME/.vim/skeleton/$(basename $FILE)"
 done
 
+bash Git/gitconf.sh
+
 case $(uname -s) in
 	"Darwin"|"Linux"|"FreeBSD")
 		echo "Platform is Darwin, Linux or FreeBSD"
