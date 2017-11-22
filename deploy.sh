@@ -21,10 +21,15 @@ DIFF=colordiff
 which $DIFF >/dev/null || DIFF=diff
 cd $(dirname $0)
 
-cfgsync Vim/vimrc "$HOME/.vimrc"
 test -d "$HOME/.bashrc.d/" || mkdir "$HOME/.bashrc.d/"
 for FILE in $(ls Bash/bashrc.d/*bash); do
 	cfgsync "$FILE" "$HOME/.bashrc.d/$(basename $FILE)"
+done
+
+cfgsync Vim/vimrc "$HOME/.vimrc"
+test -d "$HOME/.vim/skeleton" || mkdir "$HOME/.vim/skeleton/"
+for FILE in $(ls Vim/skeleton/*); do
+	cfgsync "$FILE" "$HOME/.vim/skeleton/$(basename $FILE)"
 done
 
 case $(uname -s) in

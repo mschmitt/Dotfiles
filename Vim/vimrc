@@ -1,6 +1,6 @@
 " Recommended reading:
 "
-" http://vimhelp.appspot.com/
+" http://vimdoc.sourceforge.net/htmldoc/usr_toc.html
 " http://vim.wikia.com/wiki/Modeline_magic
 " https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 
@@ -23,6 +23,11 @@ au BufWrite /tmp/crontab.* set nowritebackup
 au BufWrite /etc/sudoers.tmp set nowritebackup
 
 colorscheme default
+
+" Skeletons http://vimdoc.sourceforge.net/htmldoc/autocmd.html#skeleton
+autocmd BufNewFile *\.txt   r ~/.vim/skeleton/txt
+autocmd BufNewFile *\.pl   0r ~/.vim/skeleton/pl
+autocmd BufNewFile *\.py   0r ~/.vim/skeleton/py
 
 " Always show coordinates
 set ruler			
