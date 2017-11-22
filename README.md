@@ -49,4 +49,6 @@ editing of the REG file.
 
 ## /Git: Git global defaults
 
-Not much to see here, actually.
+Not much to see here, actually.  
+
+[modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tan: ) 
