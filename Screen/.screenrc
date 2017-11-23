@@ -1,2 +1,0 @@
-startup_message off
-caption always "%{wk}%-w%{Gk}[%n %t]%{wk}%+w%=%{Ck} %c:%s %D, %d.%m.%y"
