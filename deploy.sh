@@ -34,6 +34,8 @@ done
 
 bash Git/gitconf.sh
 
+cfgsync Screen/screenrc "$HOME/.screenrc"
+
 case $(uname -s) in
 	"Darwin"|"Linux"|"FreeBSD")
 		echo "Platform is Darwin, Linux or FreeBSD"
