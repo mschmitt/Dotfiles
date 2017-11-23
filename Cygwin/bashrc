@@ -1,5 +1,8 @@
+# .bashrc from ~/Dotfiles/
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
 export PATH=$HOME/bin:$PATH
+test -s $HOME/bin/git-prompt.sh && . $HOME/bin/git-prompt.sh
 for FILE in $(ls ~/.bashrc.d/*); do source $FILE; done
