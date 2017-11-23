@@ -47,8 +47,12 @@ Merging putty colors into existing sessions is best done with putty session
 manager https://sourceforge.net/projects/puttysm/ or creative copying and 
 editing of the REG file.
 
+## /Screen: screenrc
+
+Just a basic status bar for screen sessions.
+
 ## /Git: Git global defaults
 
-Not much to see here, actually.  
+Mostly configuration of git autocorrect and diff-/mergetool
 
 [modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tan: ) 
