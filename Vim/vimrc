@@ -62,6 +62,7 @@ set modelines=5
 
 " gnupg.vim
 let g:GPGPreferArmor=1 		
+let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
 
 " Fail silently if pathogen not installed
 silent! execute pathogen#infect() 

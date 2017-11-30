@@ -18,7 +18,7 @@ function cfgsync {
 }
 
 DIFF=colordiff
-which $DIFF >/dev/null || DIFF=diff
+type $DIFF 2>/dev/null || DIFF=diff
 cd $(dirname $0)
 
 test -d "$HOME/.bashrc.d/" || mkdir "$HOME/.bashrc.d/"
