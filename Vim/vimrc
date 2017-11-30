@@ -47,9 +47,6 @@ filetype plugin indent on
 " Typ :nohls to un-higlight
 set hlsearch               	
 
-" Show INSERT/REPLACE/...
-set showmode 			
-
 " Number of spaces to use for each step of (auto)indent.
 set shiftwidth=8 		
 " Number of spaces that a <Tab> in the file counts for.
@@ -63,6 +60,19 @@ set modelines=5
 " gnupg.vim
 let g:GPGPreferArmor=1 		
 let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
+
+" lightline.vim
+if match(&runtimepath, 'lightline.vim') == -1
+	" lightline.vim seems not to be loaded.
+	" Show INSERT/REPLACE/...
+	set showmode
+	set laststatus=1
+else
+	set noshowmode
+	set laststatus=2
+	" Configure lightline
+	let g:lightline = { 'colorscheme': 'PaperColor' }
+endif
 
 " Fail silently if pathogen not installed
 silent! execute pathogen#infect() 
