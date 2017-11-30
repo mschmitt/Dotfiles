@@ -61,19 +61,6 @@ set modelines=5
 let g:GPGPreferArmor=1 		
 let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
 
-" lightline.vim
-if match(&runtimepath, 'lightline.vim') == -1
-	" lightline.vim seems not to be loaded.
-	" Show INSERT/REPLACE/...
-	set showmode
-	set laststatus=1
-else
-	set noshowmode
-	set laststatus=2
-	" Configure lightline
-	let g:lightline = { 'colorscheme': 'PaperColor' }
-endif
-
 " Fail silently if pathogen not installed
 silent! execute pathogen#infect() 
 
@@ -88,6 +75,19 @@ if has('gui_win32') || has('gui_win64')
 	set guifont=Consolas:h14
 endif
 set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
+
+" lightline.vim
+if match(&runtimepath, 'lightline.vim') == -1
+	" lightline.vim seems not to be loaded.
+	" Show INSERT/REPLACE/...
+	set showmode
+	set laststatus=1
+else
+	set noshowmode
+	set laststatus=2
+	" Configure lightline
+	let g:lightline = { 'colorscheme': 'PaperColor' }
+endif
 
 " Buffer navigation with Ctrl+cursor https://vi.stackexchange.com/q/2129
 map <C-J> :bprev<CR>
