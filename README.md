@@ -55,4 +55,25 @@ Just a basic status bar for screen sessions.
 
 Mostly configuration of git autocorrect and diff-/mergetool
 
+# Vim install notes
+
+## pathogen
+
+```
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+```
+
+## ale 
+
+```
+git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
+```
+
+## lightline.vim
+
+```
+git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
+```
+
 [modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tan: ) 
