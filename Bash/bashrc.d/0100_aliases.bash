@@ -16,4 +16,10 @@ then
 	alias ls='ls --color=auto'
 fi
 
+if [[ "$(uname -s)" == "CYGWIN_NT-10.0" ]]
+then
+	alias ping6='ping /6'
+fi
+
+
 # vim: filetype=sh
