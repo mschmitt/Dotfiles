@@ -87,6 +87,8 @@ else
 	set laststatus=2
 	" Configure lightline
 	let g:lightline = { 'colorscheme': 'PaperColor' }
+	" force colour (for lightline) even if TERM=xterm
+	set t_Co=256
 endif
 
 " Buffer navigation with Ctrl+cursor https://vi.stackexchange.com/q/2129
