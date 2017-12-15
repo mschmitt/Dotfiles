@@ -43,7 +43,7 @@ case $(uname -s) in
 	"CYGWIN_NT-10.0")
 		echo "Platform is Cygwin"
 		cfgsync Vim/vimrc "$USERPROFILE/_vimrc"
-		cfgsync Vim/gvimrc "$USERPROFILE/_gvimrc"
+		cfgsync Vim/vimrc "$USERPROFILE/_gvimrc"
 		cfgsync Terminals/minttyrc "$HOME/.minttyrc"
 		cfgsync Cygwin/bashrc "$HOME/.bashrc"
 		test -d "$HOME/bin" || mkdir "$HOME/bin"
