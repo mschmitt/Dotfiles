@@ -11,7 +11,7 @@ function cfgsync {
 		read -p "Accept $LOCCFG Y/N? " -r
 		if [[ $REPLY =~ ^[Yy] ]]
 		then
-			install -b "$GITCFG" "$LOCCFG"
+			install "$GITCFG" "$LOCCFG"
 			echo "$GITCFG -> $LOCCFG: Updated."
 		fi
 	fi
