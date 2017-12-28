@@ -2,7 +2,7 @@
 alias gpgcat='gpg -o-'
 alias gpg="LANG=en_US gpg"
 alias vi=vim
-alias wget-mirror='wget --tries=20 --mirror --retry-connrefused --waitretry=300'
+alias wget-mirror='wget --tries=20 --mirror --retry-connrefused --no-parent --waitretry=300'
 
 if [[ "$(uname -s)" == "Darwin" ]]
 then
