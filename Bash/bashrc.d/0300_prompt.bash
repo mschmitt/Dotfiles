@@ -1,6 +1,6 @@
 # Shell prompt depends on environment. Avoid DHCP hostnames at all cost.
 PROMPTHOST=$(hostname -s)
-if [[ "$(uname -s)" == "Darwin" ]]
+if [[ "$UNAME_S" == "Darwin" ]]
 then
 	if [[ "$(scutil --get ComputerName)" =~ "macbook" ]]
 	then
