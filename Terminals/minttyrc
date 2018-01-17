@@ -7,6 +7,9 @@ Language=*
 BellType=0
 BellFlash=yes
 CursorType=block
+CopyAsRTF=no
+MiddleClickAction=extend
+RightClickAction=paste
 
 BackgroundColour=255,255,255
 ForegroundColour=0,0,0
@@ -29,4 +32,3 @@ White=204,204,204
 BoldWhite=255,255,255
 
 # vim: filetype=rc
-
