@@ -1,7 +1,7 @@
 # Run my encfs helper script
 test -x ~/bin/encfsmount && ~/bin/encfsmount
 
-if [[ "$(uname -s)" == "CYGWIN_NT-10.0" ]]
+if [[ "$UNAME_S" == "CYGWIN_NT-10.0" ]]
 then
 	"${HOME}/bin/ssh-agent-bootstrap"
 	. "${HOME}/.ssh/agent.env" >/dev/null
