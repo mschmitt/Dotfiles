@@ -27,6 +27,7 @@ for FILE in $(ls Bash/bashrc.d/*bash); do
 done
 
 cfgsync Vim/vimrc "$HOME/.vimrc"
+test -d "$HOME/.vim/"         || mkdir "$HOME/.vim/"
 test -d "$HOME/.vim/skeleton" || mkdir "$HOME/.vim/skeleton/"
 for FILE in $(ls Vim/skeleton/*); do
 	cfgsync "$FILE" "$HOME/.vim/skeleton/$(basename $FILE)"
