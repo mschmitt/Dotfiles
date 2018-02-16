@@ -1,5 +1,5 @@
 set -o vi
-HISTSIZE=-1
+HISTSIZE=100000
 HISTCONTROL=ignoreboth
 HISTTIMEFORMAT="%Y%m%d %H%M%S "
 
