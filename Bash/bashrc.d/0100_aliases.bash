@@ -22,5 +22,14 @@ then
 	alias ping6='ping /6'
 fi
 
+if [[ -s ~/.poke.pushover ]]
+then
+	source ~/.poke.pushover
+	alias poke="curl -s --form-string token=$PUSHOVER_POKE_APP \
+		--form-string title=\"POKE\" \
+		--form-string user=$PUSHOVER_POKE_USER \
+		--form-string message=\"from $(tty) on $(hostname -s)\" \
+		https://api.pushover.net/1/messages.json"
+fi
 
 # vim: filetype=sh
