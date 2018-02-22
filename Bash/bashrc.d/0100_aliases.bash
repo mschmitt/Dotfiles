@@ -30,6 +30,8 @@ then
 		--form-string user=$PUSHOVER_POKE_USER \
 		--form-string message=\"from $(tty) on $(hostname -s)\" \
 		https://api.pushover.net/1/messages.json"
+else
+	alias poke="echo \"~/.poke.pushover is missing.\""
 fi
 
 # vim: filetype=sh
