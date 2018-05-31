@@ -4,6 +4,5 @@ export SVN_EDITOR=vim
 export TMOUT=3600
 export NMON=cnd
 export LANG=en_US.utf-8
-export PROMPT_COMMAND='echo -ne "\ek$HOSTNAME\e\\"; echo -ne "\e]0;$HOSTNAME\a"'
-
+export PROMPT_COMMAND='echo -ne "\e]0;$HOSTNAME\a"; test "$TERM" = "screen" && echo -ne "\ek$HOSTNAME\e\\"'
 # vim: filetype=sh
