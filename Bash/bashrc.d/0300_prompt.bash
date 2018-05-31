@@ -17,6 +17,9 @@ else
 	export PS1="[\u@$PROMPTHOST \w]\\\$ "
 fi
 
+# Trim CWD in prompt to this many elements
+PROMPT_DIRTRIM=3
+
 # xterm and screen titles
 # Hint: The overkill window titling in Apple Terminal is best disabled
 # directly in Terminal.app's settings.
