@@ -23,10 +23,13 @@ fi
 function mypromptcmd() {
 	# xterm - This is what I want 99.9% of the time
 	builtin printf '\e]0;%s\a' "$PROMPTHOST"
-	# screen title only if the terminal is screen
+	# screen
 	if [[ "$TERM" = "screen" ]]
 	then
 		builtin printf '\ek%s\e\\' "$PROMPTHOST"
+		# Be more aggressive and send the sequence
+		# for xterm title uninterpreted:
+		printf '\eP\e]0;%s\a\e\\' "$PROMPTHOST"
 	fi
 }
 PROMPT_COMMAND="mypromptcmd"
