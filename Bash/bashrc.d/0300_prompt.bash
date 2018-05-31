@@ -17,4 +17,18 @@ else
 	export PS1="[\u@$PROMPTHOST \w]\\\$ "
 fi
 
+# xterm and screen titles
+# Hint: The overkill window titling in Apple Terminal is best disabled
+# directly in Terminal.app's settings.
+function mypromptcmd() {
+	# xterm - This is what I want 99.9% of the time
+	builtin printf '\e]0;%s\a' "$PROMPTHOST"
+	# screen title only if the terminal is screen
+	if [[ "$TERM" = "screen" ]]
+	then
+		builtin printf '\ek%s\e\\' "$PROMPTHOST"
+	fi
+}
+PROMPT_COMMAND="mypromptcmd"
+
 # vim: filetype=sh
