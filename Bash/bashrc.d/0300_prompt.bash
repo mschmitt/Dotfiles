@@ -27,7 +27,7 @@ function mypromptcmd() {
 	# xterm - This is what I want 99.9% of the time
 	builtin printf '\e]0;%s\a' "$PROMPTHOST"
 	# screen
-	if [[ "$TERM" = "screen" ]]
+	if [[ "$TERM" == "screen" ]]
 	then
 		builtin printf '\ek%s\e\\' "$PROMPTHOST"
 		# Be more aggressive and send the sequence
