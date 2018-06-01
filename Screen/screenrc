@@ -1,4 +1,4 @@
 startup_message off
 hardstatus alwaysignore
 caption always "%{wk}%-w%{Gk}[%n %t]%{wk}%+w%=%{Ck} %c:%s %D, %d.%m.%y"
-setenv PROMPT_COMMAND 'echo -ne "\ek$HOSTNAME\e\\"; echo -ne "\e]0;$HOSTNAME\a"'
+#setenv PROMPT_COMMAND 'echo -ne "\ek$HOSTNAME\e\\"; echo -ne "\e]0;$HOSTNAME\a"'
