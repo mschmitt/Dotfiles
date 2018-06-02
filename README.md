@@ -76,4 +76,10 @@ git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
 git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
 ```
 
+## vim outliner
+
+```
+git clone https://github.com/vimoutliner/vimoutliner ~/.vim/bundle/vimoutliner
+```
+
 [modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tan: ) 
