@@ -10,6 +10,10 @@ Nevertheless, I somewhat appreciate the following things:
 * white terminal background
 * super clean SSH agent environment
 
+This dotfiles repository does not work directly on the managed files, but I
+use an unbelievably awkward script "deploy.sh" that merges the repository
+onto the actual dotfiles. 
+
 ## /Bash: Bash settings
 
 I don't know yet whether it's a good idea to harmonize bash config at all. 
