@@ -10,6 +10,10 @@ Nevertheless, I somewhat appreciate the following things:
 * white terminal background
 * super clean SSH agent environment
 
+This dotfiles repository does not work directly on the managed files, but I
+use an unbelievably awkward script "deploy.sh" that merges the repository
+onto the actual dotfiles. 
+
 ## /Bash: Bash settings
 
 I don't know yet whether it's a good idea to harmonize bash config at all. 
@@ -55,25 +59,4 @@ Just a basic status bar for screen sessions.
 
 Mostly configuration of git autocorrect and diff-/mergetool
 
-# Vim install notes
-
-## pathogen
-
-```
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-```
-
-## ale 
-
-```
-git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
-```
-
-## lightline.vim
-
-```
-git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
-```
-
-[modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tan: ) 
+[modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tn: )
