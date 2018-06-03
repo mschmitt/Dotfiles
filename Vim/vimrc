@@ -84,6 +84,7 @@ if has('gui_macvim')
 endif
 if has('gui_win32') || has('gui_win64')
 	set guifont=Consolas:h14
+	set background=light
 endif
 set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
 
@@ -101,6 +102,15 @@ else
 	" force colour (for lightline) even if TERM=xterm
 	set t_Co=256
 endif
+
+" What follows is a really desperate attempt at harmonizing the file encoding
+" guesswork cross-platform, especially with gvim on Windows.
+" Windows gvim insists on handling all files as latin1 by default
+if has('gui_win32') || has('gui_win64')
+	set encoding=utf-8
+endif
+" This is le default on all reasonable platforms, enforce everywhere
+set fileencodings=ucs-bom,utf-8,default,latin1 
 
 " Buffer navigation with Ctrl+cursor https://vi.stackexchange.com/q/2129
 map <C-J> :bprev<CR>
