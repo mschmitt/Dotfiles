@@ -1,8 +1,11 @@
 " Recommended reading:
-"
+
 " http://vimdoc.sourceforge.net/htmldoc/usr_toc.html
 " http://vim.wikia.com/wiki/Modeline_magic
 " https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
+
+" The if has() constructs are mainly to suppress errors on systems
+" where only vim.tiny is installed.
 
 " Name of this file:
 "
@@ -22,7 +25,9 @@ au BufWrite /tmp/crontab.* set nowritebackup
 " visudo:
 au BufWrite /etc/sudoers.tmp set nowritebackup
 
-colorscheme default
+if has('colorscheme')
+	colorscheme default
+endif
 
 " Skeletons http://vimdoc.sourceforge.net/htmldoc/autocmd.html#skeleton
 autocmd BufNewFile *\.txt   r ~/.vim/skeleton/txt
@@ -37,12 +42,16 @@ set autoindent
 set ignorecase             	
 
 " Enable syntax highlighting
-syntax on			
+if has('syntax')
+	syntax on			
+endif
 
 " http://vimdoc.sourceforge.net/htmldoc/filetype.html
-filetype plugin indent on  	
-"let perl_fold=1            	" Activate autofolding in the Perl ftplugin
-"let perl_fold_blocks=1
+if has('filetype')
+	filetype plugin indent on  	
+	"let perl_fold=1            	" Activate autofolding in the Perl ftplugin
+	"let perl_fold_blocks=1
+endif
 
 " Typ :nohls to un-higlight
 set hlsearch               	
@@ -58,8 +67,10 @@ set modeline
 set modelines=5			
 
 " gnupg.vim
-let g:GPGPreferArmor=1 		
-let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
+if has('let')
+	let g:GPGPreferArmor=1 		
+	let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
+endif
 
 " Fail silently if pathogen not installed
 silent! execute pathogen#infect() 
