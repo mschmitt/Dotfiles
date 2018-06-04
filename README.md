@@ -21,7 +21,7 @@ Needs the following line in .bashrc to actually be activated:
 
 ```
 # Setup bash environment only if running as an interactive shell
-[[ "$-" =~ *i* ]] && for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done
+[[ "$-" =~ i ]] && for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done
 ```
 
 ## /Cygwin: Bash settings on Cygwin
