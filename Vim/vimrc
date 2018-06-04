@@ -4,8 +4,8 @@
 " http://vim.wikia.com/wiki/Modeline_magic
 " https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 
-" The if has() constructs are mainly to suppress errors on systems
-" where only vim.tiny is installed.
+" Conditionals are in place to suppress errors on systems where vim.tiny 
+" may appear out of nowher while doing vipw, visudo, crontab -e and the like.
 
 " Name of this file:
 "
