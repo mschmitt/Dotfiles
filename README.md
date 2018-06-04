@@ -20,7 +20,8 @@ I don't know yet whether it's a good idea to harmonize bash config at all.
 Needs the following line in .bashrc to actually be activated: 
 
 ```
-for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done
+# Setup bash environment only if running as an interactive shell
+[[ "$-" =~ *i* ]] && for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done
 ```
 
 ## /Cygwin: Bash settings on Cygwin
