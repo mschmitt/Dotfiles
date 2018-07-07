@@ -1,4 +1,11 @@
+# Skip if running non-interactively
+if [[ ! -t 0 ]]
+then
+	return
+fi
+
 # Run my encfs helper script
+
 test -x ~/bin/encfsmount && ~/bin/encfsmount
 
 if [[ "$UNAME_S" == "CYGWIN_NT-10.0" ]]
