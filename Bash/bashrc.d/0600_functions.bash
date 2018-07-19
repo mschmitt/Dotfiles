@@ -1,3 +1,9 @@
+# Skip if running non-interactively
+if [[ ! -t 0 ]]
+then
+        return
+fi
+
 # poke() - Send generic message to my mobile, e.g. after a long-running task has finished.
 #
 # Inspired by: https://twitter.com/shezoidic/status/966663437001592832

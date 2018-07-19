@@ -1,3 +1,9 @@
+# Skip if running non-interactively
+if [[ ! -t 0 ]]
+then
+        return
+fi
+
 # Some basic alias definitions that I use everywhere
 alias gpgcat='gpg -o-'
 alias gpg="LANG=en_US gpg"
