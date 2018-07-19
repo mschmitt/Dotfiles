@@ -1,3 +1,9 @@
+# Skip if running non-interactively
+if [[ ! -t 0 ]]
+then
+        return
+fi
+
 # Commonly used environment variables
 export SHELLCHECK_OPTS='--exclude=SC2034'
 export SVN_EDITOR=vim

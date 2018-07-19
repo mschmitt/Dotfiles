@@ -1,3 +1,9 @@
+# Skip if running non-interactively
+if [[ ! -t 0 ]]
+then
+        return
+fi
+
 # Shell prompt depends on environment. Avoid DHCP hostnames at all cost.
 PROMPTHOST=$(hostname -s)
 if [[ "$UNAME_S" == "Darwin" ]]
