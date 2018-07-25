@@ -47,7 +47,5 @@ case $(uname -s) in
 		cfgsync Vim/vimrc "$USERPROFILE/_gvimrc"
 		cfgsync Terminals/minttyrc "$HOME/.minttyrc"
 		cfgsync Cygwin/bashrc "$HOME/.bashrc"
-		test -d "$HOME/bin" || mkdir "$HOME/bin"
-		cfgsync Cygwin/ssh-agent-bootstrap "$HOME/bin/ssh-agent-bootstrap"
 		;;
 esac
