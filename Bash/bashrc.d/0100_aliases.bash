@@ -15,6 +15,7 @@ then
 	alias lsusb='system_profiler SPUSBDataType'
 	alias locate='mdfind -name'
 	alias ls='ls -G'
+	alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
 elif [[ "$UNAME_S" == "FreeBSD" ]]
 then
 	alias ls='ls -G'
