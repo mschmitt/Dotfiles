@@ -17,6 +17,10 @@ function find_md_states {
 
 	for SYSMD in $(find /sys/devices/virtual/block/ -name 'md' -type d)
 	do
+		if [[ ! -r "$SYSMD/degraded" ]]
+		then
+			continue
+		fi
 		DEGRADED=$(cat "$SYSMD/degraded")
 		MDNAME=$(basename $(dirname $SYSMD))
 		if [[ $DEGRADED != 0 ]]
