@@ -13,7 +13,7 @@ function find_md_states {
 	# Tested working
 
 	GOT_DEGRADED=0
-	OUTPUT='Degraded MD: '
+	OUTPUT='Degraded MD:'
 
 	for SYSMD in $(find /sys/devices/virtual/block/ -name 'md' -type d)
 	do
