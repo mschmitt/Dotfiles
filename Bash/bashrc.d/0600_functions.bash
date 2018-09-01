@@ -59,25 +59,16 @@ function myip() {
 	echo IPv6: $IP6 / $ORG6
 }
 
-# wait_for_tcp() Wait until some remote TCP port is open
-function wait_for_tcp {
-	local REMOTEHOST
-	local REMOTEPORT
-	REMOTEHOST="$1"
-	REMOTEPORT="$2"
-	while true
-	do
-		if exec 3<>"/dev/tcp/$REMOTEHOST/$REMOTEPORT" 
-		then
-			echo "$REMOTEHOST:$REMOTEPORT CONNECTED"
-			exec 3<&- # https://unix.stackexchange.com/a/289318/2028
-			break
-		else
-			echo "$REMOTEHOST:$REMOTEPORT NO CONNECTION"
-		fi 2>/dev/null
-		sleep 5
-	done
+function cygupdate() {
+	if [[ "$UNAME_S" == "CYGWIN_NT-10.0" ]]
+	then
+		curl https://cygwin.com/setup-x86_64.exe > /tmp/setup-x86_64.exe
+		chmod +x /tmp/setup-x86_64.exe
+		 /tmp/setup-x86_64.exe -q -n # -O -s http://ftp.mirrorservice.org
+	fi
 }
+
+	
 
 
 
