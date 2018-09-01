@@ -13,6 +13,10 @@ fi
 # poke /path/to/long-running
 
 function poke {
+	local MESSAGE
+	local RC
+	local TEMPFILE
+	local PUSHOVER_POKE_OUT
 	MESSAGE="$(tty) • $(hostname -s)"
 	if [[ "$*" ]]
 	then
@@ -39,6 +43,11 @@ function poke {
 
 # myip() Look own AS/Org
 function myip() {
+	local IP4
+	local ORG4
+	local IP6
+	local ORG6
+
 	test -e /usr/local/bin/myip && echo "/usr/local/bin/myip kann weg."
 
 	IP4=$(curl -s http://v4.ipv6-test.com/api/myip.php) &&
@@ -52,8 +61,10 @@ function myip() {
 
 # wait_for_tcp() Wait until some remote TCP port is open
 function wait_for_tcp {
-	local REMOTEHOST="$1"
-	local REMOTEPORT="$2"
+	local REMOTEHOST
+	local REMOTEPORT
+	REMOTEHOST="$1"
+	REMOTEPORT="$2"
 	while true
 	do
 		if exec 3<>"/dev/tcp/$REMOTEHOST/$REMOTEPORT" 

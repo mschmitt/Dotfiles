@@ -12,6 +12,10 @@ fi
 function find_md_states {
 	# Tested working
 
+	local GOT_DEGRADED
+	local OUTPUT
+	local MDNAME
+
 	GOT_DEGRADED=0
 	OUTPUT='Degraded MD:'
 
@@ -38,6 +42,10 @@ find_md_states
 
 function find_smarthealth {
 	# Never tested
+
+	local GOT_ERROR
+	local OUTPUT
+	local SCSIDISK
 
 	GOT_ERROR=0
 	OUTPUT='Check SMART health on: '
