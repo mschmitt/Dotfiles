@@ -7,6 +7,8 @@ fi
 # Ad-hoc-benchmarks
 
 function bonnie-here() {
+	local UNPRIV
+	local CMD
 	UNPRIV=''
 	if [[ $UID -eq 0 ]]
 	then
@@ -19,6 +21,7 @@ function bonnie-here() {
 }
 
 function sysbench-cpu() {
+	local CMD
 	CMD="sysbench --num-threads=$(grep 'processor' /proc/cpuinfo | sort -u | wc -l) --test=cpu run"
 	echo "$CMD"
 	$CMD
