@@ -18,7 +18,7 @@ fi
 USERAS=''
 if [[ -x /usr/bin/logname && $(/usr/bin/logname) != "$USER" ]]
 then
-	USERAS="$(/usr/bin/logname)►"
+	USERAS="$(/usr/bin/logname)->"
 fi
 
 # Fail gracefully if __git_ps1 is missing

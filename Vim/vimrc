@@ -32,6 +32,7 @@ endif
 " Skeletons http://vimdoc.sourceforge.net/htmldoc/autocmd.html#skeleton
 autocmd BufNewFile *\.txt   r ~/.vim/skeleton/txt
 autocmd BufNewFile *\.pl   0r ~/.vim/skeleton/pl
+autocmd BufNewFile *\.html 0r ~/.vim/skeleton/html
 
 " Always show coordinates
 set ruler			
