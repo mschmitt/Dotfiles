@@ -1,0 +1,7 @@
+[Configuration]
+ColorCursor=#000000000000
+ColorForeground=#000000000000
+ColorBackground=#ffffffffffff
+ColorPalette=#000000000000;#cccc04040303;#1616b4b40000;#a8a8a6a60000;#00001c1cd1d1;#cbcb1e1ed1d1;#0000aeaeaeae;#cccccccccccc;#4d4d4d4d4d4d;#3e3e06060505;#2929dada0c0c;#e0e0dede0000;#00002626ffff;#fdfd2828ffff;#0000e5e5e5e5;#ffffffffffff
+
+# ~/.config/xfce4/terminal/terminalrc
