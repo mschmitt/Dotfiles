@@ -68,8 +68,21 @@ function cygupdate() {
 	fi
 }
 
+rescan-scsi() {
+	if [[ -d /sys/class/scsi_host/ ]]
+	then
+		for HOST in /sys/class/scsi_host/host*
+		do
+			echo $HOST
+			echo '- - -' > $HOST/scan
+		done
+	else
+		echo "Nothing to do here."
+	fi
+}
+		
+
 	
-
-
+	
 
 # vim: filetype=sh
