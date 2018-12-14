@@ -73,8 +73,10 @@ rescan-scsi() {
 	then
 		for HOST in /sys/class/scsi_host/host*
 		do
+			local BEFORE=$(dmesg)
 			echo $HOST
 			echo '- - -' > $HOST/scan
+			diff <(echo "$BEFORE") <(dmesg)
 		done
 	else
 		echo "Nothing to do here."
