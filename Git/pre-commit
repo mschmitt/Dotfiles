@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DATE=$(date +%s)
+sed -i "s/^LOCAL_TIMESTAMP=.*/LOCAL_TIMESTAMP=$DATE/" Bash/bashrc.d/0950_checkupdate.bash
+git add Bash/bashrc.d/0950_checkupdate.bash
