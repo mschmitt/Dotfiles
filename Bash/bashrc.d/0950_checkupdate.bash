@@ -6,8 +6,15 @@ LOCAL_TIMESTAMP=1544899316
 # Check for update no more frequently than every 7 days
 # Keep track by touching this file itself.
 SCRIPTFILE="${BASH_SOURCE[0]}"
-SCRIPTTIME=$(stat $SCRIPTFILE --format '%Y')
 NOWTIME=$(date +%s)
+case "$UNAME_S" in
+	"CYGWIN_NT-10.0"|"Linux")
+		SCRIPTTIME=$(stat "$SCRIPTFILE" --format '%Y')
+		;;
+	"Darwin"|*)
+		SCRIPTTIME=$(stat -f '%m' "$SCRIPTFILE")
+		;;
+esac
 
 let AGE=$NOWTIME-$SCRIPTTIME
 let MINAGE=60*60
