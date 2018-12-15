@@ -34,7 +34,7 @@ for FILE in $(ls Vim/skeleton/*); do
 done
 
 bash Git/gitconf.sh
-install -m 700 Git/pre-commit .git/hooks/pre-commit
+test -d .git && install -v -m 700 Git/pre-commit .git/hooks/pre-commit
 
 
 cfgsync Screen/screenrc "$HOME/.screenrc"
