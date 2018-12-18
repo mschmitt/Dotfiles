@@ -1,7 +1,7 @@
 # Check for updates
 
 # This field updated by git pre-commit hook:
-LOCAL_TIMESTAMP=1544959230
+LOCAL_TIMESTAMP=1545127771
 
 # Check for update no more frequently than every 7 days
 # Keep track by touching this file itself.
@@ -23,10 +23,9 @@ if [[ $AGE -gt $MINAGE ]]
 then
 	# Update time at upstream
 	echo -n "Checking for Dotfiles update: "
-	GITHUB_HELPER_URL='https://scsy.de/cgi-bin/github-Dotfiles-helper'
+	GITHUB_HELPER_URL='https://scsy.de/cgi-bin/github-Dotfiles-epoch-helper'
 	GITHUB_UPDATED_AT=$(curl --silent --show-error --max-time 5 "$GITHUB_HELPER_URL")
-	GITHUB_TIMESTAMP=$(date --date="$GITHUB_UPDATED_AT" +%s)
-	if [[ $GITHUB_TIMESTAMP -gt $LOCAL_TIMESTAMP ]]
+	if [[ $GITHUB_UPDATED_AT -gt $LOCAL_TIMESTAMP ]]
 	then
 		echo "Dotfiles update available."
 	else
