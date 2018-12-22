@@ -1,7 +1,7 @@
 # Check for updates
 
 # This field updated by git pre-commit hook:
-LOCAL_TIMESTAMP=1545127771
+LOCAL_TIMESTAMP=1545475512
 
 # Check for update no more frequently than every 7 days
 # Keep track by touching this file itself.
@@ -17,7 +17,7 @@ case "$UNAME_S" in
 esac
 
 let AGE=$NOWTIME-$SCRIPTTIME
-let MINAGE=60*60
+let MINAGE=60*60*24*7
 
 if [[ $AGE -gt $MINAGE ]]
 then
