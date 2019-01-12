@@ -5,6 +5,7 @@ then
 fi
 
 set -o vi
+shopt -s histappend
 HISTSIZE=100000
 HISTCONTROL=ignoreboth
 HISTTIMEFORMAT="%Y%m%d %H%M%S "
