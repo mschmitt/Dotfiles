@@ -48,24 +48,30 @@ function find_smarthealth {
 
 	local GOT_ERROR
 	local OUTPUT
+	local OUTPUT_TEMP
 	local SCSIDISK
 
 	GOT_ERROR=0
-	OUTPUT='Check SMART health on: '
-	if [[ $(type smartctl >/dev/null 2>&1) && $UID == 0 ]]
+	OUTPUT='Check SMART health on:'
+	OUTPUT_TEMP='Disk temperatures:'
+	if type smartctl >/dev/null 2>&1 && [[ $UID -eq 0 ]]
 	then
-
 		for SCSIDISK in $(find /sys/class/scsi_disk/*/device/block -mindepth 1 -maxdepth 1)
 		do
-			SCSIDISK=$(basename $SCSIDISK)
-			smartctl --quietmode=silent -H $SCSIDISK
-			if [[ $? -ne 0 ]]
+			SCSIDISK=/dev/$(basename $SCSIDISK)
+			TEMPFILE=$(mktemp)
+			smartctl -a $SCSIDISK > $TEMPFILE
+			if ! grep -q 'SMART overall-health self-assessment test result: PASSED' $TEMPFILE ||
+				[[ $(awk '/Offline_Uncorrectable/{print $10}' < $TEMPFILE) -ne 0 ]]
 			then
-				OUTPUT="$OUTPUT /dev/$SCSIDISK"
+				OUTPUT="$OUTPUT $SCSIDISK"
 				GOT_ERROR=1
 			fi
+			OUTPUT_TEMP="$OUTPUT_TEMP $(awk '/Temperature_/{print $10}' < $TEMPFILE | head -n 1)°C"
+			rm $TEMPFILE
 		done
 	fi
+	echo "$OUTPUT_TEMP"
 	if [[ $GOT_ERROR != 0 ]]
 	then
 		echo "$OUTPUT"
