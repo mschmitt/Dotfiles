@@ -7,7 +7,12 @@ fi
 # Commonly used environment variables
 export SHELLCHECK_OPTS='--exclude=SC2034'
 export SVN_EDITOR=vim
-export TMOUT=3600
+if [[ "$TERM" == "screen" ]]
+then
+	export TMOUT=0
+else
+	export TMOUT=3600
+fi
 export NMON=cnd
 export LANG=en_US.utf-8
 # vim: filetype=sh
