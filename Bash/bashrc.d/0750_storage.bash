@@ -67,7 +67,10 @@ function find_smarthealth {
 				OUTPUT="$OUTPUT $SCSIDISK"
 				GOT_ERROR=1
 			fi
-			OUTPUT_TEMP="$OUTPUT_TEMP $(awk '/Temperature_/{print $10}' < $TEMPFILE | head -n 1)°C"
+			if grep -q Temperature_ $TEMPFILE
+			then
+				OUTPUT_TEMP="$OUTPUT_TEMP $(awk '/Temperature_/{print $10}' < $TEMPFILE | head -n 1)°C"
+			fi
 			rm $TEMPFILE
 		done
 	fi
