@@ -60,7 +60,7 @@ function find_smarthealth {
 		do
 			SCSIDISK=/dev/$(basename $SCSIDISK)
 			TEMPFILE=$(mktemp)
-			timeout 5 smartctl -a $SCSIDISK > $TEMPFILE
+			timeout --kill-after=5 5 smartctl -a $SCSIDISK > $TEMPFILE
 			if ! grep -q 'SMART overall-health self-assessment test result: PASSED' $TEMPFILE ||
 				[[ $(awk '/Offline_Uncorrectable/{print $10}' < $TEMPFILE) -ne 0 ]]
 			then
