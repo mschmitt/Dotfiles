@@ -83,8 +83,37 @@ rescan-scsi() {
 	fi
 }
 		
+function nmon {
+	echo "Autogenerating nmon diskgroups. Run \"command nmon\" for default behaviour."
+	enable -f /usr/lib/bash/realpath realpath
+	local DGFILE=$(mktemp)
+	local FIELD
+	grep '^/dev/' /etc/mtab | 
+	while read -a FIELD
+	do
+		# Canonicalize Device name
+		local DEVICE=$(realpath "${FIELD[0]}")
 
-	
-	
+		# Strip the /dev/ from the beginning
+		local ICE=${DEVICE/\/dev\//}
+
+		# shorten the mount point by compressing all 
+		# /paths/leading/to/mountpoint 
+		# into single character /p/l/t/mountpoint
+		# https://stackoverflow.com/a/22261454
+		local MOUNTPOINT="${FIELD[1]}"
+		local REGEX='(.*/)(.)[^/]+(/.+)'
+		while [[ "$MOUNTPOINT" =~ $REGEX ]]
+		do
+			MOUNTPOINT="${BASH_REMATCH[1]}${BASH_REMATCH[2]}${BASH_REMATCH[3]}"
+		done
+		echo "$MOUNTPOINT $ICE" >> $DGFILE
+	done
+	echo ''
+	cat "$DGFILE"
+	sleep 1
+	NMON="cng" command nmon -g "$DGFILE"
+	rm "$DGFILE"
+}
 
 # vim: filetype=sh
