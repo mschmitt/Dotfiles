@@ -111,7 +111,12 @@ function nmon {
 		do
 			MOUNTPOINT="${BASH_REMATCH[1]}${BASH_REMATCH[2]}${BASH_REMATCH[3]}"
 		done
-		echo "$MOUNTPOINT $ICE" >> $DGFILE
+		echo "$MOUNTPOINT $ICE" >> "$DGFILE"
+	done
+	lsblk | grep disk |
+	while read -a DISK
+	do
+		echo "/dev/${DISK[0]} ${DISK[0]}" >> "$DGFILE"
 	done
 	echo ''
 	cat "$DGFILE"
