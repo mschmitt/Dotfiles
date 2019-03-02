@@ -102,6 +102,10 @@ function nmon {
 		# into single character /p/l/t/mountpoint
 		# https://stackoverflow.com/a/22261454
 		local MOUNTPOINT="${FIELD[1]}"
+		if [[ "$MOUNTPOINT" =~ ^/boot ]]
+		then
+			continue
+		fi
 		local REGEX='(.*/)(.)[^/]+(/.+)'
 		while [[ "$MOUNTPOINT" =~ $REGEX ]]
 		do
