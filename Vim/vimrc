@@ -119,6 +119,10 @@ map <C-K> :bnext<CR>
 map <C-H> :brewind<CR>
 map <C-L> :blast<CR>
 
+" stop right mouse click from jumping into visual mode
+" https://github.com/vim/vim/issues/1326
+set mouse-=a
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
