@@ -4,6 +4,11 @@ then
         return
 fi
 
+if [[ $UID -ne 0 ]]
+then
+	return
+fi
+
 if [[ "$UNAME_S" != "Linux" ]]
 then
 	return
