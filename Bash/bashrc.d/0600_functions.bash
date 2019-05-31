@@ -125,4 +125,14 @@ function nmon {
 	rm "$DGFILE"
 }
 
+function condensepath {
+	local PATHNAME="$1"
+	local REGEX='(.*/)(.)[^/]+(/.+)'
+	while [[ "$PATHNAME" =~ $REGEX ]]
+	do
+		PATHNAME="${BASH_REMATCH[1]}${BASH_REMATCH[2]}${BASH_REMATCH[3]}"
+	done
+	echo "$PATHNAME"
+}
+
 # vim: filetype=sh
