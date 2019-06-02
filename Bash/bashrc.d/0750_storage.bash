@@ -50,7 +50,7 @@ find_md_states
 
 function find_md_mismatch_cnt {
 	local CNT
-	for CNT in $(ls /sys/block/md*/md/mismatch_cnt)
+	for CNT in $(ls /sys/block/md*/md/mismatch_cnt 2>/dev/null)
 	do
 		if [[ $(cat $CNT) -ne 0 ]]
 		then
@@ -69,6 +69,7 @@ function find_smarthealth {
 	local SCSIDISK
 
 	GOT_ERROR=0
+	GOT_TEMP=0
 	OUTPUT='Check SMART health on:'
 	OUTPUT_TEMP='Disk temperatures:'
 	if type smartctl >/dev/null 2>&1 && [[ $UID -eq 0 ]]
@@ -87,13 +88,14 @@ function find_smarthealth {
 			if grep -q Temperature_ $TEMPFILE
 			then
 				OUTPUT_TEMP="$OUTPUT_TEMP $(awk '/Temperature_/{print $10}' < $TEMPFILE | head -n 1)°C"
+				GOT_TEMP=1
 			fi
 			rm $TEMPFILE
 		done
 	fi
-	echo "$OUTPUT_TEMP"
-	if [[ $GOT_ERROR != 0 ]]
+	if [[ $GOT_ERROR != 0 && $GOT_TEMP != 0 ]]
 	then
+		echo "$OUTPUT_TEMP"
 		echo "$OUTPUT"
 	fi
 }
