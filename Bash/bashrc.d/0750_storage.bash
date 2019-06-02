@@ -93,9 +93,12 @@ function find_smarthealth {
 			rm $TEMPFILE
 		done
 	fi
-	if [[ $GOT_ERROR != 0 && $GOT_TEMP != 0 ]]
+	if [[ $GOT_TEMP != 0 ]]
 	then
 		echo "$OUTPUT_TEMP"
+	fi
+	if [[ $GOT_ERROR != 0 ]]
+	then
 		echo "$OUTPUT"
 	fi
 }
