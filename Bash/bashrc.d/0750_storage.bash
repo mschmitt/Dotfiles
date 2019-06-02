@@ -52,7 +52,6 @@ function find_md_mismatch_cnt {
 	local CNT
 	for CNT in $(ls /sys/block/md*/md/mismatch_cnt)
 	do
-		echo $CNT
 		if [[ $(cat $CNT) -ne 0 ]]
 		then
 			echo "$CNT is $(cat $CNT)"
