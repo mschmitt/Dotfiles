@@ -24,9 +24,9 @@ fi
 # Fail gracefully if __git_ps1 is missing
 if type -t __git_ps1 >/dev/null 2>&1
 then
-	export PS1="[$USERAS\u@$PROMPTHOST \$(condensepath \$PWD)\$(__git_ps1 '(%s)')]\\$ "
+	export PS1="[$USERAS\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
 else
-	export PS1="[$USERAS\u@$PROMPTHOST \$(condensepath \$PWD]\\\$ "
+	export PS1="[$USERAS\u@$PROMPTHOST \w]\\\$ "
 fi
 
 # Trim CWD in prompt to this many elements
