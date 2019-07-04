@@ -51,3 +51,19 @@ case $(uname -s) in
 		cfgsync Cygwin/bashrc "$HOME/.bashrc"
 		;;
 esac
+
+STEAMROOT='/cygdrive/c/Program Files (x86)/Steam'
+if [[ -d "$STEAMROOT" ]]
+then
+	readarray -t CFGDIRS < <(ls -d "$STEAMROOT"/userdata/*/730/local/cfg/)
+	for CFGDIR in "${CFGDIRS[@]}"
+	do
+		cfgsync CSGO/autoexec.cfg           "${CFGDIR}autoexec.cfg"
+		cfgsync CSGO/advertisecommunity.cfg "${CFGDIR}advertisecommunity.cfg"
+		cfgsync CSGO/jumpthrow.cfg          "${CFGDIR}jumpthrow.cfg"
+		cfgsync CSGO/quickswitch.cfg        "${CFGDIR}quickswitch.cfg"
+		cfgsync CSGO/radiobinds.cfg         "${CFGDIR}radiobinds.cfg"
+		cfgsync CSGO/training.cfg           "${CFGDIR}training.cfg"
+		cfgsync CSGO/trashtalk.cfg          "${CFGDIR}trashtalk.cfg"
+	done 
+fi
