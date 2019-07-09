@@ -60,6 +60,7 @@ then
 	do
 		cfgsync CSGO/autoexec.cfg           "${CFGDIR}autoexec.cfg"
 		cfgsync CSGO/advertisecommunity.cfg "${CFGDIR}advertisecommunity.cfg"
+		cfgsync CSGO/cleardecals.cfg        "${CFGDIR}cleardecals.cfg"
 		cfgsync CSGO/jumpthrow.cfg          "${CFGDIR}jumpthrow.cfg"
 		cfgsync CSGO/quickswitch.cfg        "${CFGDIR}quickswitch.cfg"
 		cfgsync CSGO/radiobinds.cfg         "${CFGDIR}radiobinds.cfg"
