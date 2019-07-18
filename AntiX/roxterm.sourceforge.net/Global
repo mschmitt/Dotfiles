@@ -1,0 +1,5 @@
+
+[roxterm options]
+encoding=UTF-8
+colour_scheme=GTK
+warn_close=1
