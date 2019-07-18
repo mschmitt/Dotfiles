@@ -68,3 +68,16 @@ then
 		cfgsync CSGO/trashtalk.cfg          "${CFGDIR}trashtalk.cfg"
 	done 
 fi
+
+if [[ -s /etc/antix-version ]]
+then
+
+		cfgsync AntiX/roxterm.sourceforge.net/Profiles/Default ~/.config/roxterm.sourceforge.net/Profiles/Default
+		cfgsync AntiX/roxterm.sourceforge.net/Global ~/.config/roxterm.sourceforge.net/Global
+		cfgsync AntiX/IceWM/startup ~/.icewm/startup
+		cfgsync AntiX/IceWM/personal ~/.icewm/personal
+		cfgsync AntiX/IceWM/menu ~/.icewm/menu
+		cfgsync AntiX/IceWM/toolbar ~/.icewm/toolbar
+		cfgsync AntiX/IceWM/preferences ~/.icewm/preferences
+		cfgsync AntiX/IceWM/theme ~/.icewm/theme
+fi
