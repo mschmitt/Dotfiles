@@ -13,6 +13,10 @@ then
 		PROMPTHOST=macbook
 	fi
 fi
+if [[ -f /etc/hostname ]]
+then
+	PROMPTHOST=$(cat /etc/hostname)
+fi
 
 # Show original user if su or sudoed to another one
 USERAS=''
