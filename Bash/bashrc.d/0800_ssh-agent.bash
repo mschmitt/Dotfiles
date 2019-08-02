@@ -4,6 +4,12 @@ then
         return
 fi
 
+# Don't do this if already on an SSH connection
+if [[ ! -z "$SSH_CONNECTION" ]]
+then
+	return
+fi
+
 # ssh-add / bootstrap ssh-agent as needed
 ssh-add -l >/dev/null 2>&1 
 case $? in
@@ -22,13 +28,6 @@ esac
 #
 # This is my ssh-agent-bootstrap method, optimized for frequent execution
 # by removing qualitative agent state checks.
-
-# Don't do this if already on an SSH connection
-if [[ ! -z "$SSH_CONNECTION" ]]
-then
-	echo "Logged in via SSH."
-	return
-fi
 
 # Non-default socket for the SSH agent
 MY_SSH_AGENT_SOCKET=~/.ssh/agent.socket
