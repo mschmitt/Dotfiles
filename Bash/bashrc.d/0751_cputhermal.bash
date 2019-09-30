@@ -21,7 +21,7 @@ function temperature {
 	for DIR in /sys/class/thermal/thermal_zone*
 	do
 		read -r TYPE < "$DIR/type"
-		if [[ "$TYPE" =~ (x86_pkg_temp|bcm2835_thermal) ]]
+		if [[ "$TYPE" =~ (x86_pkg_temp|bcm2835_thermal|cpu-thermal) ]]
 		then
 			read -r RAWTEMP < "$DIR/temp"
 			printf "CPU core temperature: %s°\n" "$(( $RAWTEMP / 1000 ))"
