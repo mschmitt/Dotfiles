@@ -1,0 +1,90 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            dd:42:04:1a:e2:9b:ef:de
+    Signature Algorithm: sha512WithRSAEncryption
+        Issuer: C = DE, ST = Hessen, L = Pohlheim, O = Schmitt Systems, OU = Internal CA, CN = SCSY Root CA 2013-2028
+        Validity
+            Not Before: May  1 21:05:29 2017 GMT
+            Not After : Apr 13 21:05:29 2028 GMT
+        Subject: C = DE, ST = Hessen, L = Pohlheim, O = Schmitt Systems, OU = Internal CA, CN = SCSY Root CA 2013-2028
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:df:8a:5f:05:35:b5:c5:5f:0d:b4:2f:49:ac:f3:
+                    03:c7:c0:ac:08:c6:1f:14:7b:33:f3:4b:4e:b6:bb:
+                    ca:d3:91:83:9f:2e:75:14:d5:d5:c5:68:db:c9:88:
+                    eb:b7:df:de:30:92:cc:5d:6e:11:a2:40:14:eb:8a:
+                    61:1e:b7:b2:c9:51:71:b2:5a:18:dd:cb:2f:75:c9:
+                    f2:ce:fc:71:92:bb:b5:30:ef:e1:38:8d:1a:0c:49:
+                    d3:96:09:ec:fc:cf:e4:bc:47:40:74:88:66:6e:22:
+                    8f:09:a7:3c:86:df:07:e1:89:b0:ea:b5:3c:2a:90:
+                    19:d3:86:47:77:f2:22:ef:bd:84:eb:a6:3a:d3:d5:
+                    f9:1a:4f:67:1c:90:50:d5:7b:12:3d:f4:19:6d:86:
+                    86:34:1d:8a:a5:98:89:dc:51:fe:79:a5:56:da:dd:
+                    e5:1c:5c:5e:1b:12:ab:7e:ab:a7:40:34:87:f3:15:
+                    fe:8e:82:4a:58:28:00:a5:6f:7e:06:ab:39:ef:f4:
+                    74:36:4c:ff:8c:d8:14:f3:4f:2c:f1:5a:a9:1b:29:
+                    ce:f0:3c:98:53:ac:bc:fd:11:5d:c4:c3:ed:77:b7:
+                    f4:db:d5:54:de:61:2e:d4:24:0d:8c:54:cf:ee:16:
+                    3b:e9:bc:e5:dd:71:e4:82:e0:f1:2f:34:86:a0:0e:
+                    f8:61
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                F8:F5:C6:32:DE:A0:E6:32:74:F1:FF:D8:A3:77:3A:A7:F3:DD:4B:F8
+            X509v3 Authority Key Identifier: 
+                keyid:F8:F5:C6:32:DE:A0:E6:32:74:F1:FF:D8:A3:77:3A:A7:F3:DD:4B:F8
+                DirName:/C=DE/ST=Hessen/L=Pohlheim/O=Schmitt Systems/OU=Internal CA/CN=SCSY Root CA 2013-2028
+                serial:DD:42:04:1A:E2:9B:EF:DE
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+            X509v3 Subject Alternative Name: 
+                <EMPTY>
+
+    Signature Algorithm: sha512WithRSAEncryption
+         9d:c2:83:63:ed:4d:b0:4a:4d:c2:15:d0:40:60:4a:f9:a6:6c:
+         ed:b4:8b:d1:1c:2b:2b:10:62:34:fe:e2:8e:b3:13:8f:a6:4b:
+         24:9b:a5:08:08:ed:8c:4f:d9:ea:44:f0:94:30:5f:bd:f6:e0:
+         98:7a:e4:67:d9:a3:1b:52:ca:a3:78:b3:fb:05:cd:37:ae:7e:
+         bf:83:00:a7:7f:82:94:d2:f4:ca:56:74:e3:b9:76:59:ca:d5:
+         33:cf:2f:62:ca:04:b6:b0:4d:63:43:56:8f:8f:ee:25:e2:34:
+         fe:57:4d:ea:13:33:90:60:08:fa:50:9c:e9:d8:bd:ba:7e:a2:
+         07:1c:d0:12:e1:f8:f1:08:80:55:7a:85:71:63:24:44:2f:1d:
+         69:be:3d:3a:ae:42:16:04:ba:08:5b:b8:ea:51:b0:c5:de:6e:
+         e5:d6:08:da:24:c9:ef:ea:9e:90:0d:d1:a3:68:48:63:75:7e:
+         45:df:fd:d0:cc:53:11:f8:be:a4:10:51:bd:05:b5:30:8e:de:
+         b3:a3:6c:71:3d:61:97:63:2c:14:9d:e2:d2:c5:04:8c:fb:75:
+         66:50:d1:2f:30:8c:7b:35:ca:b0:bf:47:ca:af:fb:d0:e1:ae:
+         13:4e:1f:68:dc:6e:e4:04:98:3d:47:9d:e3:9e:10:5f:8c:0b:
+         cc:fd:07:eb
+-----BEGIN CERTIFICATE-----
+MIIEfzCCA2egAwIBAgIJAN1CBBrim+/eMA0GCSqGSIb3DQEBDQUAMIGCMQswCQYD
+VQQGEwJERTEPMA0GA1UECAwGSGVzc2VuMREwDwYDVQQHDAhQb2hsaGVpbTEYMBYG
+A1UECgwPU2NobWl0dCBTeXN0ZW1zMRQwEgYDVQQLDAtJbnRlcm5hbCBDQTEfMB0G
+A1UEAwwWU0NTWSBSb290IENBIDIwMTMtMjAyODAeFw0xNzA1MDEyMTA1MjlaFw0y
+ODA0MTMyMTA1MjlaMIGCMQswCQYDVQQGEwJERTEPMA0GA1UECAwGSGVzc2VuMREw
+DwYDVQQHDAhQb2hsaGVpbTEYMBYGA1UECgwPU2NobWl0dCBTeXN0ZW1zMRQwEgYD
+VQQLDAtJbnRlcm5hbCBDQTEfMB0GA1UEAwwWU0NTWSBSb290IENBIDIwMTMtMjAy
+ODCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN+KXwU1tcVfDbQvSazz
+A8fArAjGHxR7M/NLTra7ytORg58udRTV1cVo28mI67ff3jCSzF1uEaJAFOuKYR63
+sslRcbJaGN3LL3XJ8s78cZK7tTDv4TiNGgxJ05YJ7PzP5LxHQHSIZm4ijwmnPIbf
+B+GJsOq1PCqQGdOGR3fyIu+9hOumOtPV+RpPZxyQUNV7Ej30GW2GhjQdiqWYidxR
+/nmlVtrd5RxcXhsSq36rp0A0h/MV/o6CSlgoAKVvfgarOe/0dDZM/4zYFPNPLPFa
+qRspzvA8mFOsvP0RXcTD7Xe39NvVVN5hLtQkDYxUz+4WO+m85d1x5ILg8S80hqAO
++GECAwEAAaOB9TCB8jAdBgNVHQ4EFgQU+PXGMt6g5jJ08f/Yo3c6p/PdS/gwgbcG
+A1UdIwSBrzCBrIAU+PXGMt6g5jJ08f/Yo3c6p/PdS/ihgYikgYUwgYIxCzAJBgNV
+BAYTAkRFMQ8wDQYDVQQIDAZIZXNzZW4xETAPBgNVBAcMCFBvaGxoZWltMRgwFgYD
+VQQKDA9TY2htaXR0IFN5c3RlbXMxFDASBgNVBAsMC0ludGVybmFsIENBMR8wHQYD
+VQQDDBZTQ1NZIFJvb3QgQ0EgMjAxMy0yMDI4ggkA3UIEGuKb794wDAYDVR0TBAUw
+AwEB/zAJBgNVHREEAjAAMA0GCSqGSIb3DQEBDQUAA4IBAQCdwoNj7U2wSk3CFdBA
+YEr5pmzttIvRHCsrEGI0/uKOsxOPpkskm6UICO2MT9nqRPCUMF+99uCYeuRn2aMb
+UsqjeLP7Bc03rn6/gwCnf4KU0vTKVnTjuXZZytUzzy9iygS2sE1jQ1aPj+4l4jT+
+V03qEzOQYAj6UJzp2L26fqIHHNAS4fjxCIBVeoVxYyRELx1pvj06rkIWBLoIW7jq
+UbDF3m7l1gjaJMnv6p6QDdGjaEhjdX5F3/3QzFMR+L6kEFG9BbUwjt6zo2xxPWGX
+YywUneLSxQSM+3VmUNEvMIx7Ncqwv0fKr/vQ4a4TTh9o3G7kBJg9R53jnhBfjAvM
+/Qfr
+-----END CERTIFICATE-----
