@@ -15,4 +15,15 @@ function tmux_vmail() {
 	tmux attach-session
 }
 
+function tmux_vpn() {
+	tmux new-session -d 'ssh bravo -l root -A'
+	tmux split-window 'ssh oscar -l root -A'
+	tmux split-window 'ssh yankee -l root -A'
+	tmux set-option -g synchronize-panes on
+	tmux set-option -g allow-rename off 
+	tmux select-layout even-vertical
+	tmux rename-window 'bravo/oscar/yankee'
+	tmux attach-session
+}
+
 # vim: filetype=sh
