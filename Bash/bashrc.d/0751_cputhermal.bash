@@ -18,7 +18,7 @@ function temperature {
 	local DIR
 	local TYPE
 	local RAWTEMP
-	if [[ ! -d /sys/class/thermal/ ]]
+	if [[ ! -d /sys/class/thermal/thermal_zone0 ]]
 	then
 		return
 	fi
