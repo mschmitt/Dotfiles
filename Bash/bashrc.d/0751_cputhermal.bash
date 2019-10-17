@@ -18,6 +18,10 @@ function temperature {
 	local DIR
 	local TYPE
 	local RAWTEMP
+	if [[ ! -d /sys/class/thermal/ ]]
+	then
+		return
+	fi
 	for DIR in /sys/class/thermal/thermal_zone*
 	do
 		read -r TYPE < "$DIR/type"
