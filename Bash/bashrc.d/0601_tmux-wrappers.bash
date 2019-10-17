@@ -5,9 +5,9 @@ then
 fi
 
 function tmux_vmail() {
-	tmux new-session -d 'ssh vmx1 -l root -A'
-	tmux split-window 'ssh vmx2 -l root -A'
-	tmux split-window 'ssh vmail -l root -A'
+	tmux new-session -d 'ssh vmx1 -A'
+	tmux split-window 'ssh vmx2 -A'
+	tmux split-window 'ssh vmail -A'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
