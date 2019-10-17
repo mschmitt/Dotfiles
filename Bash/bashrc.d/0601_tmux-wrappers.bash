@@ -4,7 +4,7 @@ then
         return
 fi
 
-function vmailmux() {
+function tmux_vmail() {
 	tmux new-session -d 'ssh vmx1 -l root -A'
 	tmux split-window 'ssh vmx2 -l root -A'
 	tmux split-window 'ssh vmail -l root -A'
