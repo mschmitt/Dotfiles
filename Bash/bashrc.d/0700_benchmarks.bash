@@ -29,14 +29,19 @@ function sysbench-cpu() {
 
 function openssl-speed() {
 	local THREADS=$(grep 'processor' /proc/cpuinfo | sort -u | wc -l)
-	local I
-	local PIDS="To kill all processes: kill -9"
-	for (( I=1 ; I<=$THREADS ; I++ ))
-	do
-	    openssl speed 2>/dev/null &
-	    PIDS="$PIDS $!"
-	done
-	echo -e "\n\n$PIDS\n\n"
+	if [[ -x $(command -v parallel) ]]
+	then
+		seq 1 "$THREADS" | parallel --line-buffer --tagstring='{#}' --max-args=0 openssl speed
+	else
+		local I
+		local PIDS="To kill all processes: kill -9"
+		for (( I=1 ; I<=$THREADS ; I++ ))
+		do
+		    openssl speed 2>/dev/null &
+		    PIDS="$PIDS $!"
+		done
+		echo -e "\n\n$PIDS\n\n"
+	fi
 }
 	
 	
