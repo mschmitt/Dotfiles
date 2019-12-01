@@ -2,3 +2,13 @@ startup_message off
 hardstatus alwaysignore
 caption always "%{wk}%-w%{Gk}[%n %t]%{wk}%+w%=%{Ck} %c:%s %D, %d.%m.%y"
 #setenv PROMPT_COMMAND 'echo -ne "\ek$HOSTNAME\e\\"; echo -ne "\e]0;$HOSTNAME\a"'
+source .screen.1-pane.layout
+source .screen.2-pane.layout
+source .screen.3-pane.layout
+source .screen.4-pane.layout
+source .screen.5-pane.layout
+source .screen.6-pane.layout
+source .screen.7-pane.layout
+source .screen.8-pane.layout
+source .screen.9-pane.layout
+layout select 1-pane

@@ -1,0 +1,13 @@
+layout new 7-pane
+split
+split
+split
+split -v
+focus
+focus
+split -v
+focus
+focus
+split -v
+focus
+focus
