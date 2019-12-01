@@ -1,0 +1,12 @@
+net stop w32time
+w32tm /unregister
+w32tm /register
+# Load ntp.reg with the defaults
+net start w32time
+w32tm /config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org" /update
+
+w32tm /query /peers
+w32tm /query /status /verbose
+
+https://kb.meinbergglobal.com/kb/time_sync/timekeeping_on_windows/configuring_w32time_as_ntp_client#registry_settings
+https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings#w2k3tr_times_tools_uhlp
