@@ -1,0 +1,9 @@
+layout new 5-pane
+split
+split
+split -v
+focus
+focus
+split -v
+focus
+focus
