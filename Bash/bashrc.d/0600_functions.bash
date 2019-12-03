@@ -4,6 +4,19 @@ then
         return
 fi
 
+function archive_mount {
+	grep -q backupserver /etc/hostname || return
+	cryptdisks_start ARCHIVE_USB
+	mount -v /usb
+}
+
+function archive_umount {
+	grep -q backupserver /etc/hostname || return
+	umount -v /usb
+	cryptdisks_stop ARCHIVE_USB
+}
+	
+
 # poke() - Send generic message to my mobile, e.g. after a long-running task has finished.
 #
 # Inspired by: https://twitter.com/shezoidic/status/966663437001592832
