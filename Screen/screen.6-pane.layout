@@ -1,0 +1,12 @@
+layout new 6-pane
+split
+split
+split -v
+focus
+focus
+split -v
+focus
+focus
+split -v
+focus
+focus
