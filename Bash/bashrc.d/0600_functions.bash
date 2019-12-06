@@ -8,6 +8,7 @@ function archive_mount {
 	grep -q backupserver /etc/hostname || return
 	cryptdisks_start ARCHIVE_USB
 	mount -v /usb
+	ls -l /usb
 }
 
 function archive_umount {
