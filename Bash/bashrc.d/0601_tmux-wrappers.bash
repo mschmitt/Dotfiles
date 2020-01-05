@@ -26,4 +26,14 @@ function tmux_vpn() {
 	tmux attach-session
 }
 
+function tmux_dohcluster() {
+	tmux new-session -d 'ssh bravo -l root -A'
+	tmux split-window 'ssh vweb3 -l root -A'
+	tmux set-option -g synchronize-panes on
+	tmux set-option -g allow-rename off 
+	tmux select-layout even-vertical
+	tmux rename-window 'bravo/vweb3'
+	tmux attach-session
+}
+
 # vim: filetype=sh
