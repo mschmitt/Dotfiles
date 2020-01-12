@@ -14,6 +14,7 @@ function edfn() {
 			break
 		else
 			rm "${tmpfile_newname}"
+			clear
 			return
 		fi
 	done
@@ -23,14 +24,16 @@ function edfn() {
 	if [[ "${oldname}" = "${newname}" ]]
 	then
 		dialog --title "No change" --msgbox "Filename unchanged." 10 30
+		clear
 		return
 	fi
 
 	dialog --title "Confirm Rename" --yesno -- "Rename\n$oldname\n\nTo\n$newname" ${height} ${width}
 	if [[ $? -eq 0 ]]
 	then
-		printf "\n\n"
+		clear
 		mv --verbose --interactive -- "${oldname}" "${newname}"
+		stat -- "${newname}"
 	fi
 }
 
