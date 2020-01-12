@@ -149,4 +149,17 @@ function condensepath {
 	echo "$PATHNAME"
 }
 
+# mvtop - Move to parent: Move specified files to parent directory
+# and clean up what remains.
+function mvtop() {
+	local file
+	local rmdir="$(pwd)"
+	for file in "$@"
+	do
+		mv --verbose --interactive "${file}" ..
+	done
+	cd ..
+	rm --verbose --recursive --interactive "${rmdir}"
+}
+	
 # vim: filetype=sh
