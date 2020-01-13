@@ -1,4 +1,4 @@
-# A function that waits for things to appear or go away
+# A slightly overengineered function that waits for things to appear or go away
 # waitfor -n address|hostname <-p port> - Wait for network thing to appear
 # waitfor -N address|hostname <-p port> - Wait for network thing to go away
 # waitfor -f filename 	                - Wait for file to appear
@@ -121,9 +121,34 @@ function waitfor() {
 				fi
 			done
 		fi
-	elif [[ "${type}" = 'file' ]]
+	elif [[ "${type}" = 'file' && "${waitfor}" = 'appeared' ]]
 	then
-		echo file
+		printf "Waiting for file %s to appear." "${thing}"
+		while true
+		do
+			if [[ ! -e "${thing}" ]]
+			then
+				printf '.'
+				sleep 1
+			else
+				printf " - %s has appeared.\n" "${thing}"
+				break
+			fi
+		done
+	elif [[ "${type}" = 'file' && "${waitfor}" = 'gone' ]]
+	then
+		printf "Waiting for file %s to be gone." "${thing}"
+		while true
+		do
+			if [[ -e "${thing}" ]]
+			then
+				printf '.'
+				sleep 1
+			else
+				printf " - %s is gone.\n" "${thing}"
+				break
+			fi
+		done
 	else
 		"${FUNCNAME[0]}" -?
 	fi
