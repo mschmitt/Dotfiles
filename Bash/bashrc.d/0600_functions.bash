@@ -31,12 +31,12 @@ function poke {
 	local RC
 	local TEMPFILE
 	local PUSHOVER_POKE_OUT
-	MESSAGE="$(tty) • $(hostname -s)"
+	MESSAGE="$(tty) - $(hostname -s)"
 	if [[ "$*" ]]
 	then
 		"$@"
 		RC=$?
-		MESSAGE="$1 • exit $RC • $(tty) • $(hostname -s)"
+		MESSAGE="$@ - exit $RC - $(tty) - $(hostname -s)"
 	fi
 	if [[ -s ~/.poke.pushover ]]
 	then
