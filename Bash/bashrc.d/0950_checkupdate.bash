@@ -1,7 +1,7 @@
 # Check for updates
 
 # This field updated by git pre-commit hook:
-LOCAL_TIMESTAMP=1578863392
+LOCAL_TIMESTAMP=1578897001
 
 # Check for update no more frequently than every 7 days
 # Keep track by touching this file itself.
