@@ -161,5 +161,13 @@ function mvtop() {
 	cd ..
 	rm --verbose --recursive --interactive "${rmdir}"
 }
-	
+
+cygwin-setup() {
+	cd /tmp
+	curl -O https://cygwin.com/setup-x86_64.exe &&
+	chmod 700 /tmp/setup-x86_64.exe &&
+	/tmp/setup-x86_64.exe
+	cd -
+}
+
 # vim: filetype=sh
