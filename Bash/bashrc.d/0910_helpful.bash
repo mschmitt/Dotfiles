@@ -5,7 +5,7 @@ then
 fi
 
 # Point out generally useful stuff that is missing on this system.
-if [[ "$debian" -gt 0 ]]
+if [[ ! -z "$debian" ]]
 then
 	[[ -x $(command -v locate) ]]   || echo "locate is missing here."
 	[[ -x $(command -v apt-file) ]] || echo "apt-file is missing here."
