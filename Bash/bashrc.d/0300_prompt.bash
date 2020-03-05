@@ -28,9 +28,9 @@ fi
 # Fail gracefully if __git_ps1 is missing
 if type -t __git_ps1 >/dev/null 2>&1
 then
-	export PS1="[$USERAS\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
+	export PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
 else
-	export PS1="[$USERAS\u@$PROMPTHOST \w]\\\$ "
+	export PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w]\\\$ "
 fi
 
 # Trim CWD in prompt to this many elements
@@ -50,15 +50,14 @@ function mypromptcmd() {
 		# for xterm title uninterpreted:
 		printf '\eP\e]0;%s\a\e\\' "$PROMPTHOST"
 	fi
-	if [[ -v MC_SID ]]
-	then
-		if [[ ! -v midnight_commander_prefixed ]]
-		then
-			PS1="[mc subshell]\n${PS1}"
-			midnight_commander_prefixed=1
-		fi
-	fi
 }
 PROMPT_COMMAND="mypromptcmd"
 
+# Detect Midnight Commander Subshell and show {mc}
+function mc_subsh() {
+	if [[ -v MC_SID ]]
+	then
+		echo '{mc}'
+	fi
+}
 # vim: filetype=sh
