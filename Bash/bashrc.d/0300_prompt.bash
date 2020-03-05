@@ -50,6 +50,14 @@ function mypromptcmd() {
 		# for xterm title uninterpreted:
 		printf '\eP\e]0;%s\a\e\\' "$PROMPTHOST"
 	fi
+	if [[ -v MC_SID ]]
+	then
+		if [[ ! -v midnight_commander_prefixed ]]
+		then
+			PS1="[mc subshell]\n${PS1}"
+			midnight_commander_prefixed=1
+		fi
+	fi
 }
 PROMPT_COMMAND="mypromptcmd"
 
