@@ -1,0 +1,15 @@
+#!/bin/bash
+cat > ~/.bashrc_essential <<End
+# Non-negotiable bash settings even on foreign systems ;-)
+# https://github.com/mschmitt/Dotfiles/blob/master/Bash/ESSENTIAL.txt
+[[ -t 0 ]] || return
+if [[ -s /etc/debian_version && -s /usr/lib/git-core/git-sh-prompt ]]
+then
+        source /usr/lib/git-core/git-sh-prompt
+        PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1)\$ '
+fi
+alias gpg="LANG=en_US gpg"
+alias vi="vim -c set mouse-=a"
+alias mc='mc --stickchars --nocolor'
+# vim: filetype=sh
+End
