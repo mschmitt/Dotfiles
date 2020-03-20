@@ -14,3 +14,4 @@ alias mc='mc --stickchars --nocolor'
 set -o vi
 # vim: filetype=sh
 End
+
