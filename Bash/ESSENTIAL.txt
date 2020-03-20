@@ -9,7 +9,8 @@ then
         PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1)\$ '
 fi
 alias gpg="LANG=en_US gpg"
-alias vi="vim -c set mouse-=a"
+alias vi="vim -c 'set mouse-=a'"
 alias mc='mc --stickchars --nocolor'
+set -o vi
 # vim: filetype=sh
 End
