@@ -1,5 +1,5 @@
 #!/bin/bash
-cat > ~/.bashrc_essential <<End
+cat > ~/.bashrc_essential <<'End'
 # Non-negotiable bash settings even on foreign systems ;-)
 # https://github.com/mschmitt/Dotfiles/blob/master/Bash/ESSENTIAL.txt
 [[ -t 0 ]] || return
