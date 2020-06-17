@@ -22,5 +22,13 @@ then
         export GIT_SSH=/usr/bin/ssh
 fi
 
+# Prefer snap versions of software only if I'm not root
+if [[ -d /snap/bin && $UID -ne 0 ]]
+then
+	export PATH=/snap/bin:$PATH
+fi
+
+# Finally prepend bin in home
+export PATH=$HOME/bin:$PATH
 
 # vim: filetype=sh
