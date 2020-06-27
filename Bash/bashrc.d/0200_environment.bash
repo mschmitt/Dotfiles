@@ -7,6 +7,9 @@ fi
 # Commonly used environment variables
 export SHELLCHECK_OPTS='--exclude=SC2034'
 export SVN_EDITOR=vim
+export GIT_EDITOR=vim
+export EDITOR=vim
+
 if [[ "$TERM" == "screen" ]]
 then
 	export TMOUT=0
