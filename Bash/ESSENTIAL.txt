@@ -1,4 +1,5 @@
 #!/bin/bash
+# [[ "$SUDO_USER" == "martin" ]] && source ~/.bashrc_essential
 cat > ~/.bashrc_essential <<'End'
 # Non-negotiable bash settings even on foreign systems ;-)
 # https://github.com/mschmitt/Dotfiles/blob/master/Bash/ESSENTIAL.txt
