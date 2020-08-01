@@ -14,6 +14,7 @@ fi
 alias gpg="LANG=en_US gpg"
 alias vi="vim -c 'set mouse-=a'"
 alias mc='mc --stickchars --nocolor'
+alias top='top -c'
 set -o vi
 PROMPT_DIRTRIM=3
 # vim: filetype=sh
