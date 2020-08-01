@@ -23,6 +23,7 @@ then
 elif  [[ "$UNAME_S" == "Linux" || "$UNAME_S" == "CYGWIN_NT-10.0" ]]
 then
 	alias ls='ls --color=auto'
+	alias top='top -c'
 fi
 
 if [[ "$UNAME_S" == "CYGWIN_NT-10.0" ]]
