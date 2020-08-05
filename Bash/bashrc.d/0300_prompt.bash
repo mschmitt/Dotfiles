@@ -20,7 +20,8 @@ fi
 
 # Show original user if su or sudoed to another one
 USERAS=''
-if [[ -x /usr/bin/logname && $(/usr/bin/logname) != "$USER" ]]
+# Need to call logname directly to catch broken logname behind lightdm
+if /usr/bin/logname >/dev/null 2>&1 && [[ $(/usr/bin/logname) != "$USER" ]]
 then
 	USERAS="$(/usr/bin/logname)->"
 fi
