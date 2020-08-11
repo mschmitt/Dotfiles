@@ -8,6 +8,7 @@ alias joe='echo "core dumped." #'
 alias nano='echo "core dumped." #'
 alias pico='echo "core dumped." #'
 alias mcedit='echo "core dumped." #'
+alias htop='ps auxwww'
 alias emacs='ed'
 
 # vim: filetype=sh
