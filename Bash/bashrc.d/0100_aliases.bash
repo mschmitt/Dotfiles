@@ -31,4 +31,13 @@ then
 	alias ping6='ping /6'
 fi
 
+if [[ -x $(command -v getcap) && -x $(command -v nmap) ]]
+then
+	if getcap "$(command -v nmap)" | grep -q cap_net_raw
+	then
+		alias nmap='nmap --privileged'
+		export NMAP_PRIVILEGED=''
+	fi
+fi
+
 # vim: filetype=sh
