@@ -1,14 +1,14 @@
 # Check for updates
 
 # This field updated by git pre-commit hook:
-LOCAL_TIMESTAMP=1599773269
+LOCAL_TIMESTAMP=1602517731
 
 # Check for update no more frequently than every 7 days
 # Keep track by touching this file itself.
 SCRIPTFILE="${BASH_SOURCE[0]}"
 NOWTIME=$(date +%s)
 case "$UNAME_S" in
-	"CYGWIN_NT-10.0"|"Linux")
+	CYGWIN_NT*)
 		SCRIPTTIME=$(stat --format '%Y' "$SCRIPTFILE")
 		;;
 	"Darwin"|*)
