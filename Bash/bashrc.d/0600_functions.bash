@@ -74,7 +74,7 @@ function myip() {
 }
 
 function cygupdate() {
-	if [[ "$UNAME_S" == "CYGWIN_NT-10.0" ]]
+	if [[ "$UNAME_S" =~ CYGWIN_NT ]]
 	then
 		curl https://cygwin.com/setup-x86_64.exe > /tmp/setup-x86_64.exe
 		chmod +x /tmp/setup-x86_64.exe

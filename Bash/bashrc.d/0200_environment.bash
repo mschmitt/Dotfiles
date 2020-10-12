@@ -20,7 +20,7 @@ export NMON=cnd
 export LANG=en_US.utf-8
 
 # Use Cygwin SSH for Git when in Cygwin shell
-if [[ "$UNAME_S" == "CYGWIN_NT-10.0" ]]
+if [[ "$UNAME_S" =~ CYGWIN_NT ]]
 then
         export GIT_SSH=/usr/bin/ssh
 fi
