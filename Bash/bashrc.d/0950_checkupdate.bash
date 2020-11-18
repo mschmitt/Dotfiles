@@ -1,7 +1,7 @@
 # Check for updates
 
 # This field updated by git pre-commit hook:
-LOCAL_TIMESTAMP=1602517731
+LOCAL_TIMESTAMP=1605722595
 
 # Check for update no more frequently than every 7 days
 # Keep track by touching this file itself.
@@ -11,8 +11,11 @@ case "$UNAME_S" in
 	CYGWIN_NT*)
 		SCRIPTTIME=$(stat --format '%Y' "$SCRIPTFILE")
 		;;
-	"Darwin"|*)
+	"Darwin")
 		SCRIPTTIME=$(stat -f '%m' "$SCRIPTFILE")
+		;;
+	"Linux"|*)
+		SCRIPTTIME=$(stat --format '%Y' "$SCRIPTFILE")
 		;;
 esac
 
