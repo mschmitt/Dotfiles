@@ -156,6 +156,7 @@ if has('autocmd')
 	autocmd BufWinLeave *\.md       mkview!
 	autocmd BufWinLeave *\.py       mkview!
 	autocmd BufWinLeave user-data   mkview!
+	autocmd BufWinLeave .bashrc     mkview!
 endif
 
 " Yaml indentline
