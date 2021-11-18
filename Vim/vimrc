@@ -42,7 +42,7 @@ if has('filetype')
 	"let perl_fold_blocks=1
 endif
 
-" Typ :nohls to un-higlight
+" Typ :noh to un-higlight
 set hlsearch
 
 " Number of spaces to use for each step of (auto)indent.
@@ -140,6 +140,21 @@ if has('autocmd')
 	" Yaml Folds
 	autocmd Syntax yaml setlocal foldmethod=indent
 	autocmd Syntax yaml setlocal nofoldenable
+
+	" Save View only on selected files
+	set viewoptions=cursor,folds,slash,unix
+	autocmd BufWinEnter * silent loadview
+	autocmd BufWinLeave *\.yml      mkview!
+	autocmd BufWinLeave *\.yaml     mkview!
+	autocmd BufWinLeave *\.json     mkview!
+	autocmd BufWinLeave *\.pl       mkview!
+	autocmd BufWinLeave *\.html     mkview!
+	autocmd BufWinLeave *\.sh       mkview!
+	autocmd BufWinLeave *\.bash     mkview!
+	autocmd BufWinLeave *\.css      mkview!
+	autocmd BufWinLeave *\.js       mkview!
+	autocmd BufWinLeave *\.md       mkview!
+	autocmd BufWinLeave user-data   mkview!
 endif
 
 " Yaml indentline
@@ -148,4 +163,6 @@ endif
 let g:indentLine_char = '⦙'
 " And derived from that:
 set list listchars=tab:\⦙\ ,trail:░ 
+" Trailing space on above line is required.
+
 
