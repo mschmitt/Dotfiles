@@ -22,6 +22,10 @@ git clone https://github.com/vimoutliner/vimoutliner
 # Vim Indentline
 cd $USERPROFILE/vimfiles/bundle/
 git clone https://github.com/yggdroot/indentline ~/.vim/bundle/indentline
+
+# Vim Yaml folds
+cd $USERPROFILE/vimfiles/bundle/
+git clone https://github.com/pedrohdz/vim-yaml-folds ~/.vim/bundle/vim-yaml-folds
 ```
 
 ## Rest of the world incl. Cygwin
@@ -42,6 +46,9 @@ git clone https://github.com/vimoutliner/vimoutliner ~/.vim/bundle/vimoutliner.v
 
 # Vim Indentline
 git clone https://github.com/yggdroot/indentline ~/.vim/bundle/indentline
+
+# Vim Yaml folds
+git clone https://github.com/pedrohdz/vim-yaml-folds ~/.vim/bundle/vim-yaml-folds
 ```
 
 [modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tn: ) 
