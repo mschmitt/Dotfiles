@@ -13,26 +13,26 @@
 " %userprofile%\_vimrc  (Windows)
 
 " Use Vim defaults instead of 100% vi compatibility
-set nocompatible		
+set nocompatible
 
 " same as ":set backspace=indent,eol,start"
-set backspace=2			
+set backspace=2
 
 if has('colorscheme')
 	colorscheme default
 endif
 
 " Always show coordinates
-set ruler			
+set ruler
 
-set autoindent            
+set autoindent
 
 " Ignore case when searching
-set ignorecase             	
+set ignorecase
 
 " Enable syntax highlighting
 if has('syntax')
-	syntax on			
+	syntax on
 endif
 
 " http://vimdoc.sourceforge.net/htmldoc/filetype.html
@@ -46,23 +46,23 @@ endif
 set hlsearch               	
 
 " Number of spaces to use for each step of (auto)indent.
-set shiftwidth=8 		
+set shiftwidth=8
 " Number of spaces that a <Tab> in the file counts for.
-set tabstop=8			
+set tabstop=8
 
 " Vim default: on (off for root)
-set modeline			
+set modeline
 " number of lines that is checked for set commands.
-set modelines=5			
+set modelines=5
 
 " gnupg.vim
 if has('let')
-	let g:GPGPreferArmor=1 		
+	let g:GPGPreferArmor=1
 	let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
 endif
 
 " Fail silently if pathogen not installed
-silent! execute pathogen#infect() 
+silent! execute pathogen#infect()
 
 " Asynchronous Lint Engine
 " let g:ale_sign_column_always = 1
@@ -111,8 +111,6 @@ map <C-L> :blast<CR>
 " https://github.com/vim/vim/issues/1326
 set mouse-=a
 
-set list lcs=tab:\⦙\ 
-
 if has('autocmd')
 	" Don't write backup file if vim is being called by "crontab -e" (MacOS):
 	autocmd BufWrite /private/tmp/crontab.* set nowritebackup
@@ -134,10 +132,16 @@ if has('autocmd')
 	autocmd BufNewFile *\.yaml  r ~/.vim/skeleton/yaml
 	autocmd BufNewFile *\.pl   0r ~/.vim/skeleton/pl
 	autocmd BufNewFile *\.html 0r ~/.vim/skeleton/html
+	autocmd BufNewFile *\.sh   0r ~/.vim/skeleton/sh
 
 	" Yaml Tabstops https://www.arthurkoziel.com/setting-up-vim-for-yaml/
 	autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 endif
 
-" Yaml indentline https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+" Yaml indentline
+" https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+" https://vimawesome.com/plugin/indentline
 let g:indentLine_char = '⦙'
+" And derived from that:
+set list listchars=tab:\⦙\ ,trail:░ 
+
