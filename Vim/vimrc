@@ -136,6 +136,10 @@ if has('autocmd')
 
 	" Yaml Tabstops https://www.arthurkoziel.com/setting-up-vim-for-yaml/
 	autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+	" Yaml Folds
+	autocmd Syntax yaml setlocal foldmethod=indent
+	autocmd Syntax yaml setlocal nofoldenable
 endif
 
 " Yaml indentline
