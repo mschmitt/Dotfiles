@@ -154,6 +154,7 @@ if has('autocmd')
 	autocmd BufWinLeave *\.css      mkview!
 	autocmd BufWinLeave *\.js       mkview!
 	autocmd BufWinLeave *\.md       mkview!
+	autocmd BufWinLeave *\.py       mkview!
 	autocmd BufWinLeave user-data   mkview!
 endif
 
