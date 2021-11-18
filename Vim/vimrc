@@ -37,13 +37,13 @@ endif
 
 " http://vimdoc.sourceforge.net/htmldoc/filetype.html
 if has('filetype')
-	filetype plugin indent on  	
+	filetype plugin indent on
 	"let perl_fold=1            	" Activate autofolding in the Perl ftplugin
 	"let perl_fold_blocks=1
 endif
 
 " Typ :nohls to un-higlight
-set hlsearch               	
+set hlsearch
 
 " Number of spaces to use for each step of (auto)indent.
 set shiftwidth=8
