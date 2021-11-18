@@ -18,6 +18,10 @@ git clone https://github.com/itchyny/lightline.vim
 # Vim Outliner
 cd $USERPROFILE/vimfiles/bundle/
 git clone https://github.com/vimoutliner/vimoutliner
+
+# Vim Indentline
+cd $USERPROFILE/vimfiles/bundle/
+git clone https://github.com/yggdroot/indentline ~/.vim/bundle/indentline
 ```
 
 ## Rest of the world incl. Cygwin
@@ -35,6 +39,9 @@ git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
 
 # Vim Outliner
 git clone https://github.com/vimoutliner/vimoutliner ~/.vim/bundle/vimoutliner.vim
+
+# Vim Indentline
+git clone https://github.com/yggdroot/indentline ~/.vim/bundle/indentline
 ```
 
 [modeline]: # ( vim: set fenc=utf-8 textwidth=78 formatoptions=tn: ) 

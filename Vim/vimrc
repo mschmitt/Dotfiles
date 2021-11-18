@@ -5,7 +5,7 @@
 " https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
 
 " Conditionals are in place to suppress errors on systems where vim.tiny 
-" may appear out of nowher while doing vipw, visudo, crontab -e and the like.
+" may appear out of nowhere while doing vipw, visudo, crontab -e and the like.
 
 " Name of this file:
 "
@@ -18,21 +18,9 @@ set nocompatible
 " same as ":set backspace=indent,eol,start"
 set backspace=2			
 
-" Don't write backup file if vim is being called by "crontab -e" (MacOS):
-au BufWrite /private/tmp/crontab.* set nowritebackup
-" Same on Linux:
-au BufWrite /tmp/crontab.* set nowritebackup
-" visudo:
-au BufWrite /etc/sudoers.tmp set nowritebackup
-
 if has('colorscheme')
 	colorscheme default
 endif
-
-" Skeletons http://vimdoc.sourceforge.net/htmldoc/autocmd.html#skeleton
-autocmd BufNewFile *\.txt   r ~/.vim/skeleton/txt
-autocmd BufNewFile *\.pl   0r ~/.vim/skeleton/pl
-autocmd BufNewFile *\.html 0r ~/.vim/skeleton/html
 
 " Always show coordinates
 set ruler			
@@ -123,10 +111,33 @@ map <C-L> :blast<CR>
 " https://github.com/vim/vim/issues/1326
 set mouse-=a
 
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-autocmd BufReadPost *
-	\ if line("'\"") >= 1 && line("'\"") <= line("$") |
-	\   exe "normal! g`\"" |
-	\ endif
+set list lcs=tab:\⦙\ 
+
+if has('autocmd')
+	" Don't write backup file if vim is being called by "crontab -e" (MacOS):
+	autocmd BufWrite /private/tmp/crontab.* set nowritebackup
+	" Same on Linux:
+	autocmd BufWrite /tmp/crontab.* set nowritebackup
+	" visudo:
+	autocmd BufWrite /etc/sudoers.tmp set nowritebackup
+
+	" When editing a file, always jump to the last known cursor position.
+	" Don't do it when the position is invalid or when inside an event handler
+	" (happens when dropping a file on gvim).
+	autocmd BufReadPost *
+		\ if line("'\"") >= 1 && line("'\"") <= line("$") |
+		\   exe "normal! g`\"" |
+		\ endif
+
+	" Skeletons http://vimdoc.sourceforge.net/htmldoc/autocmd.html#skeleton
+	autocmd BufNewFile *\.yml   r ~/.vim/skeleton/yaml
+	autocmd BufNewFile *\.yaml  r ~/.vim/skeleton/yaml
+	autocmd BufNewFile *\.pl   0r ~/.vim/skeleton/pl
+	autocmd BufNewFile *\.html 0r ~/.vim/skeleton/html
+
+	" Yaml Tabstops https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+	autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+endif
+
+" Yaml indentline https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+let g:indentLine_char = '⦙'
