@@ -143,7 +143,7 @@ if has('autocmd')
 
 	" Save View only on selected files
 	set viewoptions=cursor,folds,slash,unix
-	autocmd BufWinEnter * silent loadview
+	autocmd BufWinEnter * silent! loadview
 	autocmd BufWinLeave *\.yml      mkview!
 	autocmd BufWinLeave *\.yaml     mkview!
 	autocmd BufWinLeave *\.json     mkview!
