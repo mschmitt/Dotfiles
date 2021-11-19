@@ -56,7 +56,7 @@ set modeline
 set modelines=5
 
 " gnupg.vim
-if has('let')
+if has('eval')
 	let g:GPGPreferArmor=1
 	let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
 endif
@@ -162,7 +162,7 @@ endif
 " Yaml indentline
 " https://www.arthurkoziel.com/setting-up-vim-for-yaml/
 " https://vimawesome.com/plugin/indentline
-if has('let')
+if has('eval')
 	let g:indentLine_char = '⦙'
 endif
 " And derived from that:
