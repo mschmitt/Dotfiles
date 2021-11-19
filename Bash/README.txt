@@ -1,1 +1,1 @@
-for FILE in ~/.bashrc.d/*bash; do source $FILE; done
+[[ "$-" =~ i ]] && for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done

@@ -46,4 +46,14 @@ function tmux_dohcluster() {
 	tmux attach-session
 }
 
+function tmux_freifunk() {
+	tmux new-session -d 'ssh ff-bruecke -A'
+	tmux split-window 'ssh ff-jungle -A'
+	tmux set-option -g synchronize-panes on
+	tmux set-option -g allow-rename off 
+	tmux select-layout even-vertical
+	tmux rename-window 'ff-bruecke/ff-jungle'
+	tmux attach-session
+}
+
 # vim: filetype=sh
