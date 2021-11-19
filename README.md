@@ -73,4 +73,10 @@ Note that I also use tmux for parallel terminals, through functions defined in
 
 Mostly configuration of git autocorrect and diff-/mergetool
 
+## /Restic: Restic notes
+
+Just some notes on how to use and additional .bashrc lines to bootstrap restic.
+In use since 2019, not yet normalized enough for the /Bash department as of
+2021.
+
 [modeline]: # " vim: set fenc=utf-8 textwidth=78 formatoptions=tn: "
