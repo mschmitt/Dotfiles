@@ -3,15 +3,15 @@
 # Pathogen
 if [[ -v USERPROFILE ]]
 then
+	# running on Windows, prepare for gvim
 	winprofile="$(cygpath "${USERPROFILE}")"
 	printf "Pathogen -> %s\n" "${winprofile}"
-	# running on Windows, prepare for gvim
 	mkdir -p ${winprofile}/vimfiles/autoload ${winprofile}/vimfiles/bundle && \
-	curl -LSso ${winprofile}/vimfiles/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+	curl -LSs https://tpo.pe/pathogen.vim > ${winprofile}/vimfiles/autoload/pathogen.vim 
 fi
-printf "Pathogen -> %s\n" "~/.vim/bundle"
+printf "Pathogen -> %s\n" "${HOME}"
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+curl -LSs https://tpo.pe/pathogen.vim > ~/.vim/autoload/pathogen.vim 
 
 plugins=(
 	'https://github.com/w0rp/ale'
