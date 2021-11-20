@@ -163,10 +163,10 @@ endif
 " https://www.arthurkoziel.com/setting-up-vim-for-yaml/
 " https://vimawesome.com/plugin/indentline
 if has('eval')
-	let g:indentLine_char = '⦙'
+	let g:indentLine_char = '·'
 endif
 " And derived from that:
-set list listchars=tab:\⦙\ ,trail:░ 
+" set list listchars=tab:\·\ ,trail:░ 
 " Trailing space on above line is required.
 
 
