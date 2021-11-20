@@ -79,4 +79,19 @@ Just some notes on how to use and additional .bashrc lines to bootstrap restic.
 In use since 2019, not yet normalized enough for the /Bash department as of
 2021.
 
+## Howto: Clone, and fix existing clones
+
+Clone:
+
+```
+git clone https://github.com/mschmitt/Dotfiles
+```
+
+Pull unauthenticated, push via SSH:
+
+```
+git remote set-url        origin https://github.com/mschmitt/Dotfiles
+git remote set-url --push origin git@github.com:mschmitt/Dotfiles
+```
+
 [modeline]: # " vim: set fenc=utf-8 textwidth=78 formatoptions=tn: "
