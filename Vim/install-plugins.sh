@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Pathogen
 if [[ -v USERPROFILE ]]
