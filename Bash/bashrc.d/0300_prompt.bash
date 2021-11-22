@@ -8,7 +8,7 @@ fi
 PROMPTHOST=$(hostname -s)
 if [[ "$UNAME_S" == "Darwin" ]]
 then
-	if [[ "$(scutil --get ComputerName)" =~ macbook ]]
+	if [[ "$(scutil --get ComputerName)" =~ [mM]ac[bB]ook ]]
 	then
 		PROMPTHOST=macbook
 	fi
