@@ -2,6 +2,7 @@
 type git 2>/dev/null|| exit
 git config --global push.default simple
 git config --global help.autocorrect 20
+git config --global log.abbrevcommit true
 
 if type bcompare 2>/dev/null
 then
