@@ -22,13 +22,13 @@ function bonnie-here() {
 
 function sysbench-cpu() {
 	local CMD
-	CMD="sysbench --num-threads=$(grep 'processor' /proc/cpuinfo | sort -u | wc -l) --test=cpu run"
+	CMD="sysbench --num-threads=$(python -c 'import multiprocessing as mp; print(mp.cpu_count())') --test=cpu run"
 	echo "$CMD"
 	$CMD
 }
 
 function openssl-speed() {
-	local THREADS=$(grep 'processor' /proc/cpuinfo | sort -u | wc -l)
+	local THREADS=$(python -c 'import multiprocessing as mp; print(mp.cpu_count())')
 	if [[ -x $(command -v parallel) ]]
 	then
 		seq 1 "$THREADS" | parallel --line-buffer --tagstring='{#}' --max-args=0 openssl speed
