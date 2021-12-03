@@ -75,6 +75,9 @@ if has('gui_win32') || has('gui_win64')
 	set guifont=Consolas:h14
 	set background=light
 endif
+if has('gui_gtk3')
+	set guifont=Monospace\ 14
+endif
 set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
 
 " lightline.vim
