@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if ! type curl
+then
+	printf "curl is required.\n"
+fi
+
 # Pathogen
 if [[ -v USERPROFILE ]]
 then
