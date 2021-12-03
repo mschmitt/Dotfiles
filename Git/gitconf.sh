@@ -4,6 +4,7 @@ git config --global push.default simple
 git config --global help.autocorrect 20
 git config --global log.abbrevcommit true
 git config --global commit.verbose true
+git config --global alias.log-full "log --stat --graph"
 
 if type bcompare 2>/dev/null
 then
