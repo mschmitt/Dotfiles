@@ -168,8 +168,13 @@ endif
 if has('eval')
 	let g:indentLine_char = '·'
 endif
-" And derived from that:
-" set list listchars=tab:\·\ ,trail:░ 
+
+" And derived from the above, indent markers for regular tabs:
+" touch/rm ~/.vim/vimtabs to enable/disable
+" Globpath technique from: https://vi.stackexchange.com/a/10354
+if !empty(globpath(&rtp, 'vimtabs'))
+	set list listchars=tab:\·\ ,trail:░ 
+endif
 " Trailing space on above line is required.
 
 
