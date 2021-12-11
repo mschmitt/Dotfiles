@@ -86,3 +86,10 @@ then
 		cfgsync AntiX/IceWM/preferences ~/.icewm/preferences
 		cfgsync AntiX/IceWM/theme ~/.icewm/theme
 fi
+
+if type ansible-playbook >/dev/null 2>&1
+then
+	ansible-playbook -i Cron/inventory Cron/get-selections.yml
+else
+	echo 'Cronjobs? Install ansible maybe?'
+fi

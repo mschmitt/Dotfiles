@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: Add cron job for get-selections
+    when: ansible_facts.os_family == 'Debian'
+    cron:
+      name: get-selections
+      minute: "0"
+      hour: "*/6"
+      job: "dpkg --get-selections > ~/.dpkg-get-selections 2>/dev/null"
+
+# vim: filetype=yaml
