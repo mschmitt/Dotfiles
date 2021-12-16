@@ -62,6 +62,9 @@ editing of the REG file.
 
 That one site (note to self) about terminal colors is: https://terminal.sexy/
 
+That eccentric font is Agave: https://github.com/blobject/agave (apt-get 
+install fonts-agave)
+
 ## /Screen: screenrc
 
 Custom status bar for screen sessions, and a few pre-defined screen layouts.
