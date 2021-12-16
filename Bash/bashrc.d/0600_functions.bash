@@ -102,7 +102,7 @@ function nmon {
 	enable -f /usr/lib/bash/realpath realpath
 	local DGFILE=$(mktemp)
 	local FIELD
-	grep '^/dev/' /etc/mtab | 
+	grep '^/dev/' /etc/mtab | grep -v snap | grep -v squashfs |
 	while read -a FIELD
 	do
 		# Canonicalize Device name
