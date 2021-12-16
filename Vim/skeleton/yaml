@@ -3,13 +3,13 @@
   gather_facts: true
   connection: local
   tasks:
-  - name: Demo 1
-    shell: uname -a
-    register: stdout
-  - name: Demo 2
-    debug:
-      msg: "{{ stdout }}"
-  - name: Demo 3
-    debug:
-      msg: "{{ ansible_facts }}"
+    - name: Demo 1
+      shell: uname -a
+      register: stdout
+    - name: Demo 2
+      debug:
+        msg: "{{ stdout }}"
+    - name: Demo 3
+      debug:
+        msg: "{{ ansible_facts }}"
 # vim: filetype=yaml
