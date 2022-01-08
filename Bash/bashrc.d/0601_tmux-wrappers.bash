@@ -25,6 +25,16 @@ function tmux_vmx() {
 	tmux attach-session
 }
 
+function tmux_netman() {
+	tmux new-session -d 'ssh netman1 -A'
+	tmux split-window 'ssh netman2 -A'
+	tmux set-option -g synchronize-panes on
+	tmux set-option -g allow-rename off 
+	tmux select-layout even-vertical
+	tmux rename-window 'netman1/netman2'
+	tmux attach-session
+}
+
 function tmux_vpn() {
 	tmux new-session -d 'ssh bravo -l root -A'
 	tmux split-window 'ssh oscar -l root -A'
