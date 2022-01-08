@@ -94,4 +94,8 @@ git remote set-url        origin https://github.com/mschmitt/Dotfiles
 git remote set-url --push origin git@github.com:mschmitt/Dotfiles
 ```
 
+## THIS IS FINE
+
+curl -s https://raw.githubusercontent.com/mschmitt/Dotfiles/master/yolo.sh | bash
+
 [modeline]: # " vim: set fenc=utf-8 textwidth=78 formatoptions=tn: "
