@@ -18,6 +18,16 @@ then
 	PROMPTHOST=$(cat /etc/hostname)
 fi
 
+# Last resort: Augment misc. well-known horrible DHCP hostnames
+case "$(hostname -s | openssl dgst -md5 | awk '{print $NF}')" in
+'c82a51fb37db1d351319f1180db87ab7')
+	PROMPTHOST="${PROMPTHOST}(thinkpad)"
+	;;
+'7ec9e74c65cf47d0b51b6b24e484f8b0')
+	PROMPTHOST="${PROMPTHOST}(linux-dev)"
+	;;
+esac
+
 # Show original user if su or sudoed to another one
 USERAS=''
 # Need to call logname directly to catch broken logname behind lightdm
