@@ -38,6 +38,8 @@ test -d .git && install -v -m 700 Git/pre-commit .git/hooks/pre-commit
 
 bash Gnome/gnomeconf.sh
 
+bash Misc/ansible.sh
+
 cfgsync Screen/screenrc "$HOME/.screenrc"
 for I in 1 2 3 4 5 6 7 8 9 
 do
