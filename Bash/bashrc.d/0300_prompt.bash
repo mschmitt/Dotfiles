@@ -29,9 +29,15 @@ fi
 # Fail gracefully if __git_ps1 is missing
 if type -t __git_ps1 >/dev/null 2>&1
 then
-	export PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
+	# https://blog.backslasher.net/git-prompt-variables.html
+	GIT_PS1_SHOWDIRTYSTATE='y'
+	GIT_PS1_SHOWSTASHSTATE='y'
+	GIT_PS1_SHOWUNTRACKEDFILES='y'
+	GIT_PS1_DESCRIBE_STYLE='contains'
+	GIT_PS1_SHOWUPSTREAM='auto'
+	PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
 else
-	export PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w]\\\$ "
+	PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w]\\\$ "
 fi
 
 # Trim CWD in prompt to this many elements
