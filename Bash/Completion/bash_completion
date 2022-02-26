@@ -1,1 +1,1 @@
-source ~/Dotfiles/Bash/Completion/complete-alias/complete_alias
+[[ -s ~/Dotfiles/Bash/Completion/complete-alias/complete_alias ]] && source ~/Dotfiles/Bash/Completion/complete-alias/complete_alias
