@@ -41,4 +41,10 @@ then
 	fi
 fi
 
+if [[ "$(readlink -f /sbin/init)" =~ systemd ]]
+then
+	alias userctl='systemctl --user'
+	complete -F _complete_alias userctl
+fi
+
 # vim: filetype=sh
