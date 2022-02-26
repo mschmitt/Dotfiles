@@ -41,7 +41,7 @@ then
 	fi
 fi
 
-if [[ "$(readlink -f /sbin/init)" =~ systemd ]]
+if [[ "$UNAME_S" == "Linux" && "$(readlink -f /sbin/init)" =~ systemd ]]
 then
 	alias userctl='systemctl --user'
 	complete -F _complete_alias userctl
