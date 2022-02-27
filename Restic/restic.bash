@@ -1,6 +1,6 @@
 export RESTIC_PASSWORD_FILE=~/.restic-password
 export RESTIC_REPOSITORY=/media/${LOGNAME}/Backup/restic-repo/
-alias restic-backup='nice -n 10 restic backup ~ /var/www/'
+alias restic-backup='nice -n 10 restic backup --exclude-file=$HOME/.restic-exclude ~ /var/www/'
 alias restic-forget='restic forget --keep-last 3 --prune'
 alias restic-mount='restic mount ~/restic'
 alias restic-snapshots='restic snapshots'
