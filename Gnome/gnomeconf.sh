@@ -7,3 +7,4 @@ gsettings set org.gnome.desktop.peripherals.touchpad click-method fingers
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
 gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+altgr-intl')]"
