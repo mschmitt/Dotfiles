@@ -1,17 +1,7 @@
 # Dotfiles
 
-I learned UNIX in them 1990s on AIX 3 and SINIX-Z, and I still try to stick
-with as vanilla an environment as possible, because I never know over what
-kind of machine I'm going find myself parachuting next.
-
-Nevertheless, I somewhat appreciate the following things:
-
-* vim Syntax Highlighting
-* white terminal background
-* super clean SSH agent environment
-
 This dotfiles repository does not work directly on the managed files, but I
-use an unbelievably awkward script "deploy.sh" that merges the repository
+use an unbelievably awful script "deploy.sh" that merges the repository
 onto the actual dotfiles.
 
 ## /Bash: Bash settings
@@ -47,6 +37,8 @@ Improved defaults, including GUI settings and the plugins I use:
 * YAML folds
 
 I use pathogen for vim plugin management: https://github.com/tpope/vim-pathogen
+
+The install-plugins.sh script can be used to bootstrap all Vim plugins.
 
 ## /Terminals: Terminal configs
 
