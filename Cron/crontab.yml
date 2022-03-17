@@ -9,5 +9,11 @@
       minute: "0"
       hour: "*/6"
       job: "dpkg --get-selections > ~/.dpkg-get-selections 2>/dev/null"
+  - name: Add cron job for backing up the user crontab
+    cron:
+      name: crontab-backup
+      minute: "0"
+      hour: "*/6"
+      job: "crontab -l > ~/.crontab.bak 2>/dev/null"
 
 # vim: filetype=yaml

@@ -94,7 +94,7 @@ fi
 
 if type ansible-playbook >/dev/null 2>&1
 then
-	ansible-playbook -i Cron/inventory Cron/get-selections.yml
+	ansible-playbook -i Cron/inventory Cron/crontab.yml
 else
 	echo 'Cronjobs? Install ansible maybe?'
 fi
