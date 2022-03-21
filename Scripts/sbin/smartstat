@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -o errexit
+
+# Check for availability of: column, smartctl, jq
+
+function errorexit() {
+	trap - ERR
+	printf "Error on line %s\n" "$(caller)"
+	exit 1
+}
+trap errorexit ERR
+
+function cleanup(){
+	trap - INT QUIT TERM EXIT
+	rm -f "${tempfile}"
+}
+trap cleanup INT QUIT TERM EXIT
+tempfile="$(mktemp)"
+printf "Dev;Size;Model;Serial;POH;PCC;RSC;WLC;UEC;CPS;OUN;PASS\n" >> "${tempfile}"
+
+while read -r scsidisk
+do
+	printf "." >&2
+	dev="/dev/$(basename "${scsidisk}")"
+	smartdata="$(timeout --kill-after=5 5 smartctl -j -a "${dev}")"
+	size="$(jq -r '.user_capacity.bytes' <<< "${smartdata}")"
+	(
+	printf "%s;" "$(basename "${scsidisk}")"
+	printf "%s;" "${size}"
+	printf "%s;" "$(jq -r .model_name <<< "${smartdata}")"
+	printf "%s;" "$(jq -r .serial_number <<< "${smartdata}")"
+	printf "%s;" "$(jq -r '.ata_smart_attributes.table[] | select(.id==9)'.raw.string <<< "${smartdata}")" # Power_On_Hours 
+	printf "%s;" "$(jq -r '.ata_smart_attributes.table[] | select(.id==12)'.raw.string <<< "${smartdata}")" # Power_Cycle_Count
+	printf "%s;" "$(jq -r '.ata_smart_attributes.table[] | select(.id==5)'.raw.string <<< "${smartdata}")" # Reallocated_Sector_Ct
+	printf "%s;" "$(jq -r '.ata_smart_attributes.table[] | select(.id==177)'.value <<< "${smartdata}")" # Wear_Leveling_Count
+	printf "%s;" "$(jq -r '.ata_smart_attributes.table[] | select(.id==187)'.raw.string <<< "${smartdata}")" # Uncorrectable_Error_Cnt
+	printf "%s;" "$(jq -r '.ata_smart_attributes.table[] | select(.id==197)'.raw.string <<< "${smartdata}")" # Current_Pending_Sector
+	printf "%s;" "$(jq -r '.ata_smart_attributes.table[] | select(.id==198)'.raw.string <<< "${smartdata}")" # Offline_Uncorrectable
+	printf "%s\n" "$(jq -r .smart_status.passed <<< "${smartdata}")"
+	) >> "${tempfile}"
+done < <(find /sys/class/scsi_disk/*/device/block -mindepth 1 -maxdepth 1) 
+printf "\n" >&2
+
+column -t -s ";" < "${tempfile}"
+
+cat <<Here
+
+(POH) Power_On_Hours, (PCC) Power_Cycle_Count, (RSC) Reallocated_Sector_Ct,
+(WLC) Wear_Leveling_Count, (UEC) Uncorrectable_Error_Cnt, 
+(CPS) Current_Pending_Sector, (OUN) Offline_Uncorrectable, 
+(PASS) Overall Health Status Passed
+
+Here

@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# efirepl
+#
+# Finds all EFI system partitions on the system and distributes additional
+# GRUB bootloader instances onto them.
+
+export LVM_SUPPRESS_FD_WARNINGS=1
+set -o errexit
+
+function errorexit() {
+        trap - ERR
+        printf "Error on line %s\n" "$(caller)"
+        exit 1
+}
+trap errorexit ERR
+
+function cleanup(){
+        trap - INT QUIT TERM EXIT
+        rm -f "${tmpfile_json}"
+        rm -f "${tmpfile_list}"
+        if mountpoint -q "${tmpdir_mount}"
+        then
+                umount "${tmpdir_mount}"
+        fi
+        rmdir "${tmpdir_mount}"
+}
+trap cleanup INT QUIT TERM EXIT
+tmpfile_json="$(mktemp)"
+tmpfile_list="$(mktemp)"
+tmpdir_mount="$(mktemp -d /tmp/mnt.XXXX)"
+
+update-grub
+
+printf "Listing block devices.\n"
+lsblk --list --output=name,uuid,parttype --json > "${tmpfile_json}"
+
+printf "Finding EFI boot filesystems.\n"
+jq -r '.blockdevices[] | select(.parttype=="c12a7328-f81f-11d2-ba4b-00a0c93ec93b") | [.name, .uuid] | @tsv' "${tmpfile_json}" > "${tmpfile_list}"
+
+printf "Processing file systems.\n"
+while read -r dev uuid
+do
+        printf "Mounting %s (UUID %s) on %s.\n" "${dev}" "${uuid}" "${tmpdir_mount}"
+        mount "/dev/disk/by-uuid/${uuid}" "${tmpdir_mount}"
+        grub-install --recheck --bootloader-id "debian-${uuid}" --efi-directory="${tmpdir_mount}" "/dev/disk/by-uuid/${uuid}"
+        tree --noreport -D "${tmpdir_mount}/EFI" 2>/dev/null || find "${tmpdir_mount}/EFI" -type f | xargs ls -l
+        umount "${tmpdir_mount}"
+done < "${tmpfile_list}"
+
+printf "Updating EFI boot order.\n"
+bootorder=''
+for num in $(efibootmgr | grep debian | sort | sed -n 's/^Boot\([0-9A-F]*\).*$/\1/p')
+do
+        if [[ -z $bootorder ]]
+        then
+                bootorder="$num"
+        else
+                bootorder="$bootorder,$num"
+        fi
+done
+efibootmgr --bootorder "$bootorder"

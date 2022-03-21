@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+LANG=C
+if [[ ! -v SRANDOM ]]
+then
+	echo "This bash script requires SRANDOM support. (Bash 5.1)"
+	exit 1
+fi
+
+for try_wordlist_file in /usr/share/dict/ngerman /usr/share/dict/*english /usr/share/dict/words
+do
+	if [[ -e "${try_wordlist_file}" ]]
+	then
+		wordlist_file="${try_wordlist_file}"
+		break
+	fi
+done
+
+if [[ ! -v wordlist_file ]]
+then
+	printf "No wordlist found.\n"
+	exit 1
+fi
+
+function randword() {
+	local min=3
+	local max=8
+	local word
+	local first
+	local rest
+	while read -r word
+	do
+		# Word must be 7 bit ASCII
+		[[ ! "${word}" =~ [^a-zA-Z] ]] || continue
+		# Word must be at least min long
+		[[ ${#word} -ge $min ]] || continue
+		# Word must be at most max long
+		[[ ${#word} -le $max ]] || continue
+		# randomly capitalize the first character
+		if [[ $(( SRANDOM % 4 )) -eq 0 ]]
+		then
+			first="${word:0:1}"
+			rest="${word:1}"
+			first="${first^^}"
+			printf -v word "%s%s" "${first}" "${rest}"
+		fi
+		printf "%s\n" "${word}"
+		return
+	done < <(shuf "${wordlist_file}")
+}
+
+function randchar() {
+	local chars=('.' ',' '-' '_' ':' '#' '=' '+' '!' '*' ' ' '(' ')' '|' '?' '<' '>')
+	local count=${#chars[@]}
+	local rand=$(( SRANDOM % count ))
+	printf "%s\n" "${chars[${rand}]}"
+}
+
+function randnum() {
+	printf "%.6s\n" $SRANDOM 
+}
+
+function quality() {
+	local word="${1}"
+	[[ "${word}" =~ [a-z]                ]] || return 1
+	[[ "${word}" =~ [A-Z]                ]] || return 1
+	[[ "${word}" =~ [0-9]                ]] || return 1
+	[[ "${word}" =~ [[:punct:][:space:]] ]] || return 1
+	return 0
+}
+
+done=0
+while [[ $done -lt 10 ]]
+do
+	printf -v try "%s%s%s%s%s" "$(randword)" "$(randchar)" "$(randnum)" "$(randchar)" "$(randword)"
+	if quality "${try}"
+	then
+		printf "%s\n" "${try}"
+		(( done += 1 ))
+	fi
+done
