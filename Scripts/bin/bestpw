@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 LANG=C
+DE_US_SAFE=1
 if [[ ! -v SRANDOM ]]
 then
 	echo "This bash script requires SRANDOM support. (Bash 5.1)"
@@ -29,8 +30,13 @@ function randword() {
 	local rest
 	while read -r word
 	do
+		if [[ ${DE_US_SAFE} -eq 1 ]]
+		then
+			# Eliminate Y and Z for keyboard interchange
+			[[ "${word}" =~ [yzYZ] ]] && continue
+		fi
 		# Word must be 7 bit ASCII
-		[[ ! "${word}" =~ [^a-zA-Z] ]] || continue
+		[[ "${word}" =~ [^a-zA-Z] ]] && continue
 		# Word must be at least min long
 		[[ ${#word} -ge $min ]] || continue
 		# Word must be at most max long
@@ -49,7 +55,13 @@ function randword() {
 }
 
 function randchar() {
-	local chars=('.' ',' '-' '_' ':' '#' '=' '+' '!' '*' ' ' '(' ')' '|' '?' '<' '>')
+	if [[ ${DE_US_SAFE} -eq 1 ]]
+	then
+		# Use only chars that are same on US and DE keyboards
+		local chars=('.' ',' '!' '$' '%' ' ')
+	else
+		local chars=('.' ',' '-' '_' ':' '#' '=' '+' '%' '!' '$' '*' ' ' '(' ')' '|' '?' '<' '>')
+	fi
 	local count=${#chars[@]}
 	local rand=$(( SRANDOM % count ))
 	printf "%s\n" "${chars[${rand}]}"
