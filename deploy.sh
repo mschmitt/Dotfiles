@@ -39,7 +39,7 @@ bash Git/gitconf.sh
 test -d .git && install -v -m 700 Git/pre-commit .git/hooks/pre-commit
 
 bash Gnome/gnomeconf.sh
-[[ -e /etc/xdg/autostart/gnome-keyring-ssh.desktop ]] && install -D Gnome/gnome-keyring-ssh.desktop ~/.config/autostart
+[[ -e /etc/xdg/autostart/gnome-keyring-ssh.desktop ]] && install -D Gnome/gnome-keyring-ssh.desktop ~/.config/autostart/
 
 bash Misc/ansible.sh
 
