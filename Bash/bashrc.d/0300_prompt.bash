@@ -24,7 +24,10 @@ case "$(hostname -s | openssl dgst -md5 | awk '{print $NF}')" in
 	PROMPTHOST="${PROMPTHOST}(thinkpad)"
 	;;
 '7ec9e74c65cf47d0b51b6b24e484f8b0')
-	PROMPTHOST="${PROMPTHOST}(linux-dev)"
+	PROMPTHOST="${PROMPTHOST}(dev-2004)"
+	;;
+'56c853fb14726313be2acafc44c8dfde')
+	PROMPTHOST="${PROMPTHOST}(dev-2204)"
 	;;
 esac
 
