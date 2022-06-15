@@ -1,0 +1,34 @@
+#!/usr/bin/perl -w
+use strict;
+use diagnostics;
+use File::Basename;
+use File::Copy;
+use Data::Dumper;
+use Image::ExifTool;
+use POSIX qw(strftime);
+use Time::Local;
+
+foreach my $file (@ARGV){
+	my $filename = basename($file);
+	my $dirname  = dirname($file);
+	unless ((-f $file) and ($file =~ /\.(CR2|JPG|DNG|CRW|BMP)$/i)){
+		print "$file: No photo. Skip.\n";
+		return;
+	}
+	my $exifTool = new Image::ExifTool;
+	$exifTool->Options(DateFormat => '%Y%m%d_%H%M%S');
+	my $info = $exifTool->ImageInfo($file);
+	my $datetime = $info->{'DateTimeOriginal'};
+	# absolut schwachsinnige Apple-Namenskonvention wegbügeln
+	if ($filename =~ /^Foto \d{2}\.\d{2}\.\d{2}, \d{2} \d{2} \d{2}\.(.+)$/){
+		$filename = "iPhone.$1";
+	}
+	my $target = sprintf("%s/%s_%s", $dirname, $datetime, $filename);
+	while (-f "$target"){
+		$datetime++;
+		$target = sprintf("%s/%s_%s", $dirname, $datetime, $filename);
+	}
+	move($file, $target);
+	print "$file -> $target\n";
+}
+
