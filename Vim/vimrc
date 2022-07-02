@@ -177,4 +177,8 @@ if !empty(globpath(&rtp, 'vimtabs'))
 endif
 " Trailing space on above line is required.
 
-
+" Disable quote concealing in JSON files
+" https://stackoverflow.com/a/59399484/263310
+if has('eval')
+	let g:vim_json_conceal = 0
+endif
