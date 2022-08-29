@@ -74,7 +74,7 @@ function find_smarthealth {
 	OUTPUT_TEMP='Disk temperatures:'
 	if type smartctl >/dev/null 2>&1 && [[ $UID -eq 0 ]]
 	then
-		for SCSIDISK in $(find /sys/class/scsi_disk/*/device/block -mindepth 1 -maxdepth 1)
+		for SCSIDISK in $(find /sys/class/scsi_disk/*/device/block -mindepth 1 -maxdepth 1 2>/dev/null)
 		do
 			SCSIDISK=/dev/$(basename $SCSIDISK)
 			TEMPFILE=$(mktemp)
