@@ -45,6 +45,12 @@
       path: /etc/default/sysstat
       regexp: '^ENABLED'
       line: 'ENABLED="true"'
+  - name: Disable resilio system service
+    systemd:
+      name: resilio-sync
+      scope: system
+      enabled: no
+      state: stopped
 - hosts: localhost
   become: false
   gather_facts: false
@@ -65,5 +71,6 @@
       name: resilio-sync
       scope: user
       enabled: yes
+      state: started
 
 # vim: filetype=yaml
