@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -o errexit
 
+me_path="$(readlink -f "$0")"
+me_dir="$(dirname "${me_path}")"
+me_base="$(basename "${me_path}")"
+
 function errorexit() {
 	trap - ERR
 	printf "Error on line %s\n" "$(caller)"
