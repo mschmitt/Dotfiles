@@ -1,0 +1,20 @@
+---
+
+- name: Retrieve key {{ key.filename }}
+  get_url:
+    url: '{{ key.url }}'
+    dest: '/etc/apt/trusted.gpg.d/{{ key.filename }}'
+    mode: 0644
+  when: key is defined
+- name: Add apt source {{ repo.filename }}
+  apt_repository:
+    repo: '{{ repo.source }}'
+    state: present
+    filename: '{{ repo.filename }}'
+- name: Install {{ install }}
+  apt:
+    name: '{{ install }}'
+    update_cache: true
+  when: install is defined
+
+# vim: filetype=yaml

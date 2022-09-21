@@ -1,0 +1,69 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+  become: true
+  gather_facts: false
+  connection: local
+  roles:
+  - role: install-apt
+    repo:
+      source: deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free
+      filename: rslsync
+    key:
+      url: https://linux-packages.resilio.com/resilio-sync/key.asc
+      filename: rslsync.asc
+    install: 
+    - resilio-sync
+  - role: install-apt
+    repo:
+      source: deb https://typora.io/linux ./
+      filename: typora
+    key:
+      url: https://typoraio.cn/linux/public-key.asc
+      filename: typora.asc
+    install: 
+    - typora
+  - role: install-apt
+    key:
+      url: https://keys.anydesk.com/repos/DEB-GPG-KEY
+      filename: anydesk.asc
+    repo:
+      source: deb http://deb.anydesk.com/ all main
+      filename: anydesk-stable
+    install:
+    - anydesk
+  tasks:
+  - name: Install sysstat, locate and apt-file
+    apt:
+      name: 
+      - sysstat 
+      - locate 
+      - apt-file
+      update_cache: true
+  - name: Enable sysstat
+    lineinfile:
+      path: /etc/default/sysstat
+      regexp: '^ENABLED'
+      line: 'ENABLED="true"'
+- hosts: localhost
+  become: false
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Resilio override (step 1)
+    file:
+      path: ~/.config/systemd/user/resilio-sync.service.d/
+      state: directory
+  - name: Resilio override (step 2)
+    copy:
+      content: |
+        [Install]
+        WantedBy=default.target
+      dest: ~/.config/systemd/user/resilio-sync.service.d/override.conf
+  - name: Enable resilio user service
+    systemd:
+      name: resilio-sync
+      scope: user
+      enabled: yes
+
+# vim: filetype=yaml
