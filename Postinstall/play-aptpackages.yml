@@ -51,6 +51,11 @@
       scope: system
       enabled: no
       state: stopped
+  - name: REMOVE THE NANO EDITOR
+    apt:
+      name: nano
+      state: absent
+      purge: yes
 - hosts: localhost
   become: false
   gather_facts: false
