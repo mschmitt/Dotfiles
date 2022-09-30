@@ -33,12 +33,14 @@
     install:
     - anydesk
   tasks:
-  - name: Install sysstat, locate and apt-file
+  - name: Install misc. useful packages
     apt:
       name: 
       - sysstat 
       - locate 
       - apt-file
+      - trash-cli
+      - wireshark
       update_cache: true
   - name: Enable sysstat
     lineinfile:
@@ -61,11 +63,11 @@
   gather_facts: false
   connection: local
   tasks:
-  - name: Resilio override (step 1)
+  - name: Resilio drop-in directory
     file:
       path: ~/.config/systemd/user/resilio-sync.service.d/
       state: directory
-  - name: Resilio override (step 2)
+  - name: Resilio drop-in file (-> WantedBy=default.target)
     copy:
       content: |
         [Install]
