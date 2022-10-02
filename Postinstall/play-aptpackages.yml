@@ -32,6 +32,15 @@
       filename: anydesk-stable
     install:
     - anydesk
+  - role: install-apt
+    repo:
+      source: deb [arch=amd64] https://ppa.javinator9889.com all main
+      filename: javinator9889-ppa
+    key:
+      url: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf047de71abd761ba176dc1d508633b4aaaeb49fc
+      filename: javinator9889-ppa.asc
+    install:
+    - discord
   tasks:
   - name: Install sysstat, locate and apt-file
     apt:
