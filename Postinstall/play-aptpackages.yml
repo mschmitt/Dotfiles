@@ -48,6 +48,8 @@
       - sysstat 
       - locate 
       - apt-file
+      - tmux
+      - screen
       - trash-cli
       - wireshark
       update_cache: true
