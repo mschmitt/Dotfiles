@@ -92,9 +92,17 @@ then
 		cfgsync AntiX/IceWM/theme ~/.icewm/theme
 fi
 
+for FILE in $(ls Private/SSH/config.d/*); do
+	cfgsync "$FILE" "$HOME/.ssh/config.d/$(basename $FILE)"
+done
+
 if type ansible-playbook >/dev/null 2>&1
 then
 	ansible-playbook -i Cron/inventory Cron/crontab.yml
+	if [[ -d "$HOME/.ssh/config.d/" ]]
+	then
+		ansible-playbook -i Private/SSH/inventory Private/SSH/include.yml
+	fi
 else
-	echo 'Cronjobs? Install ansible maybe?'
+	echo 'Install ansible maybe?'
 fi
