@@ -10,6 +10,7 @@
       hour: "*/6"
       job: "dpkg --get-selections > ~/.dpkg-get-selections 2>/dev/null"
   - name: Add cron job for backing up the user crontab
+    when: ansible_facts.os_family == 'Debian'
     cron:
       name: crontab-backup
       minute: "0"
