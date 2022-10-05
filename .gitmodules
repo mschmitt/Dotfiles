@@ -1,7 +1,3 @@
 [submodule "Bash/Completion/complete-alias"]
 	path = Bash/Completion/complete-alias
 	url = https://github.com/cykerway/complete-alias
-[submodule "Private"]
-	path = Private
-	url = idefix:Private-Dotfiles
-	branch = main
