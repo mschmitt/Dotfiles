@@ -1,6 +1,7 @@
 # Restic notes
 
-This is public but still not thoroughly integration tested.
+* This is public but still not thoroughly integration tested.
+* Big TODO: Make usable on zsh
 
 ## Bootstrap file
 
@@ -44,6 +45,14 @@ restic init
 * restic-umount umounts the backup from ~/restic/mnt if things went wrong
 * restic-snapshots lists all backed-up snapshots fyi
 * restic-age shows seconds since last backup
+
+## systemd
+
+```
+install -D systemd-user/restic* ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable restic.timer
+```
 
 ## Panic
 

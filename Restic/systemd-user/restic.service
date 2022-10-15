@@ -1,0 +1,7 @@
+[Unit]
+Description=Restic (service)
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env bash -c '. %h/.restic/bootstrap; restic-backup'

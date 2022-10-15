@@ -1,0 +1,9 @@
+[Unit]
+Description=Restic (Timer)
+
+[Timer]
+OnStartupSec=600
+OnUnitInactiveSec=7200
+
+[Install]
+WantedBy=default.target
