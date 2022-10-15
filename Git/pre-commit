@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DATE=$(date +%s)
 perl -i.bak -p -e "s/^LOCAL_TIMESTAMP=.*/LOCAL_TIMESTAMP=$DATE/" Bash/bashrc.d/0950_checkupdate.bash

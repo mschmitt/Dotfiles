@@ -11,6 +11,8 @@ alias vi=vim
 alias wget-mirror='wget --tries=20 --mirror --retry-connrefused --no-parent --waitretry=300 -e robots=off'
 alias mc='mc --nomouse --no-x11 --stickchars --nocolor'
 alias tohtml='vim -c TOhtml -c w -c qa'
+alias vinix='sudoedit /etc/nixos/configuration.nix'
+alias renix='sudo nixos-rebuild'
 
 if [[ "$UNAME_S" == "Darwin" ]]
 then
