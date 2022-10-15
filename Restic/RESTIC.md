@@ -51,7 +51,7 @@ restic init
 ```
 install -D systemd-user/restic* ~/.config/systemd/user/
 systemctl --user daemon-reload
-systemctl --user enable restic.timer
+systemctl --user enable --now restic.timer
 ```
 
 ## Panic
