@@ -4,4 +4,6 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=oneshot
+# Next line is highly specific to my own environment
+Environment=SSH_AUTH_SOCK=%h/.ssh/agent.socket
 ExecStart=/usr/bin/env bash -c '. %h/.restic/bootstrap; restic-backup'
