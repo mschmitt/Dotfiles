@@ -1,43 +1,52 @@
 # Restic notes
 
-## Repository definition
+This is public but still not thoroughly integration tested.
+
+## Bootstrap file
 
 ```
-export RESTIC_REPOSITORY=/media/${LOGNAME}/Backup/restic-repo/
-export RESTIC_REPOSITORY=sftp:backupserver:/export/foo/restic-repo/
-etc.
+install -D bootstrap.bash ~/.restic/bootstrap
+echo '. ~/.restic/bootstrap' >> ~/.bashrc
+```
+
+## Repository definition goes to ~/.restic/repo-location
+
+```
+/media/${LOGNAME}/Backup/restic-repo/
+sftp:backupserver:/export/foo/restic-repo/
+etc. (only one definition in this file)
 ```
 
 ## Password generation
 
 ```
-export RESTIC_PASSWORD_FILE=~/.restic-password
+RESTIC_PASSWORD_FILE=~/.restic/password
 openssl rand -hex 32 > "${RESTIC_PASSWORD_FILE}"
 gpg --encrypt --armor --default-recipient-self "${RESTIC_PASSWORD_FILE}"
 ```
 
 I tend to keep the password file live in the home directory (file system itself
-must be encrypted) and to keep the encrypted password backup on the same media
+should be encrypted) and to keep the encrypted password backup on the same media
 as the repository. I also prefer the backup media to be unencrypted.
 
 ## Repository initialization
 
-With the environment variables from above set:
-
 ```
+. ~/.restic/bootstrap
 restic init
 ```
 
-## Aliases and function
+## Functions
 
 * restic-backup backs up, no questions asked
 * restic-forget forgets and prunes all but the 3 previous snapshots
-* restic-mount mounts the backup on ~/restic
+* restic-mount mounts the backup on ~/.restic/mnt
+* restic-umount umounts the backup from ~/restic/mnt if things went wrong
 * restic-snapshots lists all backed-up snapshots fyi
 * restic-age shows seconds since last backup
 
 ## Panic
 
-* Find the encrypted password file and decrypt to ~/.restic-password
+* Find the encrypted password file and decrypt to ~/.restic/password
 * Set environment variables for password and repository
-* restic mount ~/restic
+* restic mount ~/.restic/mnt
