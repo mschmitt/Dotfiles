@@ -18,5 +18,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Alt>x']"
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.desktop.interface clock-format '24h'
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
 
 
