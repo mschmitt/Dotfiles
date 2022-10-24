@@ -24,6 +24,7 @@ plugins=(
 	'https://github.com/vimoutliner/vimoutliner'
 	'https://github.com/yggdroot/indentline'
 	'https://github.com/pedrohdz/vim-yaml-folds'
+	'https://github.com/tpope/vim-vinegar'
 )
 
 function git_clone_or_pull() {
