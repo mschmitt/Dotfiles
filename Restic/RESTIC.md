@@ -18,10 +18,10 @@ sftp:backupserver:/export/foo/restic-repo/
 etc. (only one definition in this file)
 ```
 
-## Password generation
+## Password goes to ~/.restic/repo-password
 
 ```
-RESTIC_PASSWORD_FILE=~/.restic/password
+RESTIC_PASSWORD_FILE=~/.restic/repo-password
 openssl rand -hex 32 > "${RESTIC_PASSWORD_FILE}"
 gpg --encrypt --armor --default-recipient-self "${RESTIC_PASSWORD_FILE}"
 ```
