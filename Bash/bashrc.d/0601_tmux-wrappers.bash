@@ -5,9 +5,9 @@ then
 fi
 
 function tmux_vmail() {
-	tmux new-session -d 'ssh vmx1 -A'
-	tmux split-window 'ssh vmx2 -A'
-	tmux split-window 'ssh vmail -A'
+	tmux new-session -d 'ssh vmx1'
+	tmux split-window 'ssh vmx2'
+	tmux split-window 'ssh vmail'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
@@ -16,8 +16,8 @@ function tmux_vmail() {
 }
 
 function tmux_vmx() {
-	tmux new-session -d 'ssh vmx1 -A'
-	tmux split-window 'ssh vmx2 -A'
+	tmux new-session -d 'ssh vmx1'
+	tmux split-window 'ssh vmx2'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
@@ -26,8 +26,8 @@ function tmux_vmx() {
 }
 
 function tmux_netman() {
-	tmux new-session -d 'ssh netman1 -A'
-	tmux split-window 'ssh netman2 -A'
+	tmux new-session -d 'ssh netman1'
+	tmux split-window 'ssh netman2'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
@@ -36,19 +36,18 @@ function tmux_netman() {
 }
 
 function tmux_vpn() {
-	tmux new-session -d 'ssh bravo -l root -A'
-	tmux split-window 'ssh oscar -l root -A'
-	tmux split-window 'ssh yankee -l root -A'
+	tmux new-session -d 'ssh bravo'
+	tmux split-window 'ssh oscar'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
-	tmux rename-window 'bravo/oscar/yankee'
+	tmux rename-window 'bravo/oscar'
 	tmux attach-session
 }
 
 function tmux_dohcluster() {
-	tmux new-session -d 'ssh bravo -l root -A'
-	tmux split-window 'ssh vweb3 -l root -A'
+	tmux new-session -d 'ssh bravo -l root'
+	tmux split-window 'ssh vweb3 -l root'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
@@ -57,8 +56,8 @@ function tmux_dohcluster() {
 }
 
 function tmux_freifunk() {
-	tmux new-session -d 'ssh ff-bruecke -A'
-	tmux split-window 'ssh ff-jungle -A'
+	tmux new-session -d 'ssh ff-bruecke'
+	tmux split-window 'ssh ff-jungle'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
