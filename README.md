@@ -35,6 +35,8 @@ Improved defaults, including GUI settings and the plugins I use:
 * Outliner
 * Indentline (for YAML)
 * YAML folds
+* Vinegar file explorer
+* Startify start screen
 
 I use pathogen for vim plugin management: https://github.com/tpope/vim-pathogen
 

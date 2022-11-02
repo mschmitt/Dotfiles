@@ -34,6 +34,7 @@ test -d "$HOME/.vim/skeleton" || mkdir "$HOME/.vim/skeleton/"
 for FILE in $(ls Vim/skeleton/*); do
 	cfgsync "$FILE" "$HOME/.vim/skeleton/$(basename $FILE)"
 done
+Vim/install-plugins.sh
 
 bash Git/gitconf.sh
 test -d .git && install -v -m 700 Git/pre-commit .git/hooks/pre-commit
