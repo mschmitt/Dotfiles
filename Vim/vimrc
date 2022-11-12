@@ -182,3 +182,14 @@ endif
 if has('eval')
 	let g:vim_json_conceal = 0
 endif
+
+" Cleaner vimdiff, more usable as git diftool
+if &diff
+	" https://unix.stackexchange.com/q/60530/2028
+	if has('syntax')
+		syntax off
+	endif
+	set t_Co=0
+	" https://stackoverflow.com/q/18544238/263310
+	set noro
+endif
