@@ -107,8 +107,8 @@ set fileencodings=ucs-bom,utf-8,default,latin1
 " Buffer navigation with Ctrl+cursor https://vi.stackexchange.com/q/2129
 map <C-J> :bprev<CR>
 map <C-K> :bnext<CR>
-map <C-H> :brewind<CR>
-map <C-L> :blast<CR>
+map <C-H> :tabp<CR>
+map <C-L> :tabn<CR>
 
 " stop right mouse click from jumping into visual mode
 " https://github.com/vim/vim/issues/1326
@@ -168,6 +168,12 @@ endif
 if has('eval')
 	let g:indentLine_char = '·'
 endif
+
+" Disable startify fortune
+if has('eval')
+	let g:startify_custom_header = []
+endif
+
 
 " And derived from the above, indent markers for regular tabs:
 " touch/rm ~/.vim/vimtabs to enable/disable
