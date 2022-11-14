@@ -43,6 +43,7 @@ bash Gnome/gnomeconf.sh
 [[ -e /etc/xdg/autostart/gnome-keyring-ssh.desktop ]] && install -D Gnome/gnome-keyring-ssh.desktop ~/.config/autostart/
 
 bash Misc/ansible.sh
+install -D Misc/yamllint.yml ~/.config/yamllint/config
 
 cfgsync Screen/screenrc "$HOME/.screenrc"
 for I in 1 2 3 4 5 6 7 8 9 

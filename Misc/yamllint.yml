@@ -1,0 +1,5 @@
+# vim:filetype=yaml
+---
+extends: relaxed
+rules:
+  line-length: disable
