@@ -11,7 +11,10 @@ export GIT_EDITOR=vim
 export EDITOR=vim
 [[ "$UNAME_S" == "Linux" ]] && export LVM_SUPPRESS_FD_WARNINGS=1
 
-if [[ "$TERM" == "screen" ]]
+if [[ "$TERM" == "screen" ]] 
+then
+	export TMOUT=0
+elif [[ -v VSCODE_SHELL_INTEGRATION ]]
 then
 	export TMOUT=0
 else
