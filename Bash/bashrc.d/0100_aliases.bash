@@ -12,7 +12,7 @@ alias wget-mirror='wget --tries=20 --mirror --retry-connrefused --no-parent --wa
 alias mc='mc --nomouse --no-x11 --stickchars --nocolor'
 alias tohtml='vim -c TOhtml -c w -c qa'
 alias vinix='sudoedit /etc/nixos/configuration.nix'
-alias renix='sudo nixos-rebuild'
+alias renix='sudo nice ionice nixos-rebuild'
 
 if [[ "$UNAME_S" == "Darwin" ]]
 then
