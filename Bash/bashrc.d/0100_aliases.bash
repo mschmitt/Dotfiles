@@ -26,7 +26,7 @@ then
 elif  [[ "$UNAME_S" == "Linux" || "$UNAME_S" =~ CYGWIN_NT ]]
 then
 	alias ls='ls --color=auto'
-	alias top='top -c'
+	[[ -d /etc/nixos ]] || alias top='top -c'
 fi
 
 if [[ "$UNAME_S" =~ CYGWIN_NT ]]
