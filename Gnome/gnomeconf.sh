@@ -13,12 +13,17 @@ gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click false
 gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+altgr-intl')]"
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:none']"
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:none', 'eurosign:e']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Alt>x']"
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.desktop.interface clock-format '24h'
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
+gsettings set org.gnome.mutter overlay-key ''
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
 
+# NixOS workaround
+dconf write /org/gnome/mutter/dynamic-workspaces false
+dconf write /org/gnome/mutter/overlay-key "''"
