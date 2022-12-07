@@ -1,3 +1,6 @@
 [submodule "Bash/Completion/complete-alias"]
 	path = Bash/Completion/complete-alias
 	url = https://github.com/cykerway/complete-alias
+[submodule "gnome-wallpaper"]
+	path = Gnome/gnome-wallpaper
+	url = https://gist.github.com/mschmitt/5fbbe043ba0f0e1f39ea517f1aae85ab
