@@ -47,9 +47,6 @@ The install-plugins.sh script can be used to bootstrap all Vim plugins.
 These are mostly color settings with the notable exception of minttyrc which
 contains a few additional settings for the Cygwin terminal.
 
-Colors are based on the xresource defaults for xterm, with the lighter ones
-tuned a bit darker, similar to the defaults on macOS's Terminal.app.
-
 Merging putty colors into existing sessions is best done with putty session
 manager https://sourceforge.net/projects/puttysm/ or creative copying and
 editing of the REG file.
