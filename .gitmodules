@@ -4,3 +4,6 @@
 [submodule "gnome-wallpaper"]
 	path = Gnome/gnome-wallpaper
 	url = https://gist.github.com/mschmitt/5fbbe043ba0f0e1f39ea517f1aae85ab
+[submodule "Bash/Colors/LS_COLORS"]
+	path = Bash/Colors/LS_COLORS
+	url = https://github.com/trapd00r/LS_COLORS

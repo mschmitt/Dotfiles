@@ -27,6 +27,7 @@ for FILE in $(ls Bash/bashrc.d/*bash); do
 done
 
 cfgsync Bash/Completion/bash_completion "$HOME/.bash_completion"
+cfgsync Bash/Colors/LS_COLORS/LS_COLORS "$HOME/.dircolors"
 
 cfgsync Vim/vimrc "$HOME/.vimrc"
 test -d "$HOME/.vim/"         || mkdir "$HOME/.vim/"
