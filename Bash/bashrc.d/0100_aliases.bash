@@ -25,7 +25,7 @@ then
 	alias ls='ls -G'
 elif  [[ "$UNAME_S" == "Linux" || "$UNAME_S" =~ CYGWIN_NT ]]
 then
-	alias ls='ls --color=auto'
+	alias ls='ls --color=auto --file-type'
 	[[ -d /etc/nixos ]] || alias top='top -c'
 fi
 
