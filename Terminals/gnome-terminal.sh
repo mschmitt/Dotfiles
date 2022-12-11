@@ -108,7 +108,7 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#000000:#ff9a9a:#7cff7c:#ffff00:#5555ff:#ff43a3:#9ffff5:#ffffff:#171716:#b30000:#00ffff:#ffff00:#3636ff:#e20074:#40e0d0:#bbbbbb"
+gset string palette "#000000:#ff9a9a:#7cff7c:#ffff00:#5555ff:#ff43a3:#9ffff5:#ffffff:#171716:#b30000:#00ff00:#ffff00:#3636ff:#e20074:#40e0d0:#bbbbbb"
 gset string background_color "#000000"
 gset string foreground_color "#ffffff"
 gset string bold_color "#ffffff"
