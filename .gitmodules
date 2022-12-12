@@ -7,3 +7,18 @@
 [submodule "Bash/Colors/LS_COLORS"]
 	path = Bash/Colors/LS_COLORS
 	url = https://github.com/trapd00r/LS_COLORS
+[submodule "Dracula/midnight-commander"]
+	path = Dracula/midnight-commander
+	url = https://github.com/dracula/midnight-commander.git
+[submodule "Dracula/xresources"]
+	path = Dracula/xresources
+	url = https://github.com/dracula/xresources.git
+[submodule "Dracula/vim"]
+	path = Dracula/vim
+	url = https://github.com/dracula/vim.git
+[submodule "Dracula/gnome-terminal"]
+	path = Dracula/gnome-terminal
+	url = https://github.com/dracula/gnome-terminal.git
+[submodule "putty"]
+	path = putty
+	url = https://github.com/dracula/putty.git
