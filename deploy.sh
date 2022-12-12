@@ -101,3 +101,5 @@ then
 else
 	echo 'Install ansible maybe?'
 fi
+
+install -D Dracula/midnight-commander/skins/dracula256.ini ~/.local/share/mc/skins/dracula256.ini
