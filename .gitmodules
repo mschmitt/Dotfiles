@@ -25,3 +25,6 @@
 [submodule "Dracula/dircolors"]
 	path = Dracula/dircolors
 	url = https://github.com/dracula/dircolors.git
+[submodule "Dracula/mintty"]
+	path = Dracula/mintty
+	url = https://github.com/dracula/mintty.git
