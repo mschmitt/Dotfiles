@@ -22,3 +22,6 @@
 [submodule "putty"]
 	path = Dracula/putty
 	url = https://github.com/dracula/putty.git
+[submodule "Dracula/dircolors"]
+	path = Dracula/dircolors
+	url = https://github.com/dracula/dircolors.git
