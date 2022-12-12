@@ -27,6 +27,7 @@ plugins=(
 	'https://github.com/tpope/vim-vinegar'
 	'https://github.com/mhinz/vim-startify'
 	'https://github.com/tpope/vim-fugitive'
+	'https://github.com/dracula/vim'
 )
 
 function git_clone_or_pull() {

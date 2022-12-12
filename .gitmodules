@@ -13,9 +13,6 @@
 [submodule "Dracula/xresources"]
 	path = Dracula/xresources
 	url = https://github.com/dracula/xresources.git
-[submodule "Dracula/vim"]
-	path = Dracula/vim
-	url = https://github.com/dracula/vim.git
 [submodule "Dracula/gnome-terminal"]
 	path = Dracula/gnome-terminal
 	url = https://github.com/dracula/gnome-terminal.git
