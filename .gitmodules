@@ -20,5 +20,5 @@
 	path = Dracula/gnome-terminal
 	url = https://github.com/dracula/gnome-terminal.git
 [submodule "putty"]
-	path = putty
+	path = Dracula/putty
 	url = https://github.com/dracula/putty.git
