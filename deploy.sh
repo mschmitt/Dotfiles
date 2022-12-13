@@ -42,6 +42,7 @@ test -d .git && install -v -m 700 Git/pre-commit .git/hooks/pre-commit
 
 bash Gnome/gnomeconf.sh
 [[ -e /etc/xdg/autostart/gnome-keyring-ssh.desktop ]] && install -D Gnome/gnome-keyring-ssh.desktop ~/.config/autostart/
+ansible-playbook Gnome/gnome-wallpaper/play-wallpaper.yml
 
 bash Misc/ansible.sh
 install -D Misc/yamllint.yml ~/.config/yamllint/config
