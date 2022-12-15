@@ -56,6 +56,7 @@ done
 case $(uname -s) in
 	"Darwin"|"Linux"|"FreeBSD")
 		echo "Platform is Darwin, Linux or FreeBSD"
+		STEAMROOT=~/.local/share/Steam
 		;;
 	"CYGWIN_NT-10.0")
 		echo "Platform is Cygwin"
@@ -63,10 +64,10 @@ case $(uname -s) in
 		cfgsync Vim/vimrc "$USERPROFILE/_gvimrc"
 		cfgsync Terminals/minttyrc "$HOME/.minttyrc"
 		cfgsync Cygwin/bashrc "$HOME/.bashrc"
+		STEAMROOT='/cygdrive/c/Program Files (x86)/Steam'
 		;;
 esac
 
-STEAMROOT='/cygdrive/c/Program Files (x86)/Steam'
 if [[ -d "$STEAMROOT" ]]
 then
 	readarray -t CFGDIRS < <(ls -d "$STEAMROOT"/userdata/*/730/local/cfg/)
