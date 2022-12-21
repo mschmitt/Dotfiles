@@ -18,10 +18,6 @@ set nocompatible
 " same as ":set backspace=indent,eol,start"
 set backspace=2
 
-if has('colorscheme')
-	colorscheme default
-endif
-
 " Always show coordinates
 set ruler
 
@@ -63,6 +59,10 @@ endif
 
 " Fail silently if pathogen not installed
 silent! execute pathogen#infect()
+
+if has('colorscheme')
+	colorscheme dracula
+endif
 
 " Asynchronous Lint Engine
 " let g:ale_sign_column_always = 1

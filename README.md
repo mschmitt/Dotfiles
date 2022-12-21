@@ -64,6 +64,10 @@ Note that I also use tmux for parallel terminals, through functions defined in
 
 Mostly configuration of git autocorrect and diff-/mergetool
 
+## /Dracula: Subthemes
+
+Potentially relevant color themes from from https://draculatheme.com
+
 ## /Restic: Restic notes
 
 Just some notes on how to use and additional .bashrc lines to bootstrap restic.

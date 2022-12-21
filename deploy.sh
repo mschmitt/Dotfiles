@@ -42,6 +42,7 @@ test -d .git && install -v -m 700 Git/pre-commit .git/hooks/pre-commit
 
 bash Gnome/gnomeconf.sh
 [[ -e /etc/xdg/autostart/gnome-keyring-ssh.desktop ]] && install -D Gnome/gnome-keyring-ssh.desktop ~/.config/autostart/
+ansible-playbook Gnome/gnome-wallpaper/play-wallpaper.yml
 
 bash Misc/ansible.sh
 install -D Misc/yamllint.yml ~/.config/yamllint/config
@@ -55,6 +56,7 @@ done
 case $(uname -s) in
 	"Darwin"|"Linux"|"FreeBSD")
 		echo "Platform is Darwin, Linux or FreeBSD"
+		STEAMROOT=~/.local/share/Steam
 		;;
 	"CYGWIN_NT-10.0")
 		echo "Platform is Cygwin"
@@ -62,10 +64,10 @@ case $(uname -s) in
 		cfgsync Vim/vimrc "$USERPROFILE/_gvimrc"
 		cfgsync Terminals/minttyrc "$HOME/.minttyrc"
 		cfgsync Cygwin/bashrc "$HOME/.bashrc"
+		STEAMROOT='/cygdrive/c/Program Files (x86)/Steam'
 		;;
 esac
 
-STEAMROOT='/cygdrive/c/Program Files (x86)/Steam'
 if [[ -d "$STEAMROOT" ]]
 then
 	readarray -t CFGDIRS < <(ls -d "$STEAMROOT"/userdata/*/730/local/cfg/)
@@ -101,3 +103,5 @@ then
 else
 	echo 'Install ansible maybe?'
 fi
+
+install -v -D Dracula/midnight-commander/skins/dracula256.ini ~/.local/share/mc/skins/dracula256.ini
