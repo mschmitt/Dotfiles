@@ -11,6 +11,8 @@ CopyAsRTF=no
 MiddleClickAction=extend
 RightClickAction=paste
 Term=xterm-256color
+Columns=128
+Rows=32
 
 ForegroundColour=248,248,242
 BackgroundColour=40,42,54
