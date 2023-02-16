@@ -14,6 +14,7 @@
     authy
     bash
     bash-completion
+    binutils
     bitwarden
     btop
     cron
@@ -47,6 +48,7 @@
     openssl
     openvpn
     pandoc
+    patchelf
     pciutils
     podman
     prelink
@@ -87,6 +89,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Kernel
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Kernel options
   boot.kernel.sysctl = { "kernel.sysrq" = 176; };
 
@@ -102,6 +107,18 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
+
+  # Additional sudoers rules
+  security.sudo.extraRules = [
+    { 
+      groups = [ "wheel" ];
+      runAs = "root";
+    	commands = [ 
+      	{ command = "sudoedit /etc/nixos/configuration.nix"; options = [ "NOPASSWD" ]; }
+      	{ command = "/run/current-system/sw/bin/nixos-rebuild"; options = [ "NOPASSWD" ]; }
+    	];
+		}
+	];
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
