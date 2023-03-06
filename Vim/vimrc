@@ -160,6 +160,12 @@ if has('autocmd')
 	autocmd BufWinLeave *\.py       mkview!
 	autocmd BufWinLeave user-data   mkview!
 	autocmd BufWinLeave .bashrc     mkview!
+
+	" Save View on filetype
+	autocmd BufWinLeave * if &ft == 'python'   | mkview! | endif
+	autocmd BufWinLeave * if &ft == 'yaml'     | mkview! | endif
+	autocmd BufWinLeave * if &ft == 'shell'    | mkview! | endif
+	autocmd BufWinLeave * if &ft == 'markdown' | mkview! | endif
 endif
 
 " Yaml indentline
