@@ -29,6 +29,7 @@ plugins=(
 	'https://github.com/tpope/vim-fugitive'
 	'https://github.com/jamessan/vim-gnupg'
 	'https://github.com/dracula/vim'
+	'https://github.com/christoomey/vim-system-copy'
 )
 
 function git_clone_or_pull() {
