@@ -48,9 +48,9 @@ then
 	GIT_PS1_SHOWUNTRACKEDFILES='y'
 	GIT_PS1_DESCRIBE_STYLE='contains'
 	GIT_PS1_SHOWUPSTREAM='auto'
-	PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
+	PS1="\$(bw_unlocked)\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w\$(__git_ps1 '(%s)')]\\$ "
 else
-	PS1="\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w]\\\$ "
+	PS1="\$(bw_unlocked)\$(mc_subsh)[$USERAS\u@$PROMPTHOST \w]\\\$ "
 fi
 
 # Trim CWD in prompt to this many elements
@@ -80,4 +80,13 @@ function mc_subsh() {
 		echo '{mc}'
 	fi
 }
+
+# Detect unlocked Bitwarden
+function bw_unlocked() {
+	if [[ -v BW_SESSION ]]
+	then
+		echo '{bw}'
+	fi
+}
+
 # vim: filetype=sh
