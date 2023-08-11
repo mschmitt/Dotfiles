@@ -7,6 +7,8 @@ git config --global commit.verbose true
 git config --global alias.log-full "log --stat --graph"
 git config --global alias.log-oneline "log --pretty=oneline"
 git config --global pull.rebase false
+git config --global alias.tags-fix "! git tag -l | xargs git tag -d; git pull --tags"
+git config --global alias.tags-push "push --tags"
 
 if type bcompare 2>/dev/null
 then
