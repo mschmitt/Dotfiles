@@ -1,5 +1,5 @@
 export RESTIC_REPOSITORY_FILE="${HOME}/.restic/repo-location"
-export RESTIC_PASSWORD_FILE="${HOME}/.restic/password"
+export RESTIC_PASSWORD_FILE="${HOME}/.restic/repo-password"
 export RESTIC_INCLUDES="${HOME}"
 export RESTIC_EXCLUDES="-e Sync -e Downloads"
 

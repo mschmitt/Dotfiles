@@ -31,6 +31,7 @@ plugins=(
 	'https://github.com/dracula/vim'
 	'https://github.com/tmhedberg/simpylfold'
 	'https://github.com/christoomey/vim-system-copy'
+	'https://github.com/jvirtanen/vim-hcl'
 )
 
 function git_clone_or_pull() {
