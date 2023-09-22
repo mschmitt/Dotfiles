@@ -1,0 +1,37 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+  connection: local
+  strategy: mitogen
+  vars:
+    home: "{{ ansible_env.HOME }}"
+  tasks:
+    - name: ~/.bashrc.d
+      copy: 
+        src: "{{ item }}"
+        dest: "{{ home }}/.bashrc.d/"
+      with_fileglob: Bash/bashrc.d/*bash
+    - name: ~/.bash_completion
+      copy:
+        src: Bash/Completion/bash_completion
+        dest: "{{ home }}/..bash_completion"
+    - name: ~/.dircolors
+      copy:
+        src: Bash/Colors/LS_COLORS/LS_COLORS 
+        dest: "{{ home }}/.dircolors"
+    - name: ~/.vimrc
+      copy:
+        src: Vim/vimrc
+        dest: "{{ home }}/.vimrc"
+    - name: ~/.vim/skeleton/
+      file:
+        path: "{{ home }}/.vim/skeleton/"
+        state: directory
+        recurse: true
+    - name: ~/.vim/skeleton/*
+      copy: 
+        src: "{{ item }}"
+        dest: "{{ home }}/.vim/skeleton/"
+      with_fileglob: Vim/skeleton/*
+
+# vim: filetype=yaml
