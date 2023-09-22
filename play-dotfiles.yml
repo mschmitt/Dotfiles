@@ -2,12 +2,22 @@
 ---
 - hosts: localhost
   connection: local
-  strategy: mitogen
   vars:
     home: "{{ ansible_env.HOME }}"
+    homes:
+      - "{{ home }}"
   tasks:
+    - name: Userprofile on Cygwin
+      block:
+      - name: cygpath {{ ansible_env.USERPROFILE }}
+        command: cygpath '{{ ansible_env.USERPROFILE }}'
+        register: cygpath
+      - name: Extend list of homes
+        set_fact:
+          homes: "{{ homes + [ cygpath.stdout ] }}"
+      when: ansible_facts.os_family is match("CYGWIN")
     - name: ~/.bashrc.d
-      copy: 
+      copy:
         src: "{{ item }}"
         dest: "{{ home }}/.bashrc.d/"
       with_fileglob: Bash/bashrc.d/*bash
