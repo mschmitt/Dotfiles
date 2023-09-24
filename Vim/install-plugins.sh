@@ -32,6 +32,7 @@ plugins=(
 	'https://github.com/tmhedberg/simpylfold'
 	'https://github.com/christoomey/vim-system-copy'
 	'https://github.com/jvirtanen/vim-hcl'
+	'https://github.com/tpope/vim-sleuth'
 )
 
 function git_clone_or_pull() {
