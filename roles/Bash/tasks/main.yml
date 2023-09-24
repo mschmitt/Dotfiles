@@ -1,0 +1,16 @@
+---
+- name: ".bashrc.d to {{ dest }}"
+  copy:
+    src: "{{ item }}"
+    dest: "{{ dest }}/.bashrc.d/"
+  with_fileglob: Bash/bashrc.d/*bash
+- name: ".bash_completion to {{ dest }}"
+  copy:
+    src: Bash/Completion/bash_completion
+    dest: "{{ dest }}/.bash_completion"
+- name: ".dircolors to {{ dest }}"
+  copy:
+    src: Bash/Colors/LS_COLORS/LS_COLORS
+    dest: "{{ dest }}/.dircolors"
+
+# vim: filetype=yaml

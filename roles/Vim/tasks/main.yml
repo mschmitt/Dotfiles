@@ -1,0 +1,16 @@
+---
+- name: "{{ vimrc }} to {{ dest }}/{{ vimrc }}"
+  copy:
+    src: Vim/vimrc
+    dest: "{{ dest }}/{{ vimrc }}"
+- name: "{{ gvimrc }} to {{ dest }}/{{ vimrc }}"
+  copy:
+    src: Vim/vimrc
+    dest: "{{ dest }}/{{ gvimrc }}"
+- name: "skeleton/* to {{ dest }}/skeleton/"
+  copy:
+    src: "{{ item }}"
+    dest: "{{ dest }}/{{vimfiles}}/skeleton/"
+  with_fileglob: Vim/skeleton/*
+
+# vim: filetype=yaml

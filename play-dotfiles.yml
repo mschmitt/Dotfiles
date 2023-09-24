@@ -4,44 +4,25 @@
   connection: local
   vars:
     home: "{{ ansible_env.HOME }}"
-    homes:
-      - "{{ home }}"
   tasks:
     - name: Userprofile on Cygwin
       block:
-      - name: cygpath {{ ansible_env.USERPROFILE }}
-        command: cygpath '{{ ansible_env.USERPROFILE }}'
-        register: cygpath
-      - name: Extend list of homes
-        set_fact:
-          homes: "{{ homes + [ cygpath.stdout ] }}"
+        - name: cygpath {{ ansible_env.USERPROFILE }}
+          command: cygpath '{{ ansible_env.USERPROFILE }}'
+          register: cygpath
+        - name: Set fact userprofile {{ cygpath.stdout }}
+          set_fact:
+            userprofile: "{{ cygpath.stdout }}"
       when: ansible_facts.os_family is match("CYGWIN")
-    - name: ~/.bashrc.d
-      copy:
-        src: "{{ item }}"
-        dest: "{{ home }}/.bashrc.d/"
-      with_fileglob: Bash/bashrc.d/*bash
-    - name: ~/.bash_completion
-      copy:
-        src: Bash/Completion/bash_completion
-        dest: "{{ home }}/..bash_completion"
-    - name: ~/.dircolors
-      copy:
-        src: Bash/Colors/LS_COLORS/LS_COLORS 
-        dest: "{{ home }}/.dircolors"
-    - name: ~/.vimrc
-      copy:
-        src: Vim/vimrc
-        dest: "{{ home }}/.vimrc"
-    - name: ~/.vim/skeleton/
-      file:
-        path: "{{ home }}/.vim/skeleton/"
-        state: directory
-        recurse: true
-    - name: ~/.vim/skeleton/*
-      copy: 
-        src: "{{ item }}"
-        dest: "{{ home }}/.vim/skeleton/"
-      with_fileglob: Vim/skeleton/*
+  roles:
+    - role: Vim
+      vars:
+        dest: "{{ home }}"
+        vimrc: ".vimrc"
+        gvimrc: ".gvimrc"
+        vimfiles: ".vim"
+    - role: Bash
+      vars:
+        dest: "{{ home }}"
 
 # vim: filetype=yaml

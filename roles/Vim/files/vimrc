@@ -1,0 +1,207 @@
+" Recommended reading:
+
+" http://vimdoc.sourceforge.net/htmldoc/usr_toc.html
+" http://vim.wikia.com/wiki/Modeline_magic
+" https://sanctum.geek.nz/arabesque/gracefully-degrading-vimrc/
+
+" Conditionals are in place to suppress errors on systems where vim.tiny 
+" may appear out of nowhere while doing vipw, visudo, crontab -e and the like.
+
+" Name of this file:
+"
+" ~/.vimrc		(UNIX)
+" %userprofile%\_vimrc  (Windows)
+
+" Use Vim defaults instead of 100% vi compatibility
+set nocompatible
+
+" same as ":set backspace=indent,eol,start"
+set backspace=2
+
+" Always show coordinates
+set ruler
+
+set autoindent
+
+" Ignore case when searching
+set ignorecase
+
+" Enable syntax highlighting
+if has('syntax')
+	syntax on
+endif
+
+" http://vimdoc.sourceforge.net/htmldoc/filetype.html
+if has('filetype')
+	filetype plugin indent on
+	"let perl_fold=1            	" Activate autofolding in the Perl ftplugin
+	"let perl_fold_blocks=1
+endif
+
+" Typ :noh to un-higlight
+set hlsearch
+
+" Number of spaces to use for each step of (auto)indent.
+set shiftwidth=8
+" Number of spaces that a <Tab> in the file counts for.
+set tabstop=8
+
+" Vim default: on (off for root)
+set modeline
+" number of lines that is checked for set commands.
+set modelines=5
+
+" gnupg.vim
+if has('eval')
+	let g:GPGPreferArmor=1
+	let g:GPGDefaultRecipients=[ '79F95F49DF236BA4' ]
+endif
+
+" Fail silently if pathogen not installed
+silent! execute pathogen#infect()
+
+if has('colorscheme')
+	colorscheme dracula
+endif
+
+" Asynchronous Lint Engine
+" let g:ale_sign_column_always = 1
+
+" GUI settings
+if has('gui_macvim')
+	set guifont=Monaco:h14
+endif
+if has('gui_win32') || has('gui_win64')
+	set guifont=Consolas:h14
+	set background=light
+endif
+if has('gui_gtk3')
+	set guifont=Monospace\ 14
+endif
+set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
+
+" lightline.vim
+if match(&runtimepath, 'lightline.vim') == -1
+	" lightline.vim seems not to be loaded.
+	" Show INSERT/REPLACE/...
+	set showmode
+	set laststatus=1
+else
+	set noshowmode
+	set laststatus=2
+	" Configure lightline
+	let g:lightline = { 'colorscheme': 'dracula' }
+	" force colour (for lightline) even if TERM=xterm
+	set t_Co=256
+endif
+
+" What follows is a really desperate attempt at harmonizing the file encoding
+" guesswork cross-platform, especially with gvim on Windows.
+" Windows gvim insists on handling all files as latin1 by default
+if has('gui_win32') || has('gui_win64')
+	set encoding=utf-8
+endif
+" This is le default on all reasonable platforms, enforce everywhere
+set fileencodings=ucs-bom,utf-8,default,latin1 
+
+" Buffer navigation with Ctrl+cursor https://vi.stackexchange.com/q/2129
+map <C-J> :bprev<CR>
+map <C-K> :bnext<CR>
+map <C-H> :tabp<CR>
+map <C-L> :tabn<CR>
+
+" stop right mouse click from jumping into visual mode
+" https://github.com/vim/vim/issues/1326
+set mouse-=a
+
+if has('autocmd')
+	" Don't write backup file if vim is being called by "crontab -e" (MacOS):
+	autocmd BufWrite /private/tmp/crontab.* set nowritebackup
+	" Same on Linux:
+	autocmd BufWrite /tmp/crontab.* set nowritebackup
+	" visudo:
+	autocmd BufWrite /etc/sudoers.tmp set nowritebackup
+
+	" When editing a file, always jump to the last known cursor position.
+	" Don't do it when the position is invalid or when inside an event handler
+	" (happens when dropping a file on gvim).
+	autocmd BufReadPost *
+		\ if line("'\"") >= 1 && line("'\"") <= line("$") |
+		\   exe "normal! g`\"" |
+		\ endif
+
+	" Skeletons http://vimdoc.sourceforge.net/htmldoc/autocmd.html#skeleton
+	autocmd BufNewFile *\.yml   r ~/.vim/skeleton/yaml
+	autocmd BufNewFile *\.yaml  r ~/.vim/skeleton/yaml
+	autocmd BufNewFile *\.pl   0r ~/.vim/skeleton/pl
+	autocmd BufNewFile *\.html 0r ~/.vim/skeleton/html
+	autocmd BufNewFile *\.sh   0r ~/.vim/skeleton/sh
+
+	" Yaml Tabstops https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+	autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+	" Yaml Folds
+	autocmd Syntax yaml setlocal foldmethod=indent
+	autocmd Syntax yaml setlocal nofoldenable
+
+	" Save View only on selected files
+	set viewoptions=cursor,folds,slash,unix
+	autocmd BufWinEnter * silent! loadview
+	autocmd BufWinLeave *\.yml      mkview!
+	autocmd BufWinLeave *\.yaml     mkview!
+	autocmd BufWinLeave *\.json     mkview!
+	autocmd BufWinLeave *\.pl       mkview!
+	autocmd BufWinLeave *\.html     mkview!
+	autocmd BufWinLeave *\.sh       mkview!
+	autocmd BufWinLeave *\.bash     mkview!
+	autocmd BufWinLeave *\.css      mkview!
+	autocmd BufWinLeave *\.js       mkview!
+	autocmd BufWinLeave *\.md       mkview!
+	autocmd BufWinLeave *\.py       mkview!
+	autocmd BufWinLeave user-data   mkview!
+	autocmd BufWinLeave .bashrc     mkview!
+
+	" Save View on filetype
+	autocmd BufWinLeave * if &ft == 'python'   | mkview! | endif
+	autocmd BufWinLeave * if &ft == 'yaml'     | mkview! | endif
+	autocmd BufWinLeave * if &ft == 'sh'       | mkview! | endif
+	autocmd BufWinLeave * if &ft == 'markdown' | mkview! | endif
+endif
+
+" Yaml indentline
+" https://www.arthurkoziel.com/setting-up-vim-for-yaml/
+" https://vimawesome.com/plugin/indentline
+if has('eval')
+	let g:indentLine_char = '·'
+endif
+
+" Disable startify fortune
+if has('eval')
+	let g:startify_custom_header = []
+endif
+
+
+" And derived from the above, indent markers for regular tabs:
+" touch/rm ~/.vim/vimtabs to enable/disable
+" Globpath technique from: https://vi.stackexchange.com/a/10354
+if !empty(globpath(&rtp, 'vimtabs'))
+	set list listchars=tab:\·\ ,trail:░ 
+endif
+" Trailing space on above line is required.
+
+" Disable quote concealing in JSON files
+" https://stackoverflow.com/a/59399484/263310
+if has('eval')
+	let g:vim_json_conceal = 0
+endif
+
+" Cleaner vimdiff, more usable as git diftool
+if &diff
+	" https://unix.stackexchange.com/q/60530/2028
+	if has('syntax')
+		syntax off
+	endif
+	set t_Co=0
+	" https://stackoverflow.com/q/18544238/263310
+	set noro
+endif
