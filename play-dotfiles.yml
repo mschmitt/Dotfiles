@@ -4,7 +4,7 @@
   connection: local
   vars:
     home: "{{ ansible_env.HOME }}"
-  tasks:
+  pre_tasks:
     - name: Userprofile on Cygwin
       block:
         - name: cygpath {{ ansible_env.USERPROFILE }}
@@ -21,6 +21,13 @@
         vimrc: ".vimrc"
         gvimrc: ".gvimrc"
         vimfiles: ".vim"
+    - role: Vim
+      vars:
+        dest: "{{ userprofile }}"
+        vimrc: "_vimrc"
+        gvimrc: "_gvimrc"
+        vimfiles: "vimfiles"
+      when: userprofile is defined
     - role: Bash
       vars:
         dest: "{{ home }}"

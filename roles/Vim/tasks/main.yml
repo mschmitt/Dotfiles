@@ -7,10 +7,33 @@
   copy:
     src: Vim/vimrc
     dest: "{{ dest }}/{{ gvimrc }}"
-- name: "skeleton/* to {{ dest }}/skeleton/"
+- name: "skeleton/* to {{ dest }}/{{ vimfiles }}/skeleton/"
   copy:
     src: "{{ item }}"
     dest: "{{ dest }}/{{vimfiles}}/skeleton/"
   with_fileglob: Vim/skeleton/*
+- name: "Clone Vim plugins to {{ dest }}/{{ vimfiles }}/bundle/"
+  git:
+    repo: "{{ item.value }}"
+    dest: "{{ dest }}/{{ vimfiles }}/bundle/{{ item.key }}"
+    clone: true
+    update: true
+  loop: "{{ plugins | dict2items }}"
+  vars:
+    plugins:
+      ale: https://github.com/w0rp/ale
+      lightline: https://github.com/itchyny/lightline.vim
+      vimoutliner: https://github.com/vimoutliner/vimoutliner
+      indentline: https://github.com/yggdroot/indentline
+      vim-yaml-folds: https://github.com/pedrohdz/vim-yaml-folds
+      vim-vinegar: https://github.com/tpope/vim-vinegar
+      vim-startify: https://github.com/mhinz/vim-startify
+      vim-fugitive: https://github.com/tpope/vim-fugitive
+      vim-gnupg: https://github.com/jamessan/vim-gnupg
+      dracula: https://github.com/dracula/vim
+      simpylfold: https://github.com/tmhedberg/simpylfold
+      vim-system-copy: https://github.com/christoomey/vim-system-copy
+      vim-hcl: https://github.com/jvirtanen/vim-hcl
+      vim-sleuth: https://github.com/tpope/vim-sleuth
 
 # vim: filetype=yaml
