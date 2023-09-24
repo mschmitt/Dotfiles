@@ -2,9 +2,9 @@
 me_path="$(readlink -f "$0")"
 me_dir="$(dirname "${me_path}")"
 me_base="$(basename "${me_path}")"
-install -D -m 0644 "${me_dir}"/gnome-keyring-ssh.desktop ~/.config/autostart/gnome-keyring-ssh.desktop
+#install -D -m 0644 "${me_dir}"/gnome-keyring-ssh.desktop ~/.config/autostart/gnome-keyring-ssh.desktop
 
-pkill -0 dbus-daemon -U "${LOGNAME}" || exit
+pkill -0 dbus-daemon -U "${LOGNAME}" || exit 0
 gsettings set org.gnome.desktop.wm.preferences audible-bell false
 gsettings set org.gnome.desktop.wm.preferences visual-bell true
 gsettings set org.gnome.desktop.wm.preferences visual-bell-type frame-flash

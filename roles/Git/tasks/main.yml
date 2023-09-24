@@ -1,0 +1,5 @@
+---
+- name: gitconf.sh
+  script: Git/gitconf.sh
+
+# vim: filetype=yaml

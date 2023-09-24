@@ -1,0 +1,5 @@
+---
+- name: gnomeconf.sh
+  script: Gnome/gnomeconf.sh
+
+# vim: filetype=yaml
