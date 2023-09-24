@@ -60,9 +60,10 @@ endif
 " Fail silently if pathogen not installed
 silent! execute pathogen#infect()
 
-if has('colorscheme')
-	colorscheme dracula
-endif
+" Trying to figure out Dracula for real :-/
+set termguicolors
+colorscheme dracula
+let g:dracula_high_contrast_diff=1
 
 " Asynchronous Lint Engine
 " let g:ale_sign_column_always = 1
