@@ -1,0 +1,33 @@
+---
+- name: interpreter_python
+  ini_file:
+    path: "{{ home }}/.ansible.cfg"
+    section: defaults
+    option: interpreter_python
+    value: auto_silent
+- name: deprecation_warnings
+  ini_file:
+    path: "{{ home }}/.ansible.cfg"
+    section: defaults
+    option: deprecation_warnings
+    value: false
+- name: retry_files_enabled
+  ini_file:
+    path: "{{ home }}/.ansible.cfg"
+    section: defaults
+    option: retry_files_enabled
+    value: true
+- name: display_skipped_hosts
+  ini_file:
+    path: "{{ home }}/.ansible.cfg"
+    section: defaults
+    option: display_skipped_hosts
+    value: false
+- name: localhost_warning
+  ini_file:
+    path: "{{ home }}/.ansible.cfg"
+    section: defaults
+    option: localhost_warning
+    value: false
+
+# vim: filetype=yaml
