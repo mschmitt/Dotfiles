@@ -1,0 +1,30 @@
+---
+- name: Deploy Dracula Theme
+  copy:
+    src: Dracula/lxterminal/lxterminal.conf
+    dest: "{{ home }}/.config/lxterminal/lxterminal.conf"
+- name: Adjust font
+  ini_file:
+    path: "{{ home }}/.config/lxterminal/lxterminal.conf"
+    section: general
+    option: fontname
+    value: Monospace 14
+- name: Activate audible bell
+  ini_file:
+    path: "{{ home }}/.config/lxterminal/lxterminal.conf"
+    section: general
+    option: audiblebell
+    value: 'true'
+- name: Activate visual bell
+  ini_file:
+    path: "{{ home }}/.config/lxterminal/lxterminal.conf"
+    section: general
+    option: visualbell
+    value: 'true'
+- name: Hide menu bar
+  ini_file:
+    path: "{{ home }}/.config/lxterminal/lxterminal.conf"
+    section: general
+    option: hidemenubar
+    value: 'true'
+# vim: filetype=yaml
