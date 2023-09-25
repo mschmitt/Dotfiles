@@ -64,6 +64,7 @@ silent! execute pathogen#infect()
 set termguicolors
 colorscheme dracula
 let g:dracula_high_contrast_diff=1
+highlight SignColumn term=standout ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
 
 " Asynchronous Lint Engine
 " let g:ale_sign_column_always = 1
