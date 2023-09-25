@@ -1,5 +1,14 @@
 ---
 - name: gnomeconf.sh
   script: Gnome/gnomeconf.sh
+- name: create autostart directory
+  file:
+    path: "{{ home }}/.config/autostart/"
+    state: directory
+    recurse: true
+- name: custom gnome-keyring-ssh
+  copy:
+    src: Gnome/gnome-keyring-ssh.desktop
+    dest: "{{ home }}/.config/autostart/"
 
 # vim: filetype=yaml
