@@ -27,4 +27,4 @@
 	url = https://github.com/dracula/mintty.git
 [submodule "Dracula/lxterminal"]
 	path = Dracula/lxterminal
-	url = https://github.com/dracula/lxterminal.git
+	url = https://github.com/mschmitt/lxterminal.git
