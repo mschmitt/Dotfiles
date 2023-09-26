@@ -61,9 +61,11 @@ endif
 silent! execute pathogen#infect()
 
 " Trying to figure out Dracula for real :-/
-set termguicolors
-colorscheme dracula
+" https://github.com/dracula/vim/issues/117
+" set termguicolors
+let g:dracula_colorterm = 0
 let g:dracula_high_contrast_diff=1
+colorscheme dracula
 highlight SignColumn term=standout ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
 
 " Asynchronous Lint Engine
