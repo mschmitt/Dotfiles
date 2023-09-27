@@ -27,4 +27,10 @@
     section: general
     option: hidemenubar
     value: 'true'
+- name: Bold is bright
+  ini_file:
+    path: "{{ home }}/.config/lxterminal/lxterminal.conf"
+    section: general
+    option: boldbright
+    value: 'true'
 # vim: filetype=yaml
