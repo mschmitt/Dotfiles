@@ -30,3 +30,6 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift
 # NixOS workaround
 dconf write /org/gnome/mutter/dynamic-workspaces false
 dconf write /org/gnome/mutter/overlay-key "''"
+
+# Whatever
+true

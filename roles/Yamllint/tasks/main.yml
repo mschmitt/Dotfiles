@@ -1,0 +1,12 @@
+---
+- name: create config directory
+  file:
+    path: "{{ home }}/.config/yamllint/"
+    state: directory
+    recurse: true
+- name: Deploy Yamllint config
+  copy:
+    src: Misc/yamllint.yml
+    dest: "{{ home }}/.config/yamllint/config"
+
+# vim: filetype=yaml

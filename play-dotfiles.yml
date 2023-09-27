@@ -15,10 +15,6 @@
             userprofile: "{{ cygpath.stdout }}"
       when: ansible_facts.os_family is match("CYGWIN")
   roles:
-    - role: LXTerminal
-    - role: Ansible
-    - role: Gnome
-    - role: Git
     - role: Vim
       vars:
         dest: "{{ home }}"
@@ -35,5 +31,13 @@
     - role: Bash
       vars:
         dest: "{{ home }}"
+    - role: Git
+    - role: Ansible
+    - role: Gnome
+    - role: LXTerminal
+    - role: Screen
+    - role: Cron
+    - role: Yamllint
+    - role: MC
 
 # vim: filetype=yaml

@@ -10,5 +10,23 @@
   copy:
     src: Gnome/gnome-keyring-ssh.desktop
     dest: "{{ home }}/.config/autostart/"
+- name: Systemd user config location
+  file:
+    path: "{{ home }}/.config/systemd/user/"
+    state: directory
+- name: Wallpaper service
+  copy:
+    src: wallpaper.service
+    dest: "{{ home }}/.config/systemd/user/"
+- name: Wallpaper timer
+  copy:
+    src: wallpaper.timer
+    dest: "{{ home }}/.config/systemd/user/"
+- name: Enable wallpaper timer
+  systemd:
+    name: wallpaper.timer
+    scope: user
+    enabled: yes
+    state: started
 
 # vim: filetype=yaml

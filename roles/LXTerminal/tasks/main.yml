@@ -1,4 +1,9 @@
 ---
+- name: create config directory
+  file:
+    path: "{{ home }}/.config/lxterminal/"
+    state: directory
+    recurse: true
 - name: Deploy Dracula Theme
   copy:
     src: Dracula/lxterminal/lxterminal.conf

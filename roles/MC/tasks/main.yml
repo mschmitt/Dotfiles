@@ -1,0 +1,12 @@
+---
+- name: create config directory
+  file:
+    path: "{{ home }}/.local/share/mc/skins/"
+    state: directory
+    recurse: true
+- name: Deploy Dracula Theme
+  copy:
+    src: Dracula/midnight-commander/skins/dracula256.ini
+    dest: "{{ home }}/.local/share/mc/skins/"
+
+# vim: filetype=yaml

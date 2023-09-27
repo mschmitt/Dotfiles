@@ -12,5 +12,10 @@
   copy:
     src: Bash/Colors/LS_COLORS/LS_COLORS
     dest: "{{ dest }}/.dircolors"
+- name: ".bashrc for Cygwin"
+  copy:
+    src: "Cygwin/bashrc"
+    dest: "{{ home }}/.bashrc"
+  when: ansible_facts.os_family is match("CYGWIN")
 
 # vim: filetype=yaml

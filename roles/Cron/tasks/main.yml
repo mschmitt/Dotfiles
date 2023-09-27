@@ -1,0 +1,23 @@
+- name: Add cron job for get-selections
+  when: ansible_facts.os_family == 'Debian'
+  cron:
+    name: get-selections
+    minute: "0"
+    hour: "*/6"
+    job: "dpkg --get-selections > ~/.dpkg-get-selections 2>/dev/null"
+- name: Add cron job for backing up the user crontab
+  when: ansible_facts.os_family == 'Debian'
+  cron:
+    name: crontab-backup
+    minute: "0"
+    hour: "*/6"
+    job: "crontab -l > ~/.crontab.bak 2>/dev/null"
+- name: Add cron job for backing up the NixOS configuration
+  when: ansible_facts.os_family == 'NixOS'
+  cron:
+    name: nixos-config-backup
+    minute: "0"
+    hour: "*"
+    job: "cp /etc/nixos/configuration.nix ~/.etc-nixos-configuration.nix"
+
+# vim: filetype=yaml

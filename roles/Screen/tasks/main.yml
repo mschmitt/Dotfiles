@@ -1,0 +1,12 @@
+---
+- name: ".screenrc"
+  copy:
+    src: "Screen/screenrc"
+    dest: "{{ home }}/.screenrc"
+- name: "layouts"
+  copy:
+    src: "{{ item }}"
+    dest: "{{ home }}/.{{ item | basename }}"
+  with_fileglob: Screen/screen.*-pane.layout
+
+# vim: filetype=yaml

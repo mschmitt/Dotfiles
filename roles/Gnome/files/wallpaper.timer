@@ -1,0 +1,10 @@
+# ~/.config/systemd/user/wallpaper.timer
+[Unit]
+Description=Wallpaper Change Timer
+
+[Timer]
+OnStartupSec=60
+OnUnitInactiveSec=900
+
+[Install]
+WantedBy=default.target
