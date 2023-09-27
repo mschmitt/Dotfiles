@@ -33,9 +33,10 @@
         dest: "{{ home }}"
     - role: Git
     - role: Ansible
-    - role: Gnome
-    - role: LXTerminal
+    - { role: Gnome, when: ansible_facts.os_family is not match("CYGWIN") }
+    - { role: LXTerminal, when: ansible_facts.os_family is not match("CYGWIN") }
     - role: Screen
+    - { role: Cron, when: ansible_facts.os_family is not match("CYGWIN") }
     - role: Cron
     - role: Yamllint
     - role: MC
