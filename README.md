@@ -1,8 +1,6 @@
 # Dotfiles
 
-This dotfiles repository does not work directly on the managed files, but I
-use an unbelievably awful script "deploy.sh" that merges the repository
-onto the actual dotfiles.
+This dotfiles repository does not work directly on the managed files, but deploys and/or merges them using Ansible roles.
 
 ## /Bash: Bash settings
 
@@ -28,15 +26,7 @@ This is a top-level .bashrc I use on Cygwin.
 
 ## /Vim: Vim settings
 
-Improved defaults, including GUI settings and the plugins I use:
-
-* ALE advanced linting engine
-* Lightline
-* Outliner
-* Indentline (for YAML)
-* YAML folds
-* Vinegar file explorer
-* Startify start screen
+Improved defaults, including GUI settings and the plugins I use.
 
 I use pathogen for vim plugin management: https://github.com/tpope/vim-pathogen
 
