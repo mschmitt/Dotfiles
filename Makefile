@@ -1,5 +1,4 @@
 all:
 	git pull
-	git submodule update --init --recursive --remote
-	yes | ./deploy.sh
+	ansible-playbook play-dotfiles.yml
 	-make -C Private
