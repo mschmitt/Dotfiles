@@ -1,39 +1,16 @@
 # Check for updates
 
-# This field updated by git pre-commit hook:
-LOCAL_TIMESTAMP=1695847009
+function dotfiles_clone_timestamp() {
+	git -C ~/Dotfiles --no-pager log -1 --format="%at"
+}
 
-# Check for update no more frequently than every 7 days
-# Keep track by touching this file itself.
-SCRIPTFILE="${BASH_SOURCE[0]}"
-NOWTIME=$(date +%s)
-case "$UNAME_S" in
-	CYGWIN_NT*)
-		SCRIPTTIME=$(stat --format '%Y' "$SCRIPTFILE")
-		;;
-	"Darwin")
-		SCRIPTTIME=$(stat -f '%m' "$SCRIPTFILE")
-		;;
-	"Linux"|*)
-		SCRIPTTIME=$(stat --format '%Y' "$SCRIPTFILE")
-		;;
-esac
+function dotfiles_upstream_timestamp() {
+	local commitdate
+	commitdate="$(curl --connect-timeout 1 --silent --fail https://api.github.com/repos/mschmitt/Dotfiles/commits/master | jq -r '.commit.author.date')"
+	date --date="${commitdate:-1970-01-01T00:00:00Z}" +%s
+}
 
-let AGE=$NOWTIME-$SCRIPTTIME
-let MINAGE=60*60*24*7
-
-if [[ $AGE -gt $MINAGE ]]
+if [[ $(dotfiles_upstream_timestamp) -gt $(dotfiles_clone_timestamp) ]]
 then
-	# Update time at upstream
-	echo -n "Checking for Dotfiles update: "
-	GITHUB_HELPER_URL='https://scsy.de/cgi-bin/github-Dotfiles-epoch-helper'
-	GITHUB_UPDATED_AT=$(curl --silent --show-error --max-time 5 "$GITHUB_HELPER_URL")
-	if [[ $GITHUB_UPDATED_AT -gt $LOCAL_TIMESTAMP ]]
-	then
-		echo "Dotfiles update available."
-	else
-		echo "No update available."
-	fi
+	printf "Dotfiles update available\n"
 fi
-
-touch "$SCRIPTFILE"
