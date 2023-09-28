@@ -16,6 +16,10 @@
       when: ansible_facts.os_family is match("CYGWIN")
     - name: Git submodules
       command: git submodule update --init --recursive --remote
+    - name: Remove old git hook
+      file:
+        path: .git/hooks/pre-commit
+        state: absent
   roles:
     - role: Vim
       vars:
