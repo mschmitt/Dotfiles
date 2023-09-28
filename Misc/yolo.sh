@@ -8,7 +8,7 @@ function errorexit() {
 }
 trap errorexit ERR
 
-sudo apt-get -y install curl git make shellcheck vim-nox
+sudo apt-get -y install curl git make shellcheck vim-nox ansible jq
 
 cd $HOME
 
