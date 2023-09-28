@@ -3,7 +3,6 @@
 function dotfiles_clone_timestamp() {
 	git -C ~/Dotfiles --no-pager log -1 --format="%at"
 }
-=======
 
 function dotfiles_upstream_timestamp() {
 	local commitdate
