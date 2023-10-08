@@ -8,6 +8,12 @@
   copy:
     src: Bash/Completion/bash_completion
     dest: "{{ dest }}/.bash_completion"
+- name: "Clone LS_COLORS"
+  git:
+    repo: "https://github.com/trapd00r/LS_COLORS"
+    dest: "~/Dotfiles/Bash/Colors/LS_COLORS"
+    clone: true
+    update: true
 - name: ".dircolors to {{ dest }}"
   copy:
     src: Bash/Colors/LS_COLORS/LS_COLORS
