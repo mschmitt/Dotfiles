@@ -39,7 +39,7 @@
         dest: "{{ home }}"
     - role: Git
     - role: Ansible
-    - { role: Gnome, when: ansible_facts.os_family is not match("CYGWIN") }
+    - { role: Gnome, when: ansible_env.DBUS_SESSION_BUS_ADDRESS is defined }
     - { role: LXTerminal, when: ansible_facts.os_family is not match("CYGWIN") }
     - role: Screen
     - { role: Cron, when: ansible_facts.os_family is not match("CYGWIN") }
