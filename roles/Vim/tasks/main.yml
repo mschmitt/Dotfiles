@@ -12,6 +12,10 @@
     src: "{{ item }}"
     dest: "{{ dest }}/{{vimfiles}}/skeleton/"
   with_fileglob: Vim/skeleton/*
+- name: "Deploy pathogen.vim"
+  get_url: 
+    url: https://tpo.pe/pathogen.vim
+    dest: "{{ dest }}/{{ vimfiles }}/autoload/pathogen.vim"
 - name: "Clone Vim plugins to {{ dest }}/{{ vimfiles }}/bundle/"
   git:
     repo: "{{ item.value }}"
