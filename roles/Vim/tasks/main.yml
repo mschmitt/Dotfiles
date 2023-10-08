@@ -12,6 +12,11 @@
     src: "{{ item }}"
     dest: "{{ dest }}/{{vimfiles}}/skeleton/"
   with_fileglob: Vim/skeleton/*
+- name: "Create {{ dest }}/{{ vimfiles }}/autoload/"
+  file:
+    path: "{{ dest }}/{{ vimfiles }}/autoload/"
+    state: directory
+    recurse: true
 - name: "Deploy pathogen.vim"
   get_url: 
     url: https://tpo.pe/pathogen.vim
