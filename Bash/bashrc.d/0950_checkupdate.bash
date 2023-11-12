@@ -12,5 +12,5 @@ function dotfiles_upstream_timestamp() {
 
 if [[ $(dotfiles_upstream_timestamp) -gt $(dotfiles_clone_timestamp) ]]
 then
-	printf "Dotfiles update available\n"
+	printf "Dotfiles update available.\n"
 fi
