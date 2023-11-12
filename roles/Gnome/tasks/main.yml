@@ -28,5 +28,6 @@
     scope: user
     enabled: yes
     state: started
+  when: ansible_env.DBUS_SESSION_BUS_ADDRESS is defined
 
 # vim: filetype=yaml
