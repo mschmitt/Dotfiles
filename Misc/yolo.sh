@@ -8,7 +8,7 @@ function errorexit() {
 }
 trap errorexit ERR
 
-sudo apt-get -y install curl git make shellcheck vim-nox ansible jq
+sudo apt-get -y install curl git make shellcheck vim-nox ansible jq locate apt-file
 
 cd $HOME
 
@@ -22,5 +22,3 @@ cat >> $HOME/.bashrc << 'Here'
 # Setup bash environment only if running as an interactive shell
 [[ "$-" =~ i ]] && for FILE in $(ls ~/.bashrc.d/*bash); do source $FILE; done
 Here
-
-Vim/install-plugins.sh
