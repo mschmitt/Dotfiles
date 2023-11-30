@@ -9,6 +9,7 @@ git config --global alias.log-oneline "log --pretty=oneline"
 git config --global pull.rebase false
 git config --global alias.tags-fix "! git tag -l | xargs git tag -d; git pull --tags"
 git config --global alias.tags-push "push --tags"
+git config --global alias.dirdiff "difftool --dir-diff --no-symlinks"
 
 if type bcompare 2>/dev/null
 then
