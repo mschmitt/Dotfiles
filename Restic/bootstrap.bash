@@ -10,7 +10,7 @@ function restic-backup() {
 }
 
 function restic-forget() {
-	restic forget --keep-last 3 --prune
+	restic forget --keep-last=10 --keep-hourly=8 --keep-daily=7 --keep-weekly=4 --keep-monthly=12 --keep-yearly=50 --prune
 }
 
 function restic-umount() {
