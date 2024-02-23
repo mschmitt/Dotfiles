@@ -3,7 +3,7 @@
 if [[ -x $(command -v tuptime) ]]
 then
 	function tuptime-graceful () {
-		local tuptime_since
+		local tuptime_since=1
 		local temp_array
 		while read -r line 
 		do
