@@ -10,6 +10,8 @@ git config --global pull.rebase false
 git config --global alias.tags-fix "! git tag -l | xargs git tag -d; git pull --tags"
 git config --global alias.tags-push "push --tags"
 git config --global alias.dirdiff "difftool --dir-diff --no-symlinks"
+git config --global alias.atag "tag --annotate --message ''"
+git config --global alias.tpush "push --follow-tags"
 
 if type bcompare 2>/dev/null
 then
@@ -19,4 +21,5 @@ then
 	git config --global merge.tool bc3
 	git config --global mergetool.bc3.trustExitCode true
 	git config --global mergetool.prompt false
+
 fi
