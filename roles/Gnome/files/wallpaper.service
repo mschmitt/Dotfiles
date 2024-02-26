@@ -5,7 +5,7 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=oneshot
-Environment=wpdir=%h/Sync/Wallpapers
+Environment=wpdir=%h/Nextcloud/Wallpapers
 ExecStart=/usr/bin/env sh -c 'gsettings set org.gnome.desktop.background picture-uri "file://$(find "${wpdir}" -type f | shuf | head -1)"'
 ExecStart=/usr/bin/env sh -c 'gsettings set org.gnome.desktop.background picture-uri-dark "$(gsettings get org.gnome.desktop.background picture-uri)"'
 ExecStartPost=/usr/bin/env gsettings get org.gnome.desktop.background picture-uri
