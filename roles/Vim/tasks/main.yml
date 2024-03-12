@@ -44,6 +44,5 @@
       vim-system-copy: https://github.com/christoomey/vim-system-copy
       vim-hcl: https://github.com/jvirtanen/vim-hcl
       vim-sleuth: https://github.com/tpope/vim-sleuth
-      copilot: https://github.com/github/copilot.vim
 
 # vim: filetype=yaml
