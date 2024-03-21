@@ -8,6 +8,8 @@ then
 fi
 
 sudo locale-gen de_DE.utf8
+sudo apt-get -y update
 
+touch  ~/.dotfiles-nohelp
 curl -s https://raw.githubusercontent.com/mschmitt/Dotfiles/master/Misc/yolo.sh | bash
 
