@@ -49,4 +49,7 @@ then
 	complete -F _complete_alias userctl
 fi
 
+alias mailtail="multitail -t 'All Mailservers' -l 'ssh vmx1 \"tail -f /var/log/mail.log\"' -L 'ssh vmx2 \"tail -f /var/log/mail.log\"' -L 'ssh vmail \"tail -f /var/log/mail.log\"'"
+alias mxtail="multitail -t 'Mail Exchangers' -l 'ssh vmx1 \"tail -f /var/log/mail.log\"' -L 'ssh vmx2 \"tail -f /var/log/mail.log\"'"
+
 # vim: filetype=sh
