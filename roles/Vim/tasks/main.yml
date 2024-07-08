@@ -45,5 +45,6 @@
       vim-hcl: https://github.com/jvirtanen/vim-hcl
       vim-sleuth: https://github.com/tpope/vim-sleuth
       jedi-vim: https://github.com/davidhalter/jedi-vim
+      vim-ansible-vault: https://github.com/arouene/vim-ansible-vault
 
 # vim: filetype=yaml
