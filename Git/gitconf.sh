@@ -15,11 +15,11 @@ git config --global alias.tpush "push --follow-tags"
 
 if type bcompare 2>/dev/null
 then
-	git config --global diff.tool bc3
-	git config --global difftool.bc3.trustExitCode true
+	git config --global diff.tool bc
+	git config --global difftool.bc.trustExitCode true
 	git config --global difftool.prompt false
-	git config --global merge.tool bc3
-	git config --global mergetool.bc3.trustExitCode true
+	git config --global merge.tool bc
+	git config --global mergetool.bc.trustExitCode true
 	git config --global mergetool.prompt false
 
 fi
