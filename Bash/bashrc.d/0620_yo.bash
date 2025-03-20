@@ -40,11 +40,12 @@ function yo {
 			"${SMTP_SERVER}" > "${tempfile}"
 		rc=$?
 		curl_out=$(cat "${tempfile}")
+		rm "${tempfile}"
 		echo "Call to SMTP returned: ${rc} ${curl_out}"
 	else
 		echo "~/.yo.smtpcfg is missing."
-		return 0
 	fi
+	return 0
 }
 
 # vim: filetype=sh
