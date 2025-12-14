@@ -85,7 +85,7 @@ endif
 set guioptions=Tr		" (T) Toolbar on, (r) scrollbar always on
 
 " lightline.vim
-if match(&runtimepath, 'lightline.vim') == -1
+if match(&runtimepath, 'lightline') == -1
 	" lightline.vim seems not to be loaded.
 	" Show INSERT/REPLACE/...
 	set showmode
