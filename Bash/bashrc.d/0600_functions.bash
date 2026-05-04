@@ -64,12 +64,12 @@ function myip() {
 
 	test -e /usr/local/bin/myip && echo "/usr/local/bin/myip kann weg."
 
-	IP4=$(curl -s http://v4.ipv6-test.com/api/myip.php) &&
-	ORG4=$(curl -s http://ipinfo.io/$IP4/org) &&
+	IP4=$(curl -4 -s https://ipinfo.tw/ip) &&
+	ORG4=$(curl -4 -s https://ipinfo.tw/as_desc) &&
 	echo IPv4: $IP4 / $ORG4
 
-	IP6=$(curl -s http://v6.ipv6-test.com/api/myip.php) &&
-	ORG6=$(curl -s http://ipinfo.io/$IP6/org) &&
+	IP6=$(curl -6 -s https://ipinfo.tw/ip) &&
+	ORG6=$(curl -6 -s https://ipinfo.tw/as_desc) &&
 	echo IPv6: $IP6 / $ORG6
 }
 
