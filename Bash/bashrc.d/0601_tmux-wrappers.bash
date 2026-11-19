@@ -65,4 +65,16 @@ function tmux_freifunk() {
 	tmux attach-session
 }
 
+function tmux_vlab() {
+	tmux new-session -d 'ssh vlab1'
+	tmux split-window 'ssh vlab1'
+	tmux set-option -g synchronize-panes on
+	tmux set-option -g allow-rename off 
+	tmux select-layout even-vertical
+	tmux rename-window 'vlab1/vlab2'
+	tmux attach-session
+}
+
+# vim: filetype=sh
+
 # vim: filetype=sh
