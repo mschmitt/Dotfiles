@@ -67,7 +67,7 @@ function tmux_freifunk() {
 
 function tmux_vlab() {
 	tmux new-session -d 'ssh vlab1'
-	tmux split-window 'ssh vlab1'
+	tmux split-window 'ssh vlab2'
 	tmux set-option -g synchronize-panes on
 	tmux set-option -g allow-rename off 
 	tmux select-layout even-vertical
